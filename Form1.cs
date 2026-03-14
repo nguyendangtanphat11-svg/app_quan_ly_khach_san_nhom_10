@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using Microsoft.Win32.SafeHandles;
 
 namespace app_qlKhachSan
 {
@@ -60,23 +61,32 @@ namespace app_qlKhachSan
                 {
                     conn.Open();
 
-                    string query = "SELECT COUNT(*) FROM TaiKhoan " +
-                                   "WHERE TenDangNhap = @username AND MatKhauHash = @password AND TrangThai = 1";
+                    string query = @"SELECT tk.HoTen, tk.SDT, vt.TenVaiTro
+                 FROM TaiKhoan tk
+                 JOIN PhanQuyen pq ON tk.MaTaiKhoan = pq.MaTaiKhoan
+                 JOIN VaiTro vt ON pq.MaVaiTro = vt.MaVaiTro
+                 WHERE tk.TenDangNhap = @username
+                 AND tk.MatKhauHash = @password
+                 AND tk.TrangThai = 1";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@password", password);
 
-                    int result = (int)cmd.ExecuteScalar();
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    if (result > 0)
+                    if (reader.Read())
                     {
+                        string ten = reader["HoTen"].ToString();
+                        string sdt = reader["SDT"].ToString();
+                        string vaitro = reader["TenVaiTro"].ToString();
+                        MessageBox.Show(ten + " | " + sdt + " | " + vaitro);
                         MessageBox.Show("Đăng nhập thành công!");
-                        FormHome home = new FormHome();
-                        home.Show();
 
-                        this.Hide(); 
+                        FormHome home = new FormHome(ten, sdt, vaitro);
+                        home.Show();
+                        this.Hide();
                     }
                     else
                     {
@@ -122,6 +132,11 @@ namespace app_qlKhachSan
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hinhanhlogin1_Click(object sender, EventArgs e)
         {
 
         }

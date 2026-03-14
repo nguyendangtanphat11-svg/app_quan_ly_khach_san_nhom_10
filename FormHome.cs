@@ -25,12 +25,20 @@ namespace app_qlKhachSan
         Form_dich_vu dichvu;
         Form_dat_phong datphong;
         Form currentForm = null;
+        string ten;
+        string sdt;
+        string vaitro;
 
 
-        public FormHome()
+
+
+
+        public FormHome(string ten, string sdt, string vaitro)
         {
             InitializeComponent();
-         
+            this.ten = ten;
+            this.sdt = sdt;
+            this.vaitro = vaitro;
         }
         private string CONNECTION_STRING = @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True;";
 
@@ -147,7 +155,7 @@ namespace app_qlKhachSan
         }
         private void Button_trangchu_Click(object sender, EventArgs e)
         {
-            OpenChild(new Form_trang_chu());
+            OpenChild(new Form_trang_chu(ten, sdt, vaitro));
 
         }
 
@@ -191,6 +199,7 @@ namespace app_qlKhachSan
         {
             OpenChild(new Form_tai_khoan());
         }
+
 
         private void FormHome_Load_1(object sender, EventArgs e)
         {

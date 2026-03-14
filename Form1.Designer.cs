@@ -212,6 +212,7 @@
             this.hinhanhlogin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.hinhanhlogin1.TabIndex = 6;
             this.hinhanhlogin1.TabStop = false;
+            this.hinhanhlogin1.Click += new System.EventHandler(this.hinhanhlogin1_Click);
             // 
             // chaomung
             // 

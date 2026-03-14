@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_trang_chu));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label_tieude = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel_sophong = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -52,10 +55,6 @@
             this.label_so_luong_doang_thu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_doang_thu = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel_bieu_do = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2HtmlLabel18 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel17 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel16 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.icon_bieu_do = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label_bieu_do = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel_dich_vu = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.icon_dich_vu = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -71,6 +70,7 @@
             this.label_taikhoan = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.label_vai_tro = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel21 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.chartDoanhThu = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.guna2Panel1.SuspendLayout();
             this.panel_sophong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_so_phong)).BeginInit();
@@ -81,11 +81,11 @@
             this.panel_doang_thu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_doanh_thu)).BeginInit();
             this.panel_bieu_do.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_bieu_do)).BeginInit();
             this.panel_dich_vu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_dich_vu)).BeginInit();
             this.panel_tai_khoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_tai_khoan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -352,11 +352,11 @@
             // label_so_luong_doang_thu
             // 
             this.label_so_luong_doang_thu.BackColor = System.Drawing.Color.Transparent;
-            this.label_so_luong_doang_thu.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_so_luong_doang_thu.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_so_luong_doang_thu.ForeColor = System.Drawing.Color.White;
-            this.label_so_luong_doang_thu.Location = new System.Drawing.Point(22, 61);
+            this.label_so_luong_doang_thu.Location = new System.Drawing.Point(22, 64);
             this.label_so_luong_doang_thu.Name = "label_so_luong_doang_thu";
-            this.label_so_luong_doang_thu.Size = new System.Drawing.Size(156, 67);
+            this.label_so_luong_doang_thu.Size = new System.Drawing.Size(102, 47);
             this.label_so_luong_doang_thu.TabIndex = 7;
             this.label_so_luong_doang_thu.Text = "143,32";
             this.label_so_luong_doang_thu.Click += new System.EventHandler(this.guna2HtmlLabel13_Click);
@@ -376,10 +376,7 @@
             // panel_bieu_do
             // 
             this.panel_bieu_do.BackColor = System.Drawing.Color.Transparent;
-            this.panel_bieu_do.Controls.Add(this.guna2HtmlLabel18);
-            this.panel_bieu_do.Controls.Add(this.guna2HtmlLabel17);
-            this.panel_bieu_do.Controls.Add(this.guna2HtmlLabel16);
-            this.panel_bieu_do.Controls.Add(this.icon_bieu_do);
+            this.panel_bieu_do.Controls.Add(this.chartDoanhThu);
             this.panel_bieu_do.Controls.Add(this.label_bieu_do);
             this.panel_bieu_do.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel_bieu_do.Location = new System.Drawing.Point(12, 245);
@@ -389,55 +386,6 @@
             this.panel_bieu_do.Size = new System.Drawing.Size(560, 381);
             this.panel_bieu_do.TabIndex = 8;
             this.panel_bieu_do.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2ShadowPanel5_Paint);
-            // 
-            // guna2HtmlLabel18
-            // 
-            this.guna2HtmlLabel18.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel18.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel18.Location = new System.Drawing.Point(248, 227);
-            this.guna2HtmlLabel18.Name = "guna2HtmlLabel18";
-            this.guna2HtmlLabel18.Size = new System.Drawing.Size(68, 23);
-            this.guna2HtmlLabel18.TabIndex = 12;
-            this.guna2HtmlLabel18.Text = "Hôm nay";
-            this.guna2HtmlLabel18.Click += new System.EventHandler(this.guna2HtmlLabel18_Click);
-            // 
-            // guna2HtmlLabel17
-            // 
-            this.guna2HtmlLabel17.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel17.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel17.Location = new System.Drawing.Point(421, 227);
-            this.guna2HtmlLabel17.Name = "guna2HtmlLabel17";
-            this.guna2HtmlLabel17.Size = new System.Drawing.Size(68, 23);
-            this.guna2HtmlLabel17.TabIndex = 11;
-            this.guna2HtmlLabel17.Text = "Hôm nay";
-            this.guna2HtmlLabel17.Click += new System.EventHandler(this.guna2HtmlLabel17_Click);
-            // 
-            // guna2HtmlLabel16
-            // 
-            this.guna2HtmlLabel16.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel16.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel16.Location = new System.Drawing.Point(49, 227);
-            this.guna2HtmlLabel16.Name = "guna2HtmlLabel16";
-            this.guna2HtmlLabel16.Size = new System.Drawing.Size(68, 23);
-            this.guna2HtmlLabel16.TabIndex = 10;
-            this.guna2HtmlLabel16.Text = "Hôm nay";
-            this.guna2HtmlLabel16.Click += new System.EventHandler(this.guna2HtmlLabel16_Click);
-            // 
-            // icon_bieu_do
-            // 
-            this.icon_bieu_do.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("icon_bieu_do.BackgroundImage")));
-            this.icon_bieu_do.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.icon_bieu_do.FillColor = System.Drawing.Color.Transparent;
-            this.icon_bieu_do.ImageRotate = 0F;
-            this.icon_bieu_do.Location = new System.Drawing.Point(18, 68);
-            this.icon_bieu_do.Name = "icon_bieu_do";
-            this.icon_bieu_do.Size = new System.Drawing.Size(542, 137);
-            this.icon_bieu_do.TabIndex = 9;
-            this.icon_bieu_do.TabStop = false;
-            this.icon_bieu_do.Click += new System.EventHandler(this.guna2PictureBox5_Click);
             // 
             // label_bieu_do
             // 
@@ -498,9 +446,9 @@
             this.label_dich_vu.ForeColor = System.Drawing.Color.White;
             this.label_dich_vu.Location = new System.Drawing.Point(22, 28);
             this.label_dich_vu.Name = "label_dich_vu";
-            this.label_dich_vu.Size = new System.Drawing.Size(183, 34);
+            this.label_dich_vu.Size = new System.Drawing.Size(189, 34);
             this.label_dich_vu.TabIndex = 7;
-            this.label_dich_vu.Text = "Yêu cầu dịch vụ";
+            this.label_dich_vu.Text = " Sử dụng dịch vụ";
             this.label_dich_vu.Click += new System.EventHandler(this.guna2HtmlLabel19_Click);
             // 
             // panel_tai_khoan
@@ -633,6 +581,25 @@
             this.guna2HtmlLabel21.Text = null;
             this.guna2HtmlLabel21.Click += new System.EventHandler(this.guna2HtmlLabel21_Click);
             // 
+            // chartDoanhThu
+            // 
+            this.chartDoanhThu.BackColor = System.Drawing.Color.Transparent;
+            this.chartDoanhThu.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartDoanhThu.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartDoanhThu.Legends.Add(legend1);
+            this.chartDoanhThu.Location = new System.Drawing.Point(18, 78);
+            this.chartDoanhThu.Name = "chartDoanhThu";
+            this.chartDoanhThu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartDoanhThu.Series.Add(series1);
+            this.chartDoanhThu.Size = new System.Drawing.Size(523, 272);
+            this.chartDoanhThu.TabIndex = 13;
+            this.chartDoanhThu.Text = "chart1";
+            // 
             // Form_trang_chu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,13 +634,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon_doanh_thu)).EndInit();
             this.panel_bieu_do.ResumeLayout(false);
             this.panel_bieu_do.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_bieu_do)).EndInit();
             this.panel_dich_vu.ResumeLayout(false);
             this.panel_dich_vu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_dich_vu)).EndInit();
             this.panel_tai_khoan.ResumeLayout(false);
             this.panel_tai_khoan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icon_tai_khoan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -706,10 +673,6 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel panel_dich_vu;
         private Guna.UI2.WinForms.Guna2ShadowPanel panel_tai_khoan;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_bieu_do;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel18;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel17;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel16;
-        private Guna.UI2.WinForms.Guna2PictureBox icon_bieu_do;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_dich_vu;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_so_luong_dich_vu;
         private Guna.UI2.WinForms.Guna2PictureBox icon_dich_vu;
@@ -722,5 +685,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel label_sdt;
         private Guna.UI2.WinForms.Guna2HtmlLabel label_hoten;
         private Guna.UI2.WinForms.Guna2PictureBox icon_tai_khoan;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThu;
     }
 }
