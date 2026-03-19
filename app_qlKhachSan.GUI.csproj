@@ -216,15 +216,5 @@
   <ItemGroup>
     <None Include="Resources\256941.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\app_hotel.bus\app_qlKhachSanl.BUS.csproj">
-      <Project>{3bda6bcb-8faa-4695-a55a-00067faefcee}</Project>
-      <Name>app_qlKhachSanl.BUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\app_qlKhachSan.DTO\app_qlKhachSan.DTO.csproj">
-      <Project>{221b24c7-4b90-4f2f-9b56-46e0801de8ae}</Project>
-      <Name>app_qlKhachSan.DTO</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
