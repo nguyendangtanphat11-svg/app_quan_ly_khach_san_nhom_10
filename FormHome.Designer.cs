@@ -28,44 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.top = new Guna.UI2.WinForms.Guna2Panel();
-            this.icon_tinnhan = new Guna.UI2.WinForms.Guna2Button();
-            this.avatar = new Guna.UI2.WinForms.Guna2CircleButton();
             this.logo = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.icon_thongbao = new Guna.UI2.WinForms.Guna2Button();
             this.phongto = new Guna.UI2.WinForms.Guna2ControlBox();
             this.thunho = new Guna.UI2.WinForms.Guna2ControlBox();
             this.exit = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.icon_menu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.menu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_trangchu = new Guna.UI2.WinForms.Guna2Panel();
-            this.Button_trangchu = new Guna.UI2.WinForms.Guna2Button();
             this.panel_quanlyphong = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_quanlyphong = new Guna.UI2.WinForms.Guna2Button();
             this.panel_quanlykhachhang = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_quanlykhachhang = new Guna.UI2.WinForms.Guna2Button();
             this.panel_datphong = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_datphong = new Guna.UI2.WinForms.Guna2Button();
             this.panel_dichvu = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_dichvu = new Guna.UI2.WinForms.Guna2Button();
             this.panel_donphong = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_donphong = new Guna.UI2.WinForms.Guna2Button();
             this.panel_thanhtoan = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_thanhtoan = new Guna.UI2.WinForms.Guna2Button();
             this.panel_hethong = new System.Windows.Forms.FlowLayoutPanel();
             this.panel_hehong2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_seting = new Guna.UI2.WinForms.Guna2Button();
             this.panel_taikhoan = new Guna.UI2.WinForms.Guna2Panel();
-            this.button_taikhoan = new Guna.UI2.WinForms.Guna2Button();
             this.panel_dangxuat = new Guna.UI2.WinForms.Guna2Panel();
+            this.seeting_time = new System.Windows.Forms.Timer();
+            this.menu_time = new System.Windows.Forms.Timer();
+            this.kéo = new Guna.UI2.WinForms.Guna2DragControl();
+            this.Button_trangchu = new Guna.UI2.WinForms.Guna2Button();
+            this.button_quanlyphong = new Guna.UI2.WinForms.Guna2Button();
+            this.button_quanlykhachhang = new Guna.UI2.WinForms.Guna2Button();
+            this.button_datphong = new Guna.UI2.WinForms.Guna2Button();
+            this.button_dichvu = new Guna.UI2.WinForms.Guna2Button();
+            this.button_donphong = new Guna.UI2.WinForms.Guna2Button();
+            this.button_thanhtoan = new Guna.UI2.WinForms.Guna2Button();
+            this.button_seting = new Guna.UI2.WinForms.Guna2Button();
+            this.button_taikhoan = new Guna.UI2.WinForms.Guna2Button();
             this.button_dangxuat = new Guna.UI2.WinForms.Guna2Button();
-            this.seeting_time = new System.Windows.Forms.Timer(this.components);
-            this.menu_time = new System.Windows.Forms.Timer(this.components);
-            this.kéo = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.icon_tinnhan = new Guna.UI2.WinForms.Guna2Button();
+            this.avatar = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.icon_thongbao = new Guna.UI2.WinForms.Guna2Button();
+            this.icon_menu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.top.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_menu)).BeginInit();
             this.menu.SuspendLayout();
             this.panel_trangchu.SuspendLayout();
             this.panel_quanlyphong.SuspendLayout();
@@ -78,6 +76,7 @@
             this.panel_hehong2.SuspendLayout();
             this.panel_taikhoan.SuspendLayout();
             this.panel_dangxuat.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_menu)).BeginInit();
             this.SuspendLayout();
             // 
             // top
@@ -97,68 +96,15 @@
             this.top.Size = new System.Drawing.Size(1200, 64);
             this.top.TabIndex = 0;
             // 
-            // icon_tinnhan
-            // 
-            this.icon_tinnhan.BackColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.icon_tinnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.icon_tinnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.icon_tinnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.icon_tinnhan.FillColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.icon_tinnhan.ForeColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.Image = ((System.Drawing.Image)(resources.GetObject("icon_tinnhan.Image")));
-            this.icon_tinnhan.ImageSize = new System.Drawing.Size(30, 30);
-            this.icon_tinnhan.Location = new System.Drawing.Point(889, 12);
-            this.icon_tinnhan.Name = "icon_tinnhan";
-            this.icon_tinnhan.Size = new System.Drawing.Size(61, 45);
-            this.icon_tinnhan.TabIndex = 3;
-            // 
-            // avatar
-            // 
-            this.avatar.BackColor = System.Drawing.Color.Transparent;
-            this.avatar.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.avatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.avatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.avatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.avatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.avatar.FillColor = System.Drawing.Color.Transparent;
-            this.avatar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.avatar.ForeColor = System.Drawing.Color.Transparent;
-            this.avatar.Image = ((System.Drawing.Image)(resources.GetObject("avatar.Image")));
-            this.avatar.ImageSize = new System.Drawing.Size(50, 50);
-            this.avatar.Location = new System.Drawing.Point(956, 3);
-            this.avatar.Name = "avatar";
-            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.avatar.Size = new System.Drawing.Size(62, 57);
-            this.avatar.TabIndex = 10;
-            // 
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logo.Location = new System.Drawing.Point(89, 12);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(132, 48);
+            this.logo.Size = new System.Drawing.Size(106, 39);
             this.logo.TabIndex = 9;
             this.logo.Text = "logo____";
-            // 
-            // icon_thongbao
-            // 
-            this.icon_thongbao.BackColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.icon_thongbao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.icon_thongbao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.icon_thongbao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.icon_thongbao.FillColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.icon_thongbao.ForeColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.Image = ((System.Drawing.Image)(resources.GetObject("icon_thongbao.Image")));
-            this.icon_thongbao.ImageSize = new System.Drawing.Size(30, 30);
-            this.icon_thongbao.Location = new System.Drawing.Point(822, 12);
-            this.icon_thongbao.Name = "icon_thongbao";
-            this.icon_thongbao.Size = new System.Drawing.Size(61, 45);
-            this.icon_thongbao.TabIndex = 11;
             // 
             // phongto
             // 
@@ -211,19 +157,6 @@
             this.exit.Size = new System.Drawing.Size(56, 48);
             this.exit.TabIndex = 6;
             // 
-            // icon_menu
-            // 
-            this.icon_menu.FillColor = System.Drawing.Color.Transparent;
-            this.icon_menu.Image = ((System.Drawing.Image)(resources.GetObject("icon_menu.Image")));
-            this.icon_menu.ImageRotate = 0F;
-            this.icon_menu.Location = new System.Drawing.Point(6, 12);
-            this.icon_menu.Name = "icon_menu";
-            this.icon_menu.Size = new System.Drawing.Size(63, 45);
-            this.icon_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.icon_menu.TabIndex = 1;
-            this.icon_menu.TabStop = false;
-            this.icon_menu.Click += new System.EventHandler(this.icon_menu_Click);
-            // 
             // menu
             // 
             this.menu.BackColor = System.Drawing.Color.White;
@@ -250,6 +183,105 @@
             this.panel_trangchu.Size = new System.Drawing.Size(241, 45);
             this.panel_trangchu.TabIndex = 3;
             // 
+            // panel_quanlyphong
+            // 
+            this.panel_quanlyphong.Controls.Add(this.button_quanlyphong);
+            this.panel_quanlyphong.Location = new System.Drawing.Point(3, 54);
+            this.panel_quanlyphong.Name = "panel_quanlyphong";
+            this.panel_quanlyphong.Size = new System.Drawing.Size(241, 45);
+            this.panel_quanlyphong.TabIndex = 4;
+            // 
+            // panel_quanlykhachhang
+            // 
+            this.panel_quanlykhachhang.Controls.Add(this.button_quanlykhachhang);
+            this.panel_quanlykhachhang.Location = new System.Drawing.Point(3, 105);
+            this.panel_quanlykhachhang.Name = "panel_quanlykhachhang";
+            this.panel_quanlykhachhang.Size = new System.Drawing.Size(241, 45);
+            this.panel_quanlykhachhang.TabIndex = 5;
+            // 
+            // panel_datphong
+            // 
+            this.panel_datphong.Controls.Add(this.button_datphong);
+            this.panel_datphong.Location = new System.Drawing.Point(3, 156);
+            this.panel_datphong.Name = "panel_datphong";
+            this.panel_datphong.Size = new System.Drawing.Size(241, 45);
+            this.panel_datphong.TabIndex = 6;
+            // 
+            // panel_dichvu
+            // 
+            this.panel_dichvu.Controls.Add(this.button_dichvu);
+            this.panel_dichvu.Location = new System.Drawing.Point(3, 207);
+            this.panel_dichvu.Name = "panel_dichvu";
+            this.panel_dichvu.Size = new System.Drawing.Size(241, 45);
+            this.panel_dichvu.TabIndex = 7;
+            // 
+            // panel_donphong
+            // 
+            this.panel_donphong.Controls.Add(this.button_donphong);
+            this.panel_donphong.Location = new System.Drawing.Point(3, 258);
+            this.panel_donphong.Name = "panel_donphong";
+            this.panel_donphong.Size = new System.Drawing.Size(241, 45);
+            this.panel_donphong.TabIndex = 9;
+            // 
+            // panel_thanhtoan
+            // 
+            this.panel_thanhtoan.Controls.Add(this.button_thanhtoan);
+            this.panel_thanhtoan.Location = new System.Drawing.Point(3, 309);
+            this.panel_thanhtoan.Name = "panel_thanhtoan";
+            this.panel_thanhtoan.Size = new System.Drawing.Size(241, 45);
+            this.panel_thanhtoan.TabIndex = 8;
+            // 
+            // panel_hethong
+            // 
+            this.panel_hethong.BackColor = System.Drawing.Color.Transparent;
+            this.panel_hethong.Controls.Add(this.panel_hehong2);
+            this.panel_hethong.Controls.Add(this.panel_taikhoan);
+            this.panel_hethong.Controls.Add(this.panel_dangxuat);
+            this.panel_hethong.Location = new System.Drawing.Point(3, 360);
+            this.panel_hethong.Name = "panel_hethong";
+            this.panel_hethong.Size = new System.Drawing.Size(246, 45);
+            this.panel_hethong.TabIndex = 11;
+            // 
+            // panel_hehong2
+            // 
+            this.panel_hehong2.Controls.Add(this.button_seting);
+            this.panel_hehong2.Location = new System.Drawing.Point(3, 3);
+            this.panel_hehong2.Name = "panel_hehong2";
+            this.panel_hehong2.Size = new System.Drawing.Size(245, 45);
+            this.panel_hehong2.TabIndex = 11;
+            // 
+            // panel_taikhoan
+            // 
+            this.panel_taikhoan.Controls.Add(this.button_taikhoan);
+            this.panel_taikhoan.Location = new System.Drawing.Point(3, 54);
+            this.panel_taikhoan.Name = "panel_taikhoan";
+            this.panel_taikhoan.Size = new System.Drawing.Size(243, 45);
+            this.panel_taikhoan.TabIndex = 10;
+            // 
+            // panel_dangxuat
+            // 
+            this.panel_dangxuat.Controls.Add(this.button_dangxuat);
+            this.panel_dangxuat.Location = new System.Drawing.Point(3, 105);
+            this.panel_dangxuat.Name = "panel_dangxuat";
+            this.panel_dangxuat.Size = new System.Drawing.Size(243, 45);
+            this.panel_dangxuat.TabIndex = 12;
+            // 
+            // seeting_time
+            // 
+            this.seeting_time.Interval = 10;
+            this.seeting_time.Tick += new System.EventHandler(this.seeting_time_Tick);
+            // 
+            // menu_time
+            // 
+            this.menu_time.Interval = 10;
+            this.menu_time.Tick += new System.EventHandler(this.menu_time_Tick);
+            // 
+            // kéo
+            // 
+            this.kéo.DockIndicatorTransparencyValue = 0.6D;
+            this.kéo.TargetControl = this.top;
+            this.kéo.UseTransparentDrag = true;
+            // 
             // Button_trangchu
             // 
             this.Button_trangchu.BackColor = System.Drawing.Color.Transparent;
@@ -272,14 +304,6 @@
             this.Button_trangchu.TextOffset = new System.Drawing.Point(30, 0);
             this.Button_trangchu.Click += new System.EventHandler(this.Button_trangchu_Click);
             // 
-            // panel_quanlyphong
-            // 
-            this.panel_quanlyphong.Controls.Add(this.button_quanlyphong);
-            this.panel_quanlyphong.Location = new System.Drawing.Point(3, 54);
-            this.panel_quanlyphong.Name = "panel_quanlyphong";
-            this.panel_quanlyphong.Size = new System.Drawing.Size(241, 45);
-            this.panel_quanlyphong.TabIndex = 4;
-            // 
             // button_quanlyphong
             // 
             this.button_quanlyphong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -300,14 +324,6 @@
             this.button_quanlyphong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_quanlyphong.TextOffset = new System.Drawing.Point(30, 0);
             this.button_quanlyphong.Click += new System.EventHandler(this.button_quanlyphong_Click);
-            // 
-            // panel_quanlykhachhang
-            // 
-            this.panel_quanlykhachhang.Controls.Add(this.button_quanlykhachhang);
-            this.panel_quanlykhachhang.Location = new System.Drawing.Point(3, 105);
-            this.panel_quanlykhachhang.Name = "panel_quanlykhachhang";
-            this.panel_quanlykhachhang.Size = new System.Drawing.Size(241, 45);
-            this.panel_quanlykhachhang.TabIndex = 5;
             // 
             // button_quanlykhachhang
             // 
@@ -330,14 +346,6 @@
             this.button_quanlykhachhang.TextOffset = new System.Drawing.Point(30, 0);
             this.button_quanlykhachhang.Click += new System.EventHandler(this.button_quanlykhachhang_Click);
             // 
-            // panel_datphong
-            // 
-            this.panel_datphong.Controls.Add(this.button_datphong);
-            this.panel_datphong.Location = new System.Drawing.Point(3, 156);
-            this.panel_datphong.Name = "panel_datphong";
-            this.panel_datphong.Size = new System.Drawing.Size(241, 45);
-            this.panel_datphong.TabIndex = 6;
-            // 
             // button_datphong
             // 
             this.button_datphong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -358,14 +366,6 @@
             this.button_datphong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_datphong.TextOffset = new System.Drawing.Point(30, 0);
             this.button_datphong.Click += new System.EventHandler(this.button_datphong_Click);
-            // 
-            // panel_dichvu
-            // 
-            this.panel_dichvu.Controls.Add(this.button_dichvu);
-            this.panel_dichvu.Location = new System.Drawing.Point(3, 207);
-            this.panel_dichvu.Name = "panel_dichvu";
-            this.panel_dichvu.Size = new System.Drawing.Size(241, 45);
-            this.panel_dichvu.TabIndex = 7;
             // 
             // button_dichvu
             // 
@@ -388,14 +388,6 @@
             this.button_dichvu.TextOffset = new System.Drawing.Point(30, 0);
             this.button_dichvu.Click += new System.EventHandler(this.button_dichvu_Click);
             // 
-            // panel_donphong
-            // 
-            this.panel_donphong.Controls.Add(this.button_donphong);
-            this.panel_donphong.Location = new System.Drawing.Point(3, 258);
-            this.panel_donphong.Name = "panel_donphong";
-            this.panel_donphong.Size = new System.Drawing.Size(241, 45);
-            this.panel_donphong.TabIndex = 9;
-            // 
             // button_donphong
             // 
             this.button_donphong.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -416,14 +408,6 @@
             this.button_donphong.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_donphong.TextOffset = new System.Drawing.Point(30, 0);
             this.button_donphong.Click += new System.EventHandler(this.button_donphong_Click);
-            // 
-            // panel_thanhtoan
-            // 
-            this.panel_thanhtoan.Controls.Add(this.button_thanhtoan);
-            this.panel_thanhtoan.Location = new System.Drawing.Point(3, 309);
-            this.panel_thanhtoan.Name = "panel_thanhtoan";
-            this.panel_thanhtoan.Size = new System.Drawing.Size(241, 45);
-            this.panel_thanhtoan.TabIndex = 8;
             // 
             // button_thanhtoan
             // 
@@ -446,25 +430,6 @@
             this.button_thanhtoan.TextOffset = new System.Drawing.Point(30, 0);
             this.button_thanhtoan.Click += new System.EventHandler(this.button_thanhtoan_Click);
             // 
-            // panel_hethong
-            // 
-            this.panel_hethong.BackColor = System.Drawing.Color.Transparent;
-            this.panel_hethong.Controls.Add(this.panel_hehong2);
-            this.panel_hethong.Controls.Add(this.panel_taikhoan);
-            this.panel_hethong.Controls.Add(this.panel_dangxuat);
-            this.panel_hethong.Location = new System.Drawing.Point(3, 360);
-            this.panel_hethong.Name = "panel_hethong";
-            this.panel_hethong.Size = new System.Drawing.Size(246, 45);
-            this.panel_hethong.TabIndex = 11;
-            // 
-            // panel_hehong2
-            // 
-            this.panel_hehong2.Controls.Add(this.button_seting);
-            this.panel_hehong2.Location = new System.Drawing.Point(3, 3);
-            this.panel_hehong2.Name = "panel_hehong2";
-            this.panel_hehong2.Size = new System.Drawing.Size(245, 45);
-            this.panel_hehong2.TabIndex = 11;
-            // 
             // button_seting
             // 
             this.button_seting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -485,14 +450,6 @@
             this.button_seting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_seting.TextOffset = new System.Drawing.Point(30, 0);
             this.button_seting.Click += new System.EventHandler(this.button_seting_Click);
-            // 
-            // panel_taikhoan
-            // 
-            this.panel_taikhoan.Controls.Add(this.button_taikhoan);
-            this.panel_taikhoan.Location = new System.Drawing.Point(3, 54);
-            this.panel_taikhoan.Name = "panel_taikhoan";
-            this.panel_taikhoan.Size = new System.Drawing.Size(243, 45);
-            this.panel_taikhoan.TabIndex = 10;
             // 
             // button_taikhoan
             // 
@@ -515,14 +472,6 @@
             this.button_taikhoan.TextOffset = new System.Drawing.Point(30, 0);
             this.button_taikhoan.Click += new System.EventHandler(this.button_taikhoan_Click);
             // 
-            // panel_dangxuat
-            // 
-            this.panel_dangxuat.Controls.Add(this.button_dangxuat);
-            this.panel_dangxuat.Location = new System.Drawing.Point(3, 105);
-            this.panel_dangxuat.Name = "panel_dangxuat";
-            this.panel_dangxuat.Size = new System.Drawing.Size(243, 45);
-            this.panel_dangxuat.TabIndex = 12;
-            // 
             // button_dangxuat
             // 
             this.button_dangxuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -543,21 +492,71 @@
             this.button_dangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_dangxuat.TextOffset = new System.Drawing.Point(30, 0);
             // 
-            // seeting_time
+            // icon_tinnhan
             // 
-            this.seeting_time.Interval = 10;
-            this.seeting_time.Tick += new System.EventHandler(this.seeting_time_Tick);
+            this.icon_tinnhan.BackColor = System.Drawing.Color.Transparent;
+            this.icon_tinnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.icon_tinnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.icon_tinnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.icon_tinnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.icon_tinnhan.FillColor = System.Drawing.Color.Transparent;
+            this.icon_tinnhan.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.icon_tinnhan.ForeColor = System.Drawing.Color.Transparent;
+            this.icon_tinnhan.Image = ((System.Drawing.Image)(resources.GetObject("icon_tinnhan.Image")));
+            this.icon_tinnhan.ImageSize = new System.Drawing.Size(30, 30);
+            this.icon_tinnhan.Location = new System.Drawing.Point(889, 12);
+            this.icon_tinnhan.Name = "icon_tinnhan";
+            this.icon_tinnhan.Size = new System.Drawing.Size(61, 45);
+            this.icon_tinnhan.TabIndex = 3;
             // 
-            // menu_time
+            // avatar
             // 
-            this.menu_time.Interval = 10;
-            this.menu_time.Tick += new System.EventHandler(this.menu_time_Tick);
+            this.avatar.BackColor = System.Drawing.Color.Transparent;
+            this.avatar.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.avatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.avatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.avatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.avatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.avatar.FillColor = System.Drawing.Color.Transparent;
+            this.avatar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.avatar.ForeColor = System.Drawing.Color.Transparent;
+            this.avatar.Image = ((System.Drawing.Image)(resources.GetObject("avatar.Image")));
+            this.avatar.ImageSize = new System.Drawing.Size(50, 50);
+            this.avatar.Location = new System.Drawing.Point(956, 3);
+            this.avatar.Name = "avatar";
+            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.avatar.Size = new System.Drawing.Size(62, 57);
+            this.avatar.TabIndex = 10;
             // 
-            // kéo
+            // icon_thongbao
             // 
-            this.kéo.DockIndicatorTransparencyValue = 0.6D;
-            this.kéo.TargetControl = this.top;
-            this.kéo.UseTransparentDrag = true;
+            this.icon_thongbao.BackColor = System.Drawing.Color.Transparent;
+            this.icon_thongbao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.icon_thongbao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.icon_thongbao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.icon_thongbao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.icon_thongbao.FillColor = System.Drawing.Color.Transparent;
+            this.icon_thongbao.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.icon_thongbao.ForeColor = System.Drawing.Color.Transparent;
+            this.icon_thongbao.Image = ((System.Drawing.Image)(resources.GetObject("icon_thongbao.Image")));
+            this.icon_thongbao.ImageSize = new System.Drawing.Size(30, 30);
+            this.icon_thongbao.Location = new System.Drawing.Point(822, 12);
+            this.icon_thongbao.Name = "icon_thongbao";
+            this.icon_thongbao.Size = new System.Drawing.Size(61, 45);
+            this.icon_thongbao.TabIndex = 11;
+            // 
+            // icon_menu
+            // 
+            this.icon_menu.FillColor = System.Drawing.Color.Transparent;
+            this.icon_menu.Image = ((System.Drawing.Image)(resources.GetObject("icon_menu.Image")));
+            this.icon_menu.ImageRotate = 0F;
+            this.icon_menu.Location = new System.Drawing.Point(6, 12);
+            this.icon_menu.Name = "icon_menu";
+            this.icon_menu.Size = new System.Drawing.Size(63, 45);
+            this.icon_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.icon_menu.TabIndex = 1;
+            this.icon_menu.TabStop = false;
+            this.icon_menu.Click += new System.EventHandler(this.icon_menu_Click);
             // 
             // FormHome
             // 
@@ -573,10 +572,8 @@
             this.Name = "FormHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormHome";
-            this.Load += new System.EventHandler(this.FormHome_Load_1);
             this.top.ResumeLayout(false);
             this.top.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_menu)).EndInit();
             this.menu.ResumeLayout(false);
             this.panel_trangchu.ResumeLayout(false);
             this.panel_quanlyphong.ResumeLayout(false);
@@ -589,6 +586,7 @@
             this.panel_hehong2.ResumeLayout(false);
             this.panel_taikhoan.ResumeLayout(false);
             this.panel_dangxuat.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.icon_menu)).EndInit();
             this.ResumeLayout(false);
 
         }

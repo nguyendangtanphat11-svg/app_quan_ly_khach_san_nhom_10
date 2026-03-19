@@ -1,112 +1,160 @@
-﻿using Microsoft.Win32.SafeHandles;
+﻿using app_qlKhachSan.DTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace app_qlKhachSan
 {
     public partial class FormLoaiPhong : Form
     {
-        private string CONNECTION_STRING = @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True;";
+        LoaiPhongBUS bus = new LoaiPhongBUS();
+        bool dangSua = false;
+
         public FormLoaiPhong()
         {
             InitializeComponent();
-
-        }
-        void laodLoaiPhong()
-        {
-            using(SqlConnection conn =new SqlConnection (CONNECTION_STRING))
-            {
-               conn.Open();
-                string query = "SELECT MaLoaiPhong, TenLoaiPhong FROM LoaiPhong";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvLoaiPhong.DataSource = dt;
-            }
         }
 
         private void FormLoaiPhong_Load(object sender, EventArgs e)
         {
-
+            LoadLoaiPhong();
         }
 
-        private void keo_tha_Paint(object sender, PaintEventArgs e)
+        void LoadLoaiPhong()
         {
-
-        }
-
-        private void tabel_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int row = e.RowIndex;
-
-            if (row >= 0)
+            try
             {
-                txtMaLoai.Text = dgvLoaiPhong.Rows[row].Cells["MaLoaiPhong"].Value.ToString();
-                txtTenLoai.Text = dgvLoaiPhong.Rows[row].Cells["TenLoaiPhong"].Value.ToString();
-                txtGiaTheoNgay.Text = dgvLoaiPhong.Rows[row].Cells["GiaTheoNgay"].Value.ToString();
-                txtGiaTheoGio.Text = dgvLoaiPhong.Rows[row].Cells["GiaTheoGio"].Value.ToString();
-                txtSoNguoi.Text = dgvLoaiPhong.Rows[row].Cells["SoNguoiToiDa"].Value.ToString();
-                txtMoTa.Text = dgvLoaiPhong.Rows[row].Cells["MoTa"].Value.ToString();
+                dgvLoaiPhong.DataSource = bus.GetLoaiPhong();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
+        // CLICK TABLE
+        private void dgvLoaiPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dgvLoaiPhong.Rows[e.RowIndex];
+
+            txtMaLoai.Text = row.Cells["MaLoaiPhong"].Value.ToString();
+            txtTenLoai.Text = row.Cells["TenLoaiPhong"].Value.ToString();
+            txtGiaTheoNgay.Text = row.Cells["GiaTheoNgay"].Value.ToString();
+            txtGiaTheoGio.Text = row.Cells["GiaTheoGio"].Value.ToString();
+            txtSoNguoi.Text = row.Cells["SoNguoiToiDa"].Value.ToString();
+            txtMoTa.Text = row.Cells["MoTa"].Value.ToString();
+        }
+
+        // LƯU (UPDATE)
         private void guna2Button_luu_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=QLKhachSan;Integrated Security=True");
+            try
+            {
+                LoaiPhongDTO lp = new LoaiPhongDTO()
+                {
+                    MaLoaiPhong = txtMaLoai.Text,
+                    TenLoaiPhong = txtTenLoai.Text,
+                    GiaTheoNgay = decimal.Parse(txtGiaTheoNgay.Text),
+                    GiaTheoGio = decimal.Parse(txtGiaTheoGio.Text),
+                    SoNguoiToiDa = int.Parse(txtSoNguoi.Text),
+                    MoTa = txtMoTa.Text
+                };
 
-            string sql = @"UPDATE LoaiPhong 
-                   SET TenLoaiPhong=@ten,
-                       GiaTheoNgay=@ngay,
-                       GiaTheoGio=@gio,
-                       SoNguoiToiDa=@songuoi,
-                       MoTa=@mota
-                   WHERE MaLoaiPhong=@ma";
+                bool result = bus.UpdateLoaiPhong(lp);
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
-
-            cmd.Parameters.AddWithValue("@ma", txtMaLoai.Text);
-            cmd.Parameters.AddWithValue("@ten", txtTenLoai.Text);
-            cmd.Parameters.AddWithValue("@ngay", txtGiaTheoNgay.Text);
-            cmd.Parameters.AddWithValue("@gio", txtGiaTheoGio.Text);
-            cmd.Parameters.AddWithValue("@songuoi", txtSoNguoi.Text);
-            cmd.Parameters.AddWithValue("@mota", txtMoTa.Text);
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-            MessageBox.Show("Cập nhật thành công");
-            this.Close();
-
+                if (result)
+                {
+                    MessageBox.Show("Cập nhật thành công");
+                    LoadLoaiPhong();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        // XÓA
         private void guna2Button_xoa_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=QLKhachSan;Integrated Security=True");
+            if (string.IsNullOrWhiteSpace(txtMaLoai.Text))
+            {
+                MessageBox.Show("Chọn loại phòng trước!");
+                return;
+            }
 
-            string sql = "DELETE FROM LoaiPhong WHERE MaLoaiPhong=@ma";
+            DialogResult rs = MessageBox.Show(
+                "Bạn có chắc muốn xóa?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo);
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
+            if (rs == DialogResult.Yes)
+            {
+                try
+                {
+                    bool result = bus.DeleteLoaiPhong(txtMaLoai.Text);
 
-            cmd.Parameters.AddWithValue("@ma", txtMaLoai.Text);
+                    if (result)
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        LoadLoaiPhong();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
 
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
+        private void guna2Button_sua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaLoai.Text))
+            {
+                MessageBox.Show("Chọn loại phòng trước!");
+                return;
+            }
 
-            MessageBox.Show("Đã xóa");
-            this.Close();
-
-
+            dangSua = true;
+            SetEditMode(true);
 
         }
+
+        private void guna2Button_huy_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+
+        }
+
+
+        void SetEditMode(bool edit)
+        {
+            txtTenLoai.ReadOnly = !edit;
+            txtGiaTheoNgay.ReadOnly = !edit;
+            txtGiaTheoGio.ReadOnly = !edit;
+            txtSoNguoi.ReadOnly = !edit;
+            txtMoTa.ReadOnly = !edit;
+
+         
+            txtTenLoai.BackColor = edit ? Color.White : Color.LightGray;
+            txtGiaTheoNgay.BackColor = edit ? Color.White : Color.LightGray;
+            txtGiaTheoGio.BackColor = edit ? Color.White : Color.LightGray;
+            txtSoNguoi.BackColor = edit ? Color.White : Color.LightGray;
+            txtMoTa.BackColor = edit ? Color.White : Color.LightGray;
+        }
+
+
     }
 }

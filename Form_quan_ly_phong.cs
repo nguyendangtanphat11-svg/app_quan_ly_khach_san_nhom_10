@@ -1,419 +1,207 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.DirectoryServices;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace app_qlKhachSan
 {
-
     public partial class Form_quan_ly_phong : Form
     {
-        private string CONNECTION_STRING = @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True;";
+        PhongBUS bus = new PhongBUS();
+        LoaiPhongBUS loaiPhongBUS = new LoaiPhongBUS();
+
         string maPhongDangChon = "";
         bool dangSua = false;
 
         public Form_quan_ly_phong()
         {
             InitializeComponent();
-
         }
-      
 
         private void Form_quan_ly_phong_Load(object sender, EventArgs e)
         {
             LoadPhong();
-            txt_so_phong.Visible = false;
-            txt_gia.Visible = false;
-     
-            cb_loai_phong.Visible = false;
-            cb_trang_thai.Visible = false;
+            LoadLoaiPhong();
+            SetEditMode(false);
 
+            txt_gia.ReadOnly = true;
+            txt_gia.BackColor = Color.LightGray;
+
+            // chỉ add event 1 lần duy nhất
+            cb_loai_phong.SelectedIndexChanged += cb_loai_phong_SelectedIndexChanged;
         }
+
+        // ================= LOAD =================
         void LoadPhong()
         {
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            tabel_phong.DataSource = bus.GetPhong();
+        }
+
+        void LoadLoaiPhong()
+        {
+            cb_loai_phong.DataSource = loaiPhongBUS.GetLoaiPhong();
+            cb_loai_phong.DisplayMember = "TenLoaiPhong";
+            cb_loai_phong.ValueMember = "MaLoaiPhong";
+        }
+
+        // ================= AUTO GIÁ =================
+        private void cb_loai_phong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_loai_phong.SelectedValue == null) return;
+
+            DataRowView row = cb_loai_phong.SelectedItem as DataRowView;
+
+            if (row != null)
             {
-                conn.Open();
-
-                string query = @"SELECT 
-                        p.MaPhong,
-                        p.SoPhong,
-                        lp.TenLoaiPhong,
-                        lp.GiaTheoNgay,
-                        p.TrangThai,
-                        p.GhiChu
-                        FROM Phong p
-                        JOIN LoaiPhong lp 
-                        ON p.MaLoaiPhong = lp.MaLoaiPhong";
-
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                tabel_phong.DataSource = dt;
-
+                txt_gia.Text = row["GiaTheoNgay"].ToString();
             }
         }
-        void TimPhong(string keyword)
+
+        // ================= SEARCH =================
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            if (keyword == "")
-            {
+            if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
                 LoadPhong();
-                return;
-            }
-
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
-            {
-                conn.Open();
-
-                string query = @"SELECT 
-                p.MaPhong,
-                p.SoPhong,
-                lp.TenLoaiPhong,
-                lp.GiaTheoNgay,
-                p.TrangThai
-                FROM Phong p
-                JOIN LoaiPhong lp
-                ON p.MaLoaiPhong = lp.MaLoaiPhong
-                WHERE p.SoPhong LIKE @kw
-                OR lp.TenLoaiPhong LIKE @kw";
-
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                da.SelectCommand.Parameters.AddWithValue("@kw", "%" + keyword + "%");
-
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                tabel_phong.DataSource = dt;
-            }
+            else
+                tabel_phong.DataSource = bus.TimPhong(txtTimKiem.Text);
         }
 
-
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        // ================= CLICK TABLE =================
+        private void tabel_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
 
+            DataGridViewRow row = tabel_phong.Rows[e.RowIndex];
+
+            maPhongDangChon = row.Cells["MaPhong"].Value.ToString();
+
+            label_ma_phong.Text = maPhongDangChon;
+            label_so_phong.Text = row.Cells["SoPhong"].Value.ToString();
+            label_loai_phong.Text = row.Cells["TenLoaiPhong"].Value.ToString();
+            label_gia.Text = row.Cells["GiaTheoNgay"].Value.ToString();
+            label_trang_thai.Text = row.Cells["TrangThai"].Value.ToString();
         }
 
-        private void guna2ShadowPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_show_tim_kiem_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void text_box_tim_kiem_Load(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void text_box_tim_kiem_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel_bieu_do_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox3_Click(object sender, EventArgs e)
-        {
-            FormLoaiPhong f = new FormLoaiPhong();
-            f.ShowDialog();
-
-            LoadPhong();
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            TimPhong(txtTimKiem.Text);
-        }
-
-        private void guna2PictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = tabel_phong.Rows[e.RowIndex];
-
-                maPhongDangChon = row.Cells["MaPhong"].Value.ToString();
-
-                label_ma_phong.Text = maPhongDangChon;
-                label_so_phong.Text = row.Cells["SoPhong"].Value.ToString();
-                label_loai_phong.Text = row.Cells["TenLoaiPhong"].Value.ToString();
-                label_gia.Text = row.Cells["GiaTheoNgay"].Value.ToString();
-                label_trang_thai.Text = row.Cells["TrangThai"].Value.ToString();
-            }
-        }
-
-        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        // ================= THÊM =================
+        private void guna2PictureBox_them_phong_Click(object sender, EventArgs e)
         {
             FormThemPhong f = new FormThemPhong();
-            f.ShowDialog();
 
-            LoadPhong(); 
-        }
-
-        private void guna2ShadowPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel4_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_dich_vu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel18_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            if(maPhongDangChon == "")
+            if (f.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Vui lòng chọn phòng cần sửa");
-                return;
-            }
-            DialogResult rs = MessageBox.Show("Bạn có chắc muốn sửa thông tin phòng này?", "Xác nhận sửa", MessageBoxButtons.YesNo);
-            if (rs == DialogResult.Yes)
-            {
-                using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
-                {
-                    conn.Open();
-
-                    string query = "DELETE FROM Phong WHERE MaPhong=@MaPhong";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@MaPhong", maPhongDangChon);
-
-                    cmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Xóa phòng thành công");
-
                 LoadPhong();
             }
         }
 
-        private void guna2Button_sua_Click(object sender, EventArgs e)
+        // ================= XÓA =================
+        private void guna2Button_xoa_Click(object sender, EventArgs e)
         {
-            txt_so_phong.Visible = true;
-            txt_gia.Visible = true;
-            
-            cb_loai_phong.Visible = true;
-            cb_trang_thai.Visible = true;
+            if (string.IsNullOrWhiteSpace(maPhongDangChon))
+            {
+                MessageBox.Show("Vui lòng chọn phòng!");
+                return;
+            }
 
-            label_so_phong.Visible = false;
-            label_loai_phong.Visible = false;
-            label_gia.Visible = false;
-            label_trang_thai.Visible = false;
+            DialogResult rs = MessageBox.Show(
+                "Bạn có chắc muốn xóa?",
+                "Xác nhận",
+                MessageBoxButtons.YesNo);
 
-            txt_so_phong.Text = label_so_phong.Text;
-            txt_gia.Text = label_gia.Text;
+            if (rs == DialogResult.Yes)
+            {
+                if (bus.DeletePhong(maPhongDangChon))
+                {
+                    MessageBox.Show("Xóa thành công!");
+                    LoadPhong();
+                    ClearData();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại!");
+                }
+            }
         }
 
+        // ================= SỬA =================
+        private void guna2Button_sua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(maPhongDangChon))
+            {
+                MessageBox.Show("Chọn phòng trước!");
+                return;
+            }
+
+            dangSua = true;
+            SetEditMode(true);
+
+            txt_so_phong.Text = label_so_phong.Text;
+            cb_trang_thai.Text = label_trang_thai.Text;
+            cb_loai_phong.Text = label_loai_phong.Text;
+        }
+
+        // ================= LƯU =================
         private void guna2Button_luu_Click(object sender, EventArgs e)
         {
-            // Kiểm tra dữ liệu rỗng
+            if (!dangSua) return;
+
             if (string.IsNullOrWhiteSpace(txt_so_phong.Text) ||
                 string.IsNullOrWhiteSpace(cb_trang_thai.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nhập đầy đủ thông tin!");
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            try
             {
-                conn.Open();
+                bool result = bus.UpdatePhong(
+                maPhongDangChon,
+                txt_so_phong.Text,
+                 cb_loai_phong.SelectedValue.ToString(), // 🔥 thêm dòng này
+                 cb_trang_thai.Text
+                    );
 
-                string query = @"UPDATE Phong 
-                         SET SoPhong=@SoPhong,
-                             TrangThai=@TrangThai
-                         WHERE MaPhong=@MaPhong";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@SoPhong", txt_so_phong.Text);
-                cmd.Parameters.AddWithValue("@TrangThai", cb_trang_thai.Text);
-                cmd.Parameters.AddWithValue("@MaPhong", label_ma_phong.Text);
-
-                cmd.ExecuteNonQuery();
+                if (result)
+                {
+                    MessageBox.Show("Cập nhật thành công!");
+                    LoadPhong();
+                    SetEditMode(false);
+                    dangSua = false;
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật thất bại!");
+                }
             }
-
-            MessageBox.Show("Cập nhật thành công");
-
-            LoadPhong();
-
-            txt_so_phong.Visible = false;
-            txt_gia.Visible = false;
-            cb_loai_phong.Visible = false;
-            cb_trang_thai.Visible = false;
-
-            label_so_phong.Visible = true;
-            label_loai_phong.Visible = true;
-            label_gia.Visible = true;
-            label_trang_thai.Visible = true;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
+        // ================= HỦY =================
         private void guna2Button_huy_Click(object sender, EventArgs e)
         {
             dangSua = false;
+            SetEditMode(false);
+            ClearData();
+        }
 
+        // ================= UI =================
+        void SetEditMode(bool edit)
+        {
+            txt_so_phong.Visible = edit;
+            cb_trang_thai.Visible = edit;
+            cb_loai_phong.Visible = edit;
+            txt_gia.Visible = edit;
+
+            label_so_phong.Visible = !edit;
+            label_trang_thai.Visible = !edit;
+            label_loai_phong.Visible = !edit;
+            label_gia.Visible = !edit;
+        }
+
+        void ClearData()
+        {
             label_ma_phong.Text = "";
             label_so_phong.Text = "";
             label_loai_phong.Text = "";
@@ -423,14 +211,25 @@ namespace app_qlKhachSan
             maPhongDangChon = "";
         }
 
-        private void guna2TextBox3_TextChanged(object sender, EventArgs e)
+        // ================= MỞ FORM LOẠI PHÒNG =================
+        private void guna2PictureBox_Role_Phong_Click(object sender, EventArgs e)
         {
-
+            FormLoaiPhong f = new FormLoaiPhong();
+            f.ShowDialog();
+            LoadLoaiPhong(); // reload lại combo
         }
 
-        private void textbox_so_phong_TextChanged(object sender, EventArgs e)
+        // ================= THÊM LOẠI PHÒNG =================
+        private void guna2PictureBox4_Click(object sender, EventArgs e)
         {
+            Form_Them_Loai_Phong f = new Form_Them_Loai_Phong();
 
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                LoadLoaiPhong();
+            }
         }
+
+       
     }
 }

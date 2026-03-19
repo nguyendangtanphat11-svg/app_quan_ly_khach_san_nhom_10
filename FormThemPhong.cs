@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using app_qlKhachSan.DTO;
+using System;
 using System.Windows.Forms;
 
 namespace app_qlKhachSan
 {
-    
-
     public partial class FormThemPhong : Form
     {
-        private string CONNECTION_STRING = @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True;";
+        PhongBUS phongBUS = new PhongBUS();
+        LoaiPhongBUS loaiPhongBUS = new LoaiPhongBUS();
+
         public FormThemPhong()
         {
             InitializeComponent();
@@ -24,56 +17,80 @@ namespace app_qlKhachSan
         private void FormThemPhong_Load(object sender, EventArgs e)
         {
             LoadLoaiPhong();
+
+            // gợi ý trạng thái mặc định
+            cbTrangThai.Items.Clear();
+            cbTrangThai.Items.Add("Trống");
+            cbTrangThai.Items.Add("Đang thuê");
+            cbTrangThai.SelectedIndex = 0;
         }
+
+        // ================= LOAD LOẠI PHÒNG =================
         void LoadLoaiPhong()
         {
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            try
             {
-                conn.Open();
-
-                string query = "SELECT MaLoaiPhong, TenLoaiPhong FROM LoaiPhong";
-
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                cbLoaiPhong.DataSource = dt;
+                cbLoaiPhong.DataSource = loaiPhongBUS.GetLoaiPhong();
                 cbLoaiPhong.DisplayMember = "TenLoaiPhong";
                 cbLoaiPhong.ValueMember = "MaLoaiPhong";
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi load loại phòng: " + ex.Message);
+            }
         }
 
+        // ================= LƯU =================
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtSoPhong.Text == "" || txtGia.Text == "" || cbLoaiPhong.Text == "" || cbTrangThai.Text == "")
+            // Validate trước
+            if (string.IsNullOrWhiteSpace(txtSoPhong.Text))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
+                MessageBox.Show("Vui lòng nhập số phòng");
+                txtSoPhong.Focus();
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection(CONNECTION_STRING))
+            if (cbLoaiPhong.SelectedValue == null)
             {
-                conn.Open();
-
-                string query = @"INSERT INTO Phong
-                (SoPhong, MaLoaiPhong, TrangThai)
-                VALUES
-                (@SoPhong, @MaLoaiPhong, @TrangThai)";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                cmd.Parameters.AddWithValue("@SoPhong", txtSoPhong.Text);
-                cmd.Parameters.AddWithValue("@MaLoaiPhong", cbLoaiPhong.SelectedValue);
-                cmd.Parameters.AddWithValue("@TrangThai", cbTrangThai.Text);
-
-                cmd.ExecuteNonQuery();
+                MessageBox.Show("Vui lòng chọn loại phòng");
+                return;
             }
 
-            MessageBox.Show("Thêm phòng thành công");
+            if (string.IsNullOrWhiteSpace(cbTrangThai.Text))
+            {
+                MessageBox.Show("Vui lòng chọn trạng thái");
+                return;
+            }
 
-            this.Close();
+            try
+            {
+                PhongDTO p = new PhongDTO()
+                {
+                    SoPhong = txtSoPhong.Text.Trim(),
+                    MaLoaiPhong = cbLoaiPhong.SelectedValue.ToString(),
+                    TrangThai = cbTrangThai.Text.Trim()
+                };
+
+                bool result = phongBUS.InsertPhong(p);
+
+                if (result)
+                {
+                    MessageBox.Show("Thêm phòng thành công");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
 
+        // ================= HỦY =================
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
