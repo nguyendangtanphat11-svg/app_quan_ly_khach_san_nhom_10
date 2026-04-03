@@ -5,11 +5,11 @@ VisualStudioVersion = 17.14.36930.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSan.GUI", "app_qlKhachSan.GUI.csproj", "{085BBF09-6ADD-426E-A17F-99BCB9281DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSan.DAL", "app_qlKhachSan.DAL\app_qlKhachSan.DAL.csproj", "{85A701BA-DE3A-4006-8E27-CA6E3D2D94A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSan.DAL", "..\app_qlKhachSan.DAL\app_qlKhachSan.DAL.csproj", "{85A701BA-DE3A-4006-8E27-CA6E3D2D94A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSan.DTO", "app_qlKhachSan.DTO\app_qlKhachSan.DTO.csproj", "{221B24C7-4B90-4F2F-9B56-46E0801DE8AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSan.DTO", "..\app_qlKhachSan.DTO\app_qlKhachSan.DTO.csproj", "{221B24C7-4B90-4F2F-9B56-46E0801DE8AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSanl.BUS", "app_hotel.bus\app_qlKhachSanl.BUS.csproj", "{3BDA6BCB-8FAA-4695-A55A-00067FAEFCEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app_qlKhachSanl.BUS", "..\app_hotel.bus\app_qlKhachSanl.BUS.csproj", "{3BDA6BCB-8FAA-4695-A55A-00067FAEFCEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
