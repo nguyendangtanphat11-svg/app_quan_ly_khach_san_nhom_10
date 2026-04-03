@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -129,6 +144,10 @@
     <Compile Include="Form_trang_chu.Designer.cs">
       <DependentUpon>Form_trang_chu.cs</DependentUpon>
     </Compile>
+    <Compile Include="From_HoaDon.cs" />
+    <Compile Include="From_HoaDon.Designer.cs">
+      <DependentUpon>From_HoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,6 +193,9 @@
     <EmbeddedResource Include="Form_trang_chu.resx">
       <DependentUpon>Form_trang_chu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="From_HoaDon.resx">
+      <DependentUpon>From_HoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -217,18 +239,26 @@
     <None Include="Resources\256941.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="app_hotel.bus\app_qlKhachSanl.BUS.csproj">
-      <Project>{3bda6bcb-8faa-4695-a55a-00067faefcee}</Project>
-      <Name>app_qlKhachSanl.BUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="app_qlKhachSan.DAL\app_qlKhachSan.DAL.csproj">
-      <Project>{85a701ba-de3a-4006-8e27-ca6e3d2d94a0}</Project>
-      <Name>app_qlKhachSan.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="app_qlKhachSan.DTO\app_qlKhachSan.DTO.csproj">
-      <Project>{221b24c7-4b90-4f2f-9b56-46e0801de8ae}</Project>
-      <Name>app_qlKhachSan.DTO</Name>
-    </ProjectReference>
+    <Content Include="HotelManager.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HotelManager_log.ldf">
+      <DependentUpon>HotelManager.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
