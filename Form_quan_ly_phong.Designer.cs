@@ -28,26 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_quan_ly_phong));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2ShadowPanel5 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox_Role_Phong = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel_bieu_do = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2PictureBox_them_phong = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Button_huy = new Guna.UI2.WinForms.Guna2Button();
@@ -58,8 +55,6 @@
             this.tabel_phong = new Guna.UI2.WinForms.Guna2DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.label_so_phong = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -77,24 +72,29 @@
             this.cb_loai_phong = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txt_gia = new Guna.UI2.WinForms.Guna2TextBox();
             this.cb_trang_thai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox_Role_Phong = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox_them_phong = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.guna2ShadowPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_Role_Phong)).BeginInit();
             this.panel_bieu_do.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_them_phong)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabel_phong)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.guna2ShadowPanel4.SuspendLayout();
+            this.guna2ShadowPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_Role_Phong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_them_phong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
-            this.guna2ShadowPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -138,7 +138,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.91678F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.08322F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 199F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
             this.tableLayoutPanel2.Controls.Add(this.guna2ShadowPanel5, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel_bieu_do, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.guna2ShadowPanel2, 0, 0);
@@ -162,24 +162,12 @@
             this.guna2ShadowPanel5.Controls.Add(this.guna2PictureBox_Role_Phong);
             this.guna2ShadowPanel5.Controls.Add(this.guna2HtmlLabel10);
             this.guna2ShadowPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2ShadowPanel5.Location = new System.Drawing.Point(747, 3);
+            this.guna2ShadowPanel5.Location = new System.Drawing.Point(743, 3);
             this.guna2ShadowPanel5.Name = "guna2ShadowPanel5";
             this.guna2ShadowPanel5.Radius = 6;
             this.guna2ShadowPanel5.ShadowColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel5.Size = new System.Drawing.Size(194, 81);
+            this.guna2ShadowPanel5.Size = new System.Drawing.Size(198, 81);
             this.guna2ShadowPanel5.TabIndex = 28;
-            // 
-            // guna2PictureBox4
-            // 
-            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(132, 3);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.Size = new System.Drawing.Size(52, 55);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 18;
-            this.guna2PictureBox4.TabStop = false;
-            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox4_Click);
             // 
             // guna2HtmlLabel11
             // 
@@ -191,18 +179,6 @@
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(69, 19);
             this.guna2HtmlLabel11.TabIndex = 19;
             this.guna2HtmlLabel11.Text = "Them Role";
-            // 
-            // guna2PictureBox_Role_Phong
-            // 
-            this.guna2PictureBox_Role_Phong.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox_Role_Phong.Image")));
-            this.guna2PictureBox_Role_Phong.ImageRotate = 0F;
-            this.guna2PictureBox_Role_Phong.Location = new System.Drawing.Point(26, 7);
-            this.guna2PictureBox_Role_Phong.Name = "guna2PictureBox_Role_Phong";
-            this.guna2PictureBox_Role_Phong.Size = new System.Drawing.Size(68, 44);
-            this.guna2PictureBox_Role_Phong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox_Role_Phong.TabIndex = 16;
-            this.guna2PictureBox_Role_Phong.TabStop = false;
-            this.guna2PictureBox_Role_Phong.Click += new System.EventHandler(this.guna2PictureBox_Role_Phong_Click);
             // 
             // guna2HtmlLabel10
             // 
@@ -223,11 +199,11 @@
             this.panel_bieu_do.BackColor = System.Drawing.Color.Transparent;
             this.panel_bieu_do.Controls.Add(this.guna2Panel2);
             this.panel_bieu_do.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel_bieu_do.Location = new System.Drawing.Point(129, 3);
+            this.panel_bieu_do.Location = new System.Drawing.Point(128, 3);
             this.panel_bieu_do.Name = "panel_bieu_do";
             this.panel_bieu_do.Radius = 6;
             this.panel_bieu_do.ShadowColor = System.Drawing.Color.Transparent;
-            this.panel_bieu_do.Size = new System.Drawing.Size(612, 81);
+            this.panel_bieu_do.Size = new System.Drawing.Size(609, 81);
             this.panel_bieu_do.TabIndex = 26;
             // 
             // guna2Panel2
@@ -239,7 +215,7 @@
             this.guna2Panel2.Controls.Add(this.txtTimKiem);
             this.guna2Panel2.Location = new System.Drawing.Point(14, 15);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(586, 55);
+            this.guna2Panel2.Size = new System.Drawing.Size(583, 55);
             this.guna2Panel2.TabIndex = 14;
             // 
             // txtTimKiem
@@ -262,8 +238,9 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PlaceholderText = "";
             this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(579, 48);
+            this.txtTimKiem.Size = new System.Drawing.Size(576, 48);
             this.txtTimKiem.TabIndex = 0;
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged_1);
             // 
             // guna2ShadowPanel2
             // 
@@ -278,7 +255,7 @@
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.Radius = 6;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(120, 81);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(119, 81);
             this.guna2ShadowPanel2.TabIndex = 25;
             // 
             // guna2HtmlLabel3
@@ -291,19 +268,6 @@
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(82, 19);
             this.guna2HtmlLabel3.TabIndex = 18;
             this.guna2HtmlLabel3.Text = "Thêm Phòng";
-            // 
-            // guna2PictureBox_them_phong
-            // 
-            this.guna2PictureBox_them_phong.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox_them_phong.Image")));
-            this.guna2PictureBox_them_phong.ImageRotate = 0F;
-            this.guna2PictureBox_them_phong.Location = new System.Drawing.Point(10, 8);
-            this.guna2PictureBox_them_phong.Name = "guna2PictureBox_them_phong";
-            this.guna2PictureBox_them_phong.ShadowDecoration.Color = System.Drawing.Color.White;
-            this.guna2PictureBox_them_phong.Size = new System.Drawing.Size(105, 50);
-            this.guna2PictureBox_them_phong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox_them_phong.TabIndex = 15;
-            this.guna2PictureBox_them_phong.TabStop = false;
-            this.guna2PictureBox_them_phong.Click += new System.EventHandler(this.guna2PictureBox_them_phong_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -420,31 +384,31 @@
             // 
             this.tabel_phong.AllowUserToAddRows = false;
             this.tabel_phong.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.tabel_phong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.tabel_phong.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.tabel_phong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabel_phong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabel_phong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tabel_phong.ColumnHeadersHeight = 4;
             this.tabel_phong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tabel_phong.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tabel_phong.DefaultCellStyle = dataGridViewCellStyle3;
             this.tabel_phong.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.tabel_phong.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.tabel_phong.Location = new System.Drawing.Point(10, 44);
@@ -452,14 +416,14 @@
             this.tabel_phong.Name = "tabel_phong";
             this.tabel_phong.ReadOnly = true;
             this.tabel_phong.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tabel_phong.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tabel_phong.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.tabel_phong.RowHeadersVisible = false;
             this.tabel_phong.RowHeadersWidth = 51;
             this.tabel_phong.Size = new System.Drawing.Size(461, 265);
@@ -519,34 +483,6 @@
             this.guna2ShadowPanel4.ShadowColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel4.Size = new System.Drawing.Size(434, 202);
             this.guna2ShadowPanel4.TabIndex = 27;
-            // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.ErrorImage = null;
-            this.guna2PictureBox6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
-            this.guna2PictureBox6.ImageRotate = 0F;
-            this.guna2PictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.InitialImage")));
-            this.guna2PictureBox6.Location = new System.Drawing.Point(22, 65);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.Size = new System.Drawing.Size(195, 114);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 4;
-            this.guna2PictureBox6.TabStop = false;
-            // 
-            // guna2PictureBox5
-            // 
-            this.guna2PictureBox5.ErrorImage = null;
-            this.guna2PictureBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.InitialImage")));
-            this.guna2PictureBox5.Location = new System.Drawing.Point(223, 65);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(198, 114);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox5.TabIndex = 3;
-            this.guna2PictureBox5.TabStop = false;
             // 
             // guna2HtmlLabel5
             // 
@@ -779,11 +715,78 @@
             this.cb_trang_thai.Items.AddRange(new object[] {
             "TRỐNG",
             "ĐANG Ở",
-            "DỌN DẸP"});
+            "CẦN DỌN",
+            "ĐANG DỌN",
+            "BẢO TRÌ"});
             this.cb_trang_thai.Location = new System.Drawing.Point(141, 235);
             this.cb_trang_thai.Name = "cb_trang_thai";
             this.cb_trang_thai.Size = new System.Drawing.Size(125, 36);
             this.cb_trang_thai.TabIndex = 25;
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(132, 3);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(52, 55);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 18;
+            this.guna2PictureBox4.TabStop = false;
+            this.guna2PictureBox4.Click += new System.EventHandler(this.guna2PictureBox4_Click);
+            // 
+            // guna2PictureBox_Role_Phong
+            // 
+            this.guna2PictureBox_Role_Phong.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox_Role_Phong.Image")));
+            this.guna2PictureBox_Role_Phong.ImageRotate = 0F;
+            this.guna2PictureBox_Role_Phong.Location = new System.Drawing.Point(26, 7);
+            this.guna2PictureBox_Role_Phong.Name = "guna2PictureBox_Role_Phong";
+            this.guna2PictureBox_Role_Phong.Size = new System.Drawing.Size(68, 44);
+            this.guna2PictureBox_Role_Phong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox_Role_Phong.TabIndex = 16;
+            this.guna2PictureBox_Role_Phong.TabStop = false;
+            this.guna2PictureBox_Role_Phong.Click += new System.EventHandler(this.guna2PictureBox_Role_Phong_Click);
+            // 
+            // guna2PictureBox_them_phong
+            // 
+            this.guna2PictureBox_them_phong.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox_them_phong.Image")));
+            this.guna2PictureBox_them_phong.ImageRotate = 0F;
+            this.guna2PictureBox_them_phong.Location = new System.Drawing.Point(10, 8);
+            this.guna2PictureBox_them_phong.Name = "guna2PictureBox_them_phong";
+            this.guna2PictureBox_them_phong.ShadowDecoration.Color = System.Drawing.Color.White;
+            this.guna2PictureBox_them_phong.Size = new System.Drawing.Size(105, 50);
+            this.guna2PictureBox_them_phong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox_them_phong.TabIndex = 15;
+            this.guna2PictureBox_them_phong.TabStop = false;
+            this.guna2PictureBox_them_phong.Click += new System.EventHandler(this.guna2PictureBox_them_phong_Click);
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.ErrorImage = null;
+            this.guna2PictureBox6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2PictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.Image")));
+            this.guna2PictureBox6.ImageRotate = 0F;
+            this.guna2PictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox6.InitialImage")));
+            this.guna2PictureBox6.Location = new System.Drawing.Point(22, 65);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.Size = new System.Drawing.Size(195, 114);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 4;
+            this.guna2PictureBox6.TabStop = false;
+            // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.ErrorImage = null;
+            this.guna2PictureBox5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.InitialImage")));
+            this.guna2PictureBox5.Location = new System.Drawing.Point(223, 65);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(198, 114);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox5.TabIndex = 3;
+            this.guna2PictureBox5.TabStop = false;
             // 
             // Form_quan_ly_phong
             // 
@@ -802,13 +805,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.guna2ShadowPanel5.ResumeLayout(false);
             this.guna2ShadowPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_Role_Phong)).EndInit();
             this.panel_bieu_do.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_them_phong)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
@@ -816,10 +816,13 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.guna2ShadowPanel4.ResumeLayout(false);
             this.guna2ShadowPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_Role_Phong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox_them_phong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }

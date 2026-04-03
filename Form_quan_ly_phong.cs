@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace app_qlKhachSan
 {
     public partial class Form_quan_ly_phong : Form
@@ -58,7 +59,7 @@ namespace app_qlKhachSan
         }
 
         // ================= SEARCH =================
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
                 LoadPhong();
@@ -230,6 +231,6 @@ namespace app_qlKhachSan
             }
         }
 
-       
+        
     }
 }

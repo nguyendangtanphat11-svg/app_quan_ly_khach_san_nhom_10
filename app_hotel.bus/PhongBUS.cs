@@ -16,12 +16,21 @@ public class PhongBUS
         return dal.TimPhong(keyword);
     }
 
-    public bool UpdatePhong(string maPhong, string soPhong, string maLoaiPhong, string trangThai)
+    public bool UpdatePhong(string maPhong,
+                        string soPhong,
+                        string maLoaiPhong,
+                        string trangThai)
     {
         if (string.IsNullOrWhiteSpace(soPhong))
             throw new Exception("Số phòng không được rỗng");
 
-        return dal.UpdatePhong(maPhong, soPhong, maLoaiPhong, trangThai);
+        if (string.IsNullOrWhiteSpace(trangThai))
+            throw new Exception("Chưa chọn trạng thái");
+
+        return dal.UpdatePhong(maPhong,
+                               soPhong,
+                               maLoaiPhong,
+                               trangThai);
     }
 
     public bool DeletePhong(string maPhong)

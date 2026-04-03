@@ -90,20 +90,108 @@ public class PhongDAL
         {
             conn.Open();
 
-            string query = @"UPDATE Phong 
-                         SET SoPhong=@SoPhong,
-                             MaLoaiPhong=@MaLoaiPhong,
-                             TrangThai=@TrangThai
-                         WHERE MaPhong=@MaPhong";
+            SqlTransaction tran = conn.BeginTransaction();
 
-            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                // UPDATE bảng Phong
+                string updatePhong = @"
+            UPDATE Phong
+            SET SoPhong = @SoPhong,
+                MaLoaiPhong = @MaLoaiPhong,
+                TrangThai = @TrangThai
+            WHERE MaPhong = @MaPhong";
 
-            cmd.Parameters.AddWithValue("@SoPhong", soPhong);
-            cmd.Parameters.AddWithValue("@MaLoaiPhong", maLoaiPhong);
-            cmd.Parameters.AddWithValue("@TrangThai", trangThai);
-            cmd.Parameters.AddWithValue("@MaPhong", maPhong);
+                SqlCommand cmd = new SqlCommand(updatePhong, conn, tran);
 
-            return cmd.ExecuteNonQuery() > 0;
+                cmd.Parameters.AddWithValue("@SoPhong", soPhong);
+                cmd.Parameters.AddWithValue("@MaLoaiPhong", maLoaiPhong);
+                cmd.Parameters.AddWithValue("@TrangThai", trangThai);
+                cmd.Parameters.AddWithValue("@MaPhong", maPhong);
+
+                cmd.ExecuteNonQuery();
+
+
+                // ================= TẠO PHIẾU DỌN PHÒNG =================
+                if (trangThai == "CẦN DỌN")
+                {
+                    string checkDonPhong = @"
+                SELECT COUNT(*)
+                FROM DonPhong
+                WHERE MaPhong = @MaPhong
+                AND TrangThai = N'CẦN DỌN'
+                AND NgayHoanThanh IS NULL";
+
+                    SqlCommand checkCmd =
+                        new SqlCommand(checkDonPhong, conn, tran);
+
+                    checkCmd.Parameters.AddWithValue("@MaPhong", maPhong);
+
+                    int exists = (int)checkCmd.ExecuteScalar();
+
+                    if (exists == 0)
+                    {
+                        string insertDonPhong = @"
+                    INSERT INTO DonPhong
+                    (MaPhong, TrangThai, NgayTao)
+                    VALUES
+                    (@MaPhong, N'CẦN DỌN', GETDATE())";
+
+                        SqlCommand cmdInsert =
+                            new SqlCommand(insertDonPhong, conn, tran);
+
+                        cmdInsert.Parameters.AddWithValue("@MaPhong", maPhong);
+
+                        cmdInsert.ExecuteNonQuery();
+                    }
+                }
+
+
+                // ================= TẠO PHIẾU BẢO TRÌ =================
+                if (trangThai == "BẢO TRÌ")
+                {
+                    string checkBaoTri = @"
+                SELECT COUNT(*)
+                FROM BaoTriPhong
+                WHERE MaPhong = @MaPhong
+                AND TrangThai = N'BẢO TRÌ'
+                AND NgayHoanThanh IS NULL";
+
+                    SqlCommand checkCmd =
+                        new SqlCommand(checkBaoTri, conn, tran);
+
+                    checkCmd.Parameters.AddWithValue("@MaPhong", maPhong);
+
+                    int exists = (int)checkCmd.ExecuteScalar();
+
+                    if (exists == 0)
+                    {
+                        string insertBaoTri = @"
+                    INSERT INTO BaoTriPhong
+                    (MaPhong, TrangThai, NgayBaoTri)
+                    VALUES
+                    (@MaPhong, N'BẢO TRÌ', GETDATE())";
+
+                        SqlCommand cmdInsert =
+                            new SqlCommand(insertBaoTri, conn, tran);
+
+                        cmdInsert.Parameters.AddWithValue("@MaPhong", maPhong);
+
+                        cmdInsert.ExecuteNonQuery();
+                    }
+                }
+
+
+                tran.Commit();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                tran.Rollback();
+
+                throw new Exception("Lỗi UpdatePhong: " + ex.Message);
+            }
         }
     }
 
