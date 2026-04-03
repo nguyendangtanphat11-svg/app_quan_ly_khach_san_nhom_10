@@ -254,6 +254,14 @@
       <Project>{3bda6bcb-8faa-4695-a55a-00067faefcee}</Project>
       <Name>app_qlKhachSanl.BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\app_qlKhachSan.DAL\app_qlKhachSan.DAL.csproj">
+      <Project>{85a701ba-de3a-4006-8e27-ca6e3d2d94a0}</Project>
+      <Name>app_qlKhachSan.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\app_qlKhachSan.DTO\app_qlKhachSan.DTO.csproj">
+      <Project>{221b24c7-4b90-4f2f-9b56-46e0801de8ae}</Project>
+      <Name>app_qlKhachSan.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
