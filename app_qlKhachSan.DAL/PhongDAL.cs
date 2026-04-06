@@ -196,18 +196,61 @@ public class PhongDAL
     }
 
     // ================= DELETE =================
-    public bool DeletePhong(string maPhong)
+    public bool DeletePhong(int maPhong)
     {
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn =
+               new SqlConnection(connectionString))
         {
             conn.Open();
 
-            string query = "DELETE FROM Phong WHERE MaPhong=@MaPhong";
+            SqlTransaction tran =
+            conn.BeginTransaction();
 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@MaPhong", maPhong);
+            try
+            {
+                // Xóa đặt phòng trước
+                SqlCommand cmd1 =
+                new SqlCommand(
+                @"DELETE FROM DatPhong
+              WHERE MaPhong=@MaPhong",
+                conn, tran);
 
-            return cmd.ExecuteNonQuery() > 0;
+                cmd1.Parameters.AddWithValue("@MaPhong", maPhong);
+                cmd1.ExecuteNonQuery();
+
+
+                // Xóa đơn phòng
+                SqlCommand cmd2 =
+                new SqlCommand(
+                @"DELETE FROM DonPhong
+              WHERE MaPhong=@MaPhong",
+                conn, tran);
+
+                cmd2.Parameters.AddWithValue("@MaPhong", maPhong);
+                cmd2.ExecuteNonQuery();
+
+
+                // Xóa phòng
+                SqlCommand cmd3 =
+                new SqlCommand(
+                @"DELETE FROM Phong
+              WHERE MaPhong=@MaPhong",
+                conn, tran);
+
+                cmd3.Parameters.AddWithValue("@MaPhong", maPhong);
+                cmd3.ExecuteNonQuery();
+
+
+                tran.Commit();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+               
+                tran.Rollback();
+                return false;
+            }
         }
     }
     // ================= them phong =================
@@ -228,6 +271,101 @@ public class PhongDAL
             cmd.Parameters.AddWithValue("@TrangThai", p.TrangThai);
 
             return cmd.ExecuteNonQuery() > 0;
+        }
+    }
+    // ================= GET PHÒNG TRỐNG =================
+
+    public DataTable GetPhongTrong()
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            conn.Open();
+
+            string query =
+            "SELECT MaPhong, SoPhong FROM Phong WHERE TrangThai=N'TRỐNG'";
+
+            SqlDataAdapter da =
+            new SqlDataAdapter(query, conn);
+
+            DataTable dt =
+            new DataTable();
+
+            da.Fill(dt);
+
+            return dt;
+        }
+    }
+
+
+    // ================= LẤY MÃ LOẠI PHÒNG =================
+
+    public string GetMaLoaiPhong(string maPhong)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            conn.Open();
+
+            string query =
+            @"SELECT MaLoaiPhong
+          FROM Phong
+          WHERE MaPhong=@MaPhong";
+
+            SqlCommand cmd =
+            new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@MaPhong",
+                                       maPhong);
+
+            return cmd.ExecuteScalar().ToString();
+        }
+    }
+
+
+    // ================= UPDATE TRẠNG THÁI PHÒNG =================
+
+    public void UpdateTrangThai(string maPhong,
+                                string trangThai)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            conn.Open();
+
+            string query =
+            @"UPDATE Phong
+          SET TrangThai=@TrangThai
+          WHERE MaPhong=@MaPhong";
+
+            SqlCommand cmd =
+            new SqlCommand(query, conn);
+
+            cmd.Parameters.AddWithValue("@TrangThai",
+                                       trangThai);
+
+            cmd.Parameters.AddWithValue("@MaPhong",
+                                       maPhong);
+
+            cmd.ExecuteNonQuery();
+        }
+    }
+
+
+    // ================= LẤY MÃ ĐẶT PHÒNG MỚI NHẤT =================
+
+    public string GetMaDatPhongMoiNhat()
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            conn.Open();
+
+            string query =
+            @"SELECT TOP 1 MaDatPhong
+          FROM DatPhong
+          ORDER BY NgayTao DESC";
+
+            SqlCommand cmd =
+            new SqlCommand(query, conn);
+
+            return cmd.ExecuteScalar().ToString();
         }
     }
 }

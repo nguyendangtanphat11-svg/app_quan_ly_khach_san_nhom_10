@@ -41,13 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BangGiaPhongDAL.cs" />
+    <Compile Include="DanhSachKhachODAL.cs" />
+    <Compile Include="DatCocDAL.cs" />
+    <Compile Include="DatPhongDAL.cs" />
     <Compile Include="DBHelper.cs" />
+    <Compile Include="DichVuDAL.cs" />
     <Compile Include="DonPhongDAL.cs" />
+    <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="KhachHangDAL.cs" />
+    <Compile Include="LoaiKhachHangDAL.cs" />
     <Compile Include="LoaiPhongDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="PhongDAL.cs" />
+    <Compile Include="PhuThuDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SuDungDichVuDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
+    <Compile Include="ThanhToanDAL.cs" />
     <Compile Include="TrangChuDAL.cs" />
   </ItemGroup>
   <ItemGroup>

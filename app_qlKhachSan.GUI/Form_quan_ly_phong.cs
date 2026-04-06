@@ -110,7 +110,10 @@ namespace app_qlKhachSan
 
             if (rs == DialogResult.Yes)
             {
-                if (bus.DeletePhong(maPhongDangChon))
+                int maPhong =
+                int.Parse(maPhongDangChon);
+
+                if (bus.DeletePhong(maPhong))
                 {
                     MessageBox.Show("Xóa thành công!");
                     LoadPhong();

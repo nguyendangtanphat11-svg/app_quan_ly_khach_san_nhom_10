@@ -138,7 +138,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.91678F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.08322F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 203F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 206F));
             this.tableLayoutPanel2.Controls.Add(this.guna2ShadowPanel5, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel_bieu_do, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.guna2ShadowPanel2, 0, 0);
@@ -162,11 +162,11 @@
             this.guna2ShadowPanel5.Controls.Add(this.guna2PictureBox_Role_Phong);
             this.guna2ShadowPanel5.Controls.Add(this.guna2HtmlLabel10);
             this.guna2ShadowPanel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2ShadowPanel5.Location = new System.Drawing.Point(743, 3);
+            this.guna2ShadowPanel5.Location = new System.Drawing.Point(740, 3);
             this.guna2ShadowPanel5.Name = "guna2ShadowPanel5";
             this.guna2ShadowPanel5.Radius = 6;
             this.guna2ShadowPanel5.ShadowColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel5.Size = new System.Drawing.Size(198, 81);
+            this.guna2ShadowPanel5.Size = new System.Drawing.Size(201, 81);
             this.guna2ShadowPanel5.TabIndex = 28;
             // 
             // guna2HtmlLabel11
@@ -199,11 +199,11 @@
             this.panel_bieu_do.BackColor = System.Drawing.Color.Transparent;
             this.panel_bieu_do.Controls.Add(this.guna2Panel2);
             this.panel_bieu_do.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel_bieu_do.Location = new System.Drawing.Point(128, 3);
+            this.panel_bieu_do.Location = new System.Drawing.Point(127, 3);
             this.panel_bieu_do.Name = "panel_bieu_do";
             this.panel_bieu_do.Radius = 6;
             this.panel_bieu_do.ShadowColor = System.Drawing.Color.Transparent;
-            this.panel_bieu_do.Size = new System.Drawing.Size(609, 81);
+            this.panel_bieu_do.Size = new System.Drawing.Size(607, 81);
             this.panel_bieu_do.TabIndex = 26;
             // 
             // guna2Panel2
@@ -215,7 +215,7 @@
             this.guna2Panel2.Controls.Add(this.txtTimKiem);
             this.guna2Panel2.Location = new System.Drawing.Point(14, 15);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(583, 55);
+            this.guna2Panel2.Size = new System.Drawing.Size(581, 55);
             this.guna2Panel2.TabIndex = 14;
             // 
             // txtTimKiem
@@ -238,7 +238,7 @@
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.PlaceholderText = "";
             this.txtTimKiem.SelectedText = "";
-            this.txtTimKiem.Size = new System.Drawing.Size(576, 48);
+            this.txtTimKiem.Size = new System.Drawing.Size(574, 48);
             this.txtTimKiem.TabIndex = 0;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged_1);
             // 
@@ -255,7 +255,7 @@
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.Radius = 6;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(119, 81);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(118, 81);
             this.guna2ShadowPanel2.TabIndex = 25;
             // 
             // guna2HtmlLabel3

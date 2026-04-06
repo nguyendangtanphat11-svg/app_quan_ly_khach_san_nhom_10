@@ -1,106 +1,112 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using app_qlKhachSan.DTO;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using app_qlKhachSan.DTO;
 
 namespace app_qlKhachSan.DAL
 {
     public class HoaDonDAL
     {
-        private string connectionString = @"Data Source=LAPTOP-URQTM56V\SQLEXPRESS;Initial Catalog=HotelManager;Integrated Security=True";
-        SqlConnection conn;
-
-        public int InsertHoaDon(HoaDonDTO hd)
+        public int Insert(HoaDonDTO hd)
         {
-            string query = @"INSERT INTO HoaDon
-            (MaDatPhong, MaKhuyenMai, TienPhong, TienDichVu, TienPhuThu, GiamGia, VAT, TongTien, TrangThaiThanhToan, NgayTao)
+            string sql = @"
+            INSERT INTO HoaDon
+            (
+                MaDatPhong,
+                TienPhong,
+                TienDichVu,
+                TongTien,
+                TrangThaiThanhToan,
+                NgayTao
+            )
             VALUES
-            (@MaDatPhong, @MaKhuyenMai, @TienPhong, @TienDichVu, @TienPhuThu, @GiamGia, @VAT, @TongTien, @TrangThaiThanhToan, @NgayTao)";
+            (
+                @MaDatPhong,
+                @TienPhong,
+                @TienDichVu,
+                @TongTien,
+                N'ĐÃ THANH TOÁN',
+                GETDATE()
+            )";
 
-            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlParameter[] param =
+            {
+                new SqlParameter("@MaDatPhong", hd.MaDatPhong),
+                new SqlParameter("@TienPhong", hd.TienPhong),
+                new SqlParameter("@TienDichVu", hd.TienDichVu),
+                new SqlParameter("@TongTien", hd.TongTien)
+            };
 
-            cmd.Parameters.AddWithValue("@MaDatPhong", hd.MaDatPhong);
-            cmd.Parameters.AddWithValue("@MaKhuyenMai", (object)hd.MaKhuyenMai ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@TienPhong", hd.TienPhong);
-            cmd.Parameters.AddWithValue("@TienDichVu", hd.TienDichVu);
-            cmd.Parameters.AddWithValue("@TienPhuThu", hd.TienPhuThu);
-            cmd.Parameters.AddWithValue("@GiamGia", hd.GiamGia);
-            cmd.Parameters.AddWithValue("@VAT", hd.VAT);
-            cmd.Parameters.AddWithValue("@TongTien", hd.TongTien);
-            cmd.Parameters.AddWithValue("@TrangThaiThanhToan", hd.TrangThaiThanhToan);
-            cmd.Parameters.AddWithValue("@NgayTao", hd.NgayTao);
-
-            try
-            {
-                conn.Open();
-                return cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Lỗi thêm hóa đơn: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return DBHelper.ExecuteNonQuery(sql, param);
         }
 
+
+        public int GetLastHoaDonID()
+        {
+            string sql =
+            "SELECT IDENT_CURRENT('HoaDon')";
+
+            object result =
+            DBHelper.ExecuteScalar(sql);
+
+            return int.Parse(result.ToString());
+        }
         public DataTable GetAllHoaDon()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM HoaDon";
-                SqlDataAdapter da = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
-            }
+            string sql = @"
+    SELECT *
+    FROM HoaDon
+    ORDER BY NgayTao DESC";
+
+            return DBHelper.ExecuteQuery(sql);
         }
-
-        public int UpdateTrangThai(long maHoaDon, string trangThai)
+        public int UpdateHoaDon(int maHoaDon, string trangThai)
         {
-            string query = "UPDATE HoaDon SET TrangThaiThanhToan = @TrangThai WHERE MaHoaDon = @MaHoaDon";
+            string sql = @"
+    UPDATE HoaDon
+    SET TrangThaiThanhToan = @TrangThai
+    WHERE MaHoaDon = @MaHoaDon";
 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@TrangThai", trangThai);
-            cmd.Parameters.AddWithValue("@MaHoaDon", maHoaDon);
+            SqlParameter[] param =
+            {
+        new SqlParameter("@TrangThai", trangThai),
+        new SqlParameter("@MaHoaDon", maHoaDon)
+    };
 
-            try
-            {
-                conn.Open();
-                return cmd.ExecuteNonQuery();
-            }
-            finally
-            {
-                conn.Close();
-            }
+            return DBHelper.ExecuteNonQuery(sql, param);
         }
-        public bool UpdateHoaDon(int maHD, decimal tongTien)
+        public bool Exists(long maDatPhong)
         {
-            string sql = "UPDATE HoaDon SET TongTien = @TongTien WHERE MaHoaDon = @MaHD";
+            string sql = @"
+    SELECT COUNT(*)
+    FROM HoaDon
+    WHERE MaDatPhong = @MaDatPhong";
 
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.AddWithValue("@TongTien", tongTien);
-            cmd.Parameters.AddWithValue("@MaHD", maHD);
+            SqlParameter[] param =
+            {
+        new SqlParameter("@MaDatPhong", maDatPhong)
+    };
 
-            try
-            {
-                conn.Open();
-                int rows = cmd.ExecuteNonQuery();
-                return rows > 0;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            int count =
+            Convert.ToInt32(
+            DBHelper.ExecuteScalar(sql, param));
+
+            return count > 0;
         }
-        public HoaDonDAL()
+        public int GetMaHoaDonByMaDatPhong(long maDatPhong)
         {
-            conn = new SqlConnection(connectionString);
+            string sql = @"
+    SELECT MaHoaDon
+    FROM HoaDon
+    WHERE MaDatPhong = @MaDatPhong";
+
+            SqlParameter[] param =
+            {
+        new SqlParameter("@MaDatPhong", maDatPhong)
+    };
+
+            return Convert.ToInt32(
+            DBHelper.ExecuteScalar(sql, param));
         }
     }
 }

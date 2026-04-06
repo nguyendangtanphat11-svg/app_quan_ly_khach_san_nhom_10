@@ -1,4 +1,5 @@
-﻿using app_qlKhachSan.DTO;
+﻿using app_qlKhachSan.BUS;
+using app_qlKhachSan.DTO;
 using System;
 using System.Data;
 using System.Drawing;
@@ -49,11 +50,13 @@ namespace app_qlKhachSan
         }
 
         // LƯU (UPDATE)
-        private void guna2Button_luu_Click(object sender, EventArgs e)
+        private void guna2Button_luu_Click(object sender,
+EventArgs e)
         {
             try
             {
-                LoaiPhongDTO lp = new LoaiPhongDTO()
+                LoaiPhongDTO lp =
+                new LoaiPhongDTO()
                 {
                     MaLoaiPhong = txtMaLoai.Text,
                     TenLoaiPhong = txtTenLoai.Text,
@@ -67,7 +70,18 @@ namespace app_qlKhachSan
 
                 if (result)
                 {
+                    // cập nhật bảng BangGiaPhong
+                    BangGiaPhongBUS bangGiaBUS =
+                    new BangGiaPhongBUS();
+
+                    bangGiaBUS.InsertGiaMoi(
+                        lp.MaLoaiPhong,
+                        lp.GiaTheoNgay,
+                        "Cập nhật từ Form Loại Phòng"
+                    );
+
                     MessageBox.Show("Cập nhật thành công");
+
                     LoadLoaiPhong();
                 }
                 else
