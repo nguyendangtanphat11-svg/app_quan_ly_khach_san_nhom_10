@@ -21,4 +21,9 @@ public class DonPhongBUS
     {
         return dal.HoanThanhDon(maDonPhong, ghiChu);
     }
+    public bool TaoDonPhong(string maPhong)
+    {
+        return dal.TaoDonPhong(maPhong);
+    }
+
 }

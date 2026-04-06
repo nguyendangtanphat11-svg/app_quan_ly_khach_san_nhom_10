@@ -22,64 +22,246 @@ public class LoaiPhongDAL
 
     public bool UpdateLoaiPhong(LoaiPhongDTO lp)
     {
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn =
+               new SqlConnection(connectionString))
         {
             conn.Open();
 
-            string query = @"UPDATE LoaiPhong
-                             SET TenLoaiPhong=@ten,
-                                 GiaTheoNgay=@ngay,
-                                 GiaTheoGio=@gio,
-                                 SoNguoiToiDa=@songuoi,
-                                 MoTa=@mota
-                             WHERE MaLoaiPhong=@ma";
+            SqlTransaction tran =
+            conn.BeginTransaction();
 
-            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                // UPDATE thông tin loại phòng
+                string updateLoaiPhong =
+                @"UPDATE LoaiPhong
+              SET TenLoaiPhong=@ten,
+                  GiaTheoGio=@gio,
+                  SoNguoiToiDa=@songuoi,
+                  MoTa=@mota
+              WHERE MaLoaiPhong=@ma";
 
-            cmd.Parameters.AddWithValue("@ma", lp.MaLoaiPhong);
-            cmd.Parameters.AddWithValue("@ten", lp.TenLoaiPhong);
-            cmd.Parameters.AddWithValue("@ngay", lp.GiaTheoNgay);
-            cmd.Parameters.AddWithValue("@gio", lp.GiaTheoGio);
-            cmd.Parameters.AddWithValue("@songuoi", lp.SoNguoiToiDa);
-            cmd.Parameters.AddWithValue("@mota", lp.MoTa);
+                SqlCommand cmd1 =
+                new SqlCommand(updateLoaiPhong,
+                               conn,
+                               tran);
 
-            return cmd.ExecuteNonQuery() > 0;
+                cmd1.Parameters.AddWithValue("@ma",
+                                            lp.MaLoaiPhong);
+
+                cmd1.Parameters.AddWithValue("@ten",
+                                            lp.TenLoaiPhong);
+
+                cmd1.Parameters.AddWithValue("@gio",
+                                            lp.GiaTheoGio);
+
+                cmd1.Parameters.AddWithValue("@songuoi",
+                                            lp.SoNguoiToiDa);
+
+                cmd1.Parameters.AddWithValue("@mota",
+                                            lp.MoTa);
+
+                cmd1.ExecuteNonQuery();
+
+
+                // INSERT giá mới vào BangGiaPhong
+                string insertGia =
+                @"INSERT INTO BangGiaPhong
+              (MaLoaiPhong,
+               NgayApDung,
+               GiaTheoNgay,
+               GhiChu)
+              VALUES
+              (@MaLoaiPhong,
+               GETDATE(),
+               @GiaTheoNgay,
+               N'Cập nhật giá')";
+
+                SqlCommand cmd2 =
+                new SqlCommand(insertGia,
+                               conn,
+                               tran);
+
+                cmd2.Parameters.AddWithValue("@MaLoaiPhong",
+                                            lp.MaLoaiPhong);
+
+                cmd2.Parameters.AddWithValue("@GiaTheoNgay",
+                                            lp.GiaTheoNgay);
+
+                cmd2.ExecuteNonQuery();
+
+
+                tran.Commit();
+
+                return true;
+            }
+            catch
+            {
+                tran.Rollback();
+
+                return false;
+            }
         }
     }
 
-    public bool DeleteLoaiPhong(string ma)
+    public bool DeleteLoaiPhong(string maLoaiPhong)
     {
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn =
+               new SqlConnection(connectionString))
         {
             conn.Open();
 
-            string query = "DELETE FROM LoaiPhong WHERE MaLoaiPhong=@ma";
+            SqlTransaction tran =
+            conn.BeginTransaction();
 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@ma", ma);
+            try
+            {
+                // XÓA bảng giá trước
+                SqlCommand cmd1 =
+                new SqlCommand(
+                @"DELETE FROM BangGiaPhong
+              WHERE MaLoaiPhong=@MaLoaiPhong",
+                conn, tran);
 
-            return cmd.ExecuteNonQuery() > 0;
+                cmd1.Parameters.AddWithValue("@MaLoaiPhong",
+                                            maLoaiPhong);
+
+                cmd1.ExecuteNonQuery();
+
+
+                // XÓA phòng thuộc loại phòng
+                SqlCommand cmd2 =
+                new SqlCommand(
+                @"DELETE FROM Phong
+              WHERE MaLoaiPhong=@MaLoaiPhong",
+                conn, tran);
+
+                cmd2.Parameters.AddWithValue("@MaLoaiPhong",
+                                            maLoaiPhong);
+
+                cmd2.ExecuteNonQuery();
+
+
+                // CUỐI CÙNG mới xóa loại phòng
+                SqlCommand cmd3 =
+                new SqlCommand(
+                @"DELETE FROM LoaiPhong
+              WHERE MaLoaiPhong=@MaLoaiPhong",
+                conn, tran);
+
+                cmd3.Parameters.AddWithValue("@MaLoaiPhong",
+                                            maLoaiPhong);
+
+                cmd3.ExecuteNonQuery();
+
+
+                tran.Commit();
+
+                return true;
+            }
+            catch
+            {
+                tran.Rollback();
+
+                return false;
+            }
         }
     }
     public bool InsertLoaiPhong(LoaiPhongDTO lp)
     {
-        using (SqlConnection conn = new SqlConnection(connectionString))
+        using (SqlConnection conn =
+               new SqlConnection(connectionString))
         {
             conn.Open();
 
-            string query = @"INSERT INTO LoaiPhong
-                        (TenLoaiPhong, GiaTheoNgay, GiaTheoGio, SoNguoiToiDa, MoTa)
-                        VALUES (@ten, @ngay, @gio, @songuoi, @mota)";
+            SqlTransaction tran =
+            conn.BeginTransaction();
 
-            SqlCommand cmd = new SqlCommand(query, conn);
+            try
+            {
+                // INSERT LoaiPhong
+                string insertLoaiPhong =
+                @"INSERT INTO LoaiPhong
+              (TenLoaiPhong,
+               GiaTheoNgay,
+               GiaTheoGio,
+               SoNguoiToiDa,
+               MoTa)
+              VALUES
+              (@ten,
+               @ngay,
+               @gio,
+               @songuoi,
+               @mota);
 
-            cmd.Parameters.AddWithValue("@ten", lp.TenLoaiPhong);
-            cmd.Parameters.AddWithValue("@ngay", lp.GiaTheoNgay);
-            cmd.Parameters.AddWithValue("@gio", lp.GiaTheoGio);
-            cmd.Parameters.AddWithValue("@songuoi", lp.SoNguoiToiDa);
-            cmd.Parameters.AddWithValue("@mota", lp.MoTa);
+              SELECT SCOPE_IDENTITY();";
 
-            return cmd.ExecuteNonQuery() > 0;
+                SqlCommand cmdLoaiPhong =
+                new SqlCommand(insertLoaiPhong,
+                               conn,
+                               tran);
+
+                cmdLoaiPhong.Parameters.AddWithValue("@ten",
+                                                     lp.TenLoaiPhong);
+
+                cmdLoaiPhong.Parameters.AddWithValue("@ngay",
+                                                     lp.GiaTheoNgay);
+
+                cmdLoaiPhong.Parameters.AddWithValue("@gio",
+                                                     lp.GiaTheoGio);
+
+                cmdLoaiPhong.Parameters.AddWithValue("@songuoi",
+                                                     lp.SoNguoiToiDa);
+
+                cmdLoaiPhong.Parameters.AddWithValue("@mota",
+                                                     lp.MoTa);
+
+
+                object result =
+                cmdLoaiPhong.ExecuteScalar();
+
+
+                string maLoaiPhong =
+                result.ToString();
+
+
+                // INSERT BangGiaPhong luôn
+                string insertBangGia =
+                @"INSERT INTO BangGiaPhong
+              (MaLoaiPhong,
+               NgayApDung,
+               GiaTheoNgay,
+               GhiChu)
+              VALUES
+              (@MaLoaiPhong,
+               GETDATE(),
+               @GiaTheoNgay,
+               N'Giá khởi tạo')";
+
+                SqlCommand cmdBangGia =
+                new SqlCommand(insertBangGia,
+                               conn,
+                               tran);
+
+                cmdBangGia.Parameters.AddWithValue("@MaLoaiPhong",
+                                                   maLoaiPhong);
+
+                cmdBangGia.Parameters.AddWithValue("@GiaTheoNgay",
+                                                   lp.GiaTheoNgay);
+
+                cmdBangGia.ExecuteNonQuery();
+
+
+                tran.Commit();
+
+                return true;
+            }
+            catch
+            {
+                tran.Rollback();
+
+                return false;
+            }
         }
     }
 }

@@ -33,10 +33,11 @@ public class PhongBUS
                                trangThai);
     }
 
-    public bool DeletePhong(string maPhong)
+    public bool DeletePhong(int maPhong)
     {
         return dal.DeletePhong(maPhong);
     }
+
     public bool InsertPhong(PhongDTO p)
     {
         if (string.IsNullOrWhiteSpace(p.SoPhong))
@@ -51,5 +52,33 @@ public class PhongBUS
         return dal.InsertPhong(p);
     }
 
+
+    // ================= THÊM PHẦN NÀY =================
+
+    public DataTable GetPhongTrong()
+    {
+        return dal.GetPhongTrong();
+    }
+
+    public string GetMaLoaiPhong(string maPhong)
+    {
+        return dal.GetMaLoaiPhong(maPhong);
+    }
+
+    public void UpdateTrangThai(string maPhong,
+                                string trangThai)
+    {
+        dal.UpdateTrangThai(maPhong,
+                            trangThai);
+    }
+
+    public string GetMaDatPhongMoiNhat()
+    {
+        return dal.GetMaDatPhongMoiNhat();
+    }
+    public DataTable GetDanhSach()
+    {
+        return dal.GetAllPhong();
+    }
 
 }

@@ -7,24 +7,10 @@ namespace app_qlKhachSan.DAL
     public class DBHelper
     {
         private static string connectionString =
-                @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True";
+            @"Data Source=LAPTOP-B6BVDVFI\MSSQLSERVER16;Initial Catalog=HotelManager;Integrated Security=True";
 
-        public static DataTable ExecuteQuery(string sql)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                SqlDataAdapter adapter = new SqlDataAdapter(sql, conn);
-                DataTable table = new DataTable();
-
-                adapter.Fill(table);
-
-                return table;
-            }
-        }
-
-        public static bool Execute(string sql, params object[] parameters)
+        // SELECT
+        public static DataTable ExecuteQuery(string sql, SqlParameter[] parameters = null)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -32,12 +18,50 @@ namespace app_qlKhachSan.DAL
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                for (int i = 0; i < parameters.Length; i++)
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                return table;
+            }
+        }
+
+        // INSERT UPDATE DELETE
+        public static int ExecuteNonQuery(string sql, SqlParameter[] parameters = null)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                if (parameters != null)
+                    cmd.Parameters.AddRange(parameters);
+
+                return cmd.ExecuteNonQuery();
+            }
+        }
+        public static object ExecuteScalar(string sql,
+                                   SqlParameter[] parameters = null)
+        {
+            using (SqlConnection conn =
+                   new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd =
+                new SqlCommand(sql, conn);
+
+                if (parameters != null)
                 {
-                    cmd.Parameters.AddWithValue("@p" + i, parameters[i]);
+                    cmd.Parameters.AddRange(parameters);
                 }
 
-                return cmd.ExecuteNonQuery() > 0;
+                return cmd.ExecuteScalar();
             }
         }
     }

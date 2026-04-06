@@ -1,190 +1,278 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using app_qlKhachSan.BUS;
+using app_qlKhachSan.DTO;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace app_qlKhachSan
 {
     public partial class Form_dich_vu : Form
     {
+        DichVuBUS dichVuBUS = new DichVuBUS();
+
+        SuDungDichVuBUS suDungBUS =
+        new SuDungDichVuBUS();
+
+        string maDichVuDangChon = "";
+
+
         public Form_dich_vu()
         {
             InitializeComponent();
         }
 
+
+        // ================= LOAD FORM =================
+
         private void Form_dich_vu_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+
+            LoadDanhSachDichVu();
+
+            KhoaThongTin();
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+
+        // ================= LOAD DATA =================
+
+        void LoadDanhSachDichVu()
+        {
+            dgvDichVu.DataSource =
+            dichVuBUS.GetDanhSach();
+        }
+
+
+        void LoadLichSuSuDung()
+        {
+            if (maDichVuDangChon == "")
+                return;
+
+            dgvLichSu.DataSource =
+            suDungBUS.GetByMaDichVu(
+            maDichVuDangChon);
+        }
+
+
+        // ================= CLICK GRID =================
+
+        private void dgvDichVu_CellClick(
+        object sender,
+        DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            DataGridViewRow row =
+            dgvDichVu.Rows[e.RowIndex];
+
+            maDichVuDangChon =
+            row.Cells["MaDichVu"].Value.ToString();
+
+            txtMaDV.Text =
+            maDichVuDangChon;
+
+            txtTenDV.Text =
+            row.Cells["TenDichVu"].Value.ToString();
+
+            txtGia.Text =
+            row.Cells["DonGia"].Value.ToString();
+
+
+            // xử lý checkbox trạng thái
+
+            object trangThaiValue =
+row.Cells["TrangThai"].Value;
+
+            if (trangThaiValue != DBNull.Value)
+            {
+                chkTrangThai.Checked =
+                Convert.ToBoolean(trangThaiValue);
+            }
+            else
+            {
+                chkTrangThai.Checked = false;
+            }
+
+
+            LoadLichSuSuDung();
+
+            KhoaThongTin();
+        }
+
+
+        // ================= KHÓA PANEL =================
+
+        void KhoaThongTin()
+        {
+            txtMaDV.Enabled = false;
+            txtTenDV.Enabled = false;
+            txtGia.Enabled = false;
+            chkTrangThai.Enabled = false;
+        }
+
+
+        void MoKhoaThongTin()
+        {
+            txtTenDV.Enabled = true;
+            txtGia.Enabled = true;
+            chkTrangThai.Enabled = true;
+        }
+
+
+        // ================= NÚT SỬA =================
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (maDichVuDangChon == "")
+                return;
+
+            MoKhoaThongTin();
+        }
+
+
+        // ================= NÚT LƯU =================
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (maDichVuDangChon == "")
+                return;
+
+            DichVuDTO dv =
+            new DichVuDTO();
+
+            dv.MaDichVu =
+            txtMaDV.Text;
+
+            dv.TenDichVu =
+            txtTenDV.Text;
+
+            dv.DonGia =
+            decimal.Parse(txtGia.Text);
+
+
+            // chuyển checkbox -> text DB
+
+            dv.TrangThai =
+ chkTrangThai.Checked;
+
+
+            dichVuBUS.Update(dv);
+
+            MessageBox.Show(
+            "Cập nhật dịch vụ thành công!");
+
+            LoadDanhSachDichVu();
+
+            KhoaThongTin();
+        }
+
+
+        // ================= NÚT XÓA =================
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (maDichVuDangChon == "")
+                return;
+
+            DialogResult rs =
+            MessageBox.Show(
+            "Bạn có chắc muốn xóa?",
+            "Xác nhận",
+            MessageBoxButtons.YesNo);
+
+            if (rs != DialogResult.Yes)
+                return;
+
+
+            // xóa lịch sử sử dụng trước
+
+            suDungBUS.DeleteByMaDichVu(
+            maDichVuDangChon);
+
+
+            // xóa dịch vụ
+
+            dichVuBUS.Delete(
+            maDichVuDangChon);
+
+
+            MessageBox.Show(
+            "Xóa dịch vụ thành công!");
+
+            LoadDanhSachDichVu();
+
+
+            txtMaDV.Clear();
+            txtTenDV.Clear();
+            txtGia.Clear();
+
+            chkTrangThai.Checked = false;
+
+            maDichVuDangChon = "";
+        }
+
+
+        // ================= NÚT HỦY =================
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            txtMaDV.Clear();
+            txtTenDV.Clear();
+            txtGia.Clear();
+
+            chkTrangThai.Checked = false;
+
+            maDichVuDangChon = "";
+
+            KhoaThongTin();
+        }
+
+
+        private void dgvDichVu_CellContentClick(
+        object sender,
+        DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void guna2HtmlLabel15_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void guna2HtmlLabel14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_dich_vu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel_bieu_do_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void chkTrangThai_CheckedChanged(
+        object sender,
+        EventArgs e)
         {
 
         }
 
         private void guna2PictureBox2_Click(object sender, EventArgs e)
         {
+            Form_them_dich_vu f =
+   new Form_them_dich_vu();
 
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                LoadDanhSachDichVu();
+            }
         }
 
-        private void guna2ShadowPanel2_Paint(object sender, PaintEventArgs e)
+        private void guna2PictureBox3_Click(object sender, EventArgs e)
         {
+            if (maDichVuDangChon == "")
+            {
+                MessageBox.Show("Chọn dịch vụ trước!");
+                return;
+            }
 
+            Form_them_su_dung_dich_vu f =
+            new Form_them_su_dung_dich_vu(
+            maDichVuDangChon);
+
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                LoadLichSuSuDung(); // reload tại đây mới đúng
+            }
         }
 
-        private void guna2HtmlLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ShadowPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2HtmlLabel5_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

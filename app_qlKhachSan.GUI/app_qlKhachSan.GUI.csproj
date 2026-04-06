@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -132,23 +132,53 @@
     <Compile Include="Form_thanh_toan.Designer.cs">
       <DependentUpon>Form_thanh_toan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_them_dat_phong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_dat_phong.Designer.cs">
+      <DependentUpon>Form_them_dat_phong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_them_dich_vu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_dich_vu.Designer.cs">
+      <DependentUpon>Form_them_dich_vu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_them_khach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_khach.Designer.cs">
+      <DependentUpon>Form_them_khach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_them_khach_o_cung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_khach_o_cung.Designer.cs">
+      <DependentUpon>Form_them_khach_o_cung.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Them_Loai_Phong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_Them_Loai_Phong.Designer.cs">
       <DependentUpon>Form_Them_Loai_Phong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_them_su_dung_dich_vu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_su_dung_dich_vu.Designer.cs">
+      <DependentUpon>Form_them_su_dung_dich_vu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_them_thanh_toan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_thanh_toan.Designer.cs">
+      <DependentUpon>Form_them_thanh_toan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_trang_chu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_trang_chu.Designer.cs">
       <DependentUpon>Form_trang_chu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="From_HoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="From_HoaDon.Designer.cs">
-      <DependentUpon>From_HoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="mdiProperties.cs" />
     <Compile Include="Program.cs" />
@@ -189,14 +219,29 @@
     <EmbeddedResource Include="Form_thanh_toan.resx">
       <DependentUpon>Form_thanh_toan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_dat_phong.resx">
+      <DependentUpon>Form_them_dat_phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_dich_vu.resx">
+      <DependentUpon>Form_them_dich_vu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_khach.resx">
+      <DependentUpon>Form_them_khach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_khach_o_cung.resx">
+      <DependentUpon>Form_them_khach_o_cung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Them_Loai_Phong.resx">
       <DependentUpon>Form_Them_Loai_Phong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_su_dung_dich_vu.resx">
+      <DependentUpon>Form_them_su_dung_dich_vu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_thanh_toan.resx">
+      <DependentUpon>Form_them_thanh_toan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_trang_chu.resx">
       <DependentUpon>Form_trang_chu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="From_HoaDon.resx">
-      <DependentUpon>From_HoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -241,18 +286,9 @@
     <None Include="Resources\256941.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HotelManager.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HotelManager_log.ldf">
-      <DependentUpon>HotelManager.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\app_hotel.bus\app_qlKhachSanl.BUS.csproj">
+    <ProjectReference Include="..\app_hotel.bus\app_qlKhachSan.BUS.csproj">
       <Project>{3bda6bcb-8faa-4695-a55a-00067faefcee}</Project>
-      <Name>app_qlKhachSanl.BUS</Name>
+      <Name>app_qlKhachSan.BUS</Name>
     </ProjectReference>
     <ProjectReference Include="..\app_qlKhachSan.DAL\app_qlKhachSan.DAL.csproj">
       <Project>{85a701ba-de3a-4006-8e27-ca6e3d2d94a0}</Project>

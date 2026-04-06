@@ -1,10 +1,9 @@
 ﻿using System.Data;
+using System.Data.SqlClient;
 using app_qlKhachSan.DAL;
 
 public class DonPhongDAL
 {
-    // ================= LOAD DANH SÁCH CẦN DỌN =================
-
     public DataTable GetDonPhongCanDon()
     {
         string sql = @"
@@ -26,9 +25,6 @@ public class DonPhongDAL
         return DBHelper.ExecuteQuery(sql);
     }
 
-
-    // ================= NHẬN DỌN =================
-
     public bool NhanDon(int maDonPhong, int maNhanVien)
     {
         string updateDonPhong = @"
@@ -40,9 +36,12 @@ public class DonPhongDAL
         ";
 
         bool result1 =
-            DBHelper.Execute(updateDonPhong,
-            maNhanVien,
-            maDonPhong);
+        DBHelper.ExecuteNonQuery(updateDonPhong,
+        new SqlParameter[]
+        {
+            new SqlParameter("@p0", maNhanVien),
+            new SqlParameter("@p1", maDonPhong)
+        }) > 0;
 
 
         string updatePhong = @"
@@ -57,15 +56,15 @@ public class DonPhongDAL
         ";
 
         bool result2 =
-            DBHelper.Execute(updatePhong,
-            maDonPhong);
+        DBHelper.ExecuteNonQuery(updatePhong,
+        new SqlParameter[]
+        {
+            new SqlParameter("@p0", maDonPhong)
+        }) > 0;
 
 
         return result1 && result2;
     }
-
-
-    // ================= HOÀN THÀNH =================
 
     public bool HoanThanhDon(int maDonPhong, string ghiChu)
     {
@@ -79,9 +78,12 @@ public class DonPhongDAL
         ";
 
         bool result1 =
-            DBHelper.Execute(updateDonPhong,
-            ghiChu,
-            maDonPhong);
+        DBHelper.ExecuteNonQuery(updateDonPhong,
+        new SqlParameter[]
+        {
+            new SqlParameter("@p0", ghiChu),
+            new SqlParameter("@p1", maDonPhong)
+        }) > 0;
 
 
         string updatePhong = @"
@@ -96,10 +98,38 @@ public class DonPhongDAL
         ";
 
         bool result2 =
-            DBHelper.Execute(updatePhong,
-            maDonPhong);
+        DBHelper.ExecuteNonQuery(updatePhong,
+        new SqlParameter[]
+        {
+            new SqlParameter("@p0", maDonPhong)
+        }) > 0;
 
 
         return result1 && result2;
     }
+    public bool TaoDonPhong(string maPhong)
+    {
+        string sql = @"
+    INSERT INTO DonPhong
+    (
+        MaPhong,
+        TrangThai,
+        NgayTao
+    )
+    VALUES
+    (
+        @MaPhong,
+        N'CẦN DỌN',
+        GETDATE()
+    )";
+
+        return DBHelper.ExecuteNonQuery(
+            sql,
+            new SqlParameter[]
+            {
+            new SqlParameter("@MaPhong", maPhong)
+            }
+        ) > 0;
+    }
+    
 }
