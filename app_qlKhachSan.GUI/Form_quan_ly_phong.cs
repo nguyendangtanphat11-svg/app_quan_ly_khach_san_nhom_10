@@ -3,7 +3,6 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-
 namespace app_qlKhachSan
 {
     public partial class Form_quan_ly_phong : Form
@@ -23,16 +22,150 @@ namespace app_qlKhachSan
         {
             LoadPhong();
             LoadLoaiPhong();
+
             SetEditMode(false);
 
-            txt_gia.ReadOnly = true;
-            txt_gia.BackColor = Color.LightGray;
+            txtGia.ReadOnly = true;
+            txtGia.BackColor = Color.LightGray;
 
-            // chỉ add event 1 lần duy nhất
             cb_loai_phong.SelectedIndexChanged += cb_loai_phong_SelectedIndexChanged;
+            //giaodien
+            // ===== TẮT THEME GUNA ĐỂ CUSTOM =====
+            tabel_phong.Theme =
+            Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+
+            tabel_phong.EnableHeadersVisualStyles = false;
+
+
+            // ===== HEADER =====
+            tabel_phong.ColumnHeadersDefaultCellStyle.BackColor =
+            Color.FromArgb(55, 65, 81);
+
+            tabel_phong.ColumnHeadersDefaultCellStyle.ForeColor =
+            Color.White;
+
+            tabel_phong.ColumnHeadersDefaultCellStyle.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            tabel_phong.ColumnHeadersHeight = 42;
+
+
+            // ===== ROW =====
+            tabel_phong.DefaultCellStyle.BackColor =
+            Color.FromArgb(249, 250, 251);
+
+            tabel_phong.DefaultCellStyle.ForeColor =
+            Color.FromArgb(31, 41, 55);
+
+            tabel_phong.DefaultCellStyle.Font =
+            new Font("Segoe UI", 10);
+
+
+            // ===== DÒNG XEN KẼ =====
+            tabel_phong.AlternatingRowsDefaultCellStyle.BackColor =
+            Color.FromArgb(243, 244, 246);
+
+
+            // ===== DÒNG ĐANG CHỌN =====
+            tabel_phong.DefaultCellStyle.SelectionBackColor =
+            Color.FromArgb(107, 114, 128);
+
+            tabel_phong.DefaultCellStyle.SelectionForeColor =
+            Color.White;
+
+
+            // ===== GRID =====
+            tabel_phong.GridColor =
+            Color.FromArgb(229, 231, 235);
+
+            tabel_phong.BorderStyle = BorderStyle.None;
+
+            tabel_phong.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+
+
+            // ===== SIZE =====
+            tabel_phong.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
+
+            tabel_phong.RowTemplate.Height = 36;
+
+
+            // ===== BEHAVIOR =====
+            tabel_phong.SelectionMode =
+            DataGridViewSelectionMode.FullRowSelect;
+
+            tabel_phong.MultiSelect = false;
+
+            tabel_phong.AllowUserToAddRows = false;
+
+            tabel_phong.AllowUserToResizeRows = false;
+            tabel_phong.RowHeadersVisible = false;
+            tabel_phong.BackgroundColor = Color.White;
+
+
+
+            // ===== STYLE CHUNG =====
+
+            guna2Button_sua.BorderRadius = 14;
+            guna2Button_luu.BorderRadius = 14;
+            guna2Button_xoa.BorderRadius = 14;
+            guna2Button_huy.BorderRadius = 14;
+
+            guna2Button_sua.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            guna2Button_luu.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            guna2Button_xoa.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            guna2Button_huy.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_sua.Animated = true;
+            guna2Button_luu.Animated = true;
+            guna2Button_xoa.Animated = true;
+            guna2Button_huy.Animated = true;
+
+
+            // ===== MÀU XÁM DASHBOARD =====
+
+            // SỬA
+            guna2Button_sua.FillColor = Color.FromArgb(75, 85, 99);
+            guna2Button_sua.ForeColor = Color.White;
+
+            guna2Button_sua.HoverState.FillColor =
+            Color.FromArgb(55, 65, 81);
+
+
+            // LƯU
+            guna2Button_luu.FillColor = Color.FromArgb(107, 114, 128);
+            guna2Button_luu.ForeColor = Color.White;
+
+            guna2Button_luu.HoverState.FillColor =
+            Color.FromArgb(75, 85, 99);
+
+
+            // XÓA
+            guna2Button_xoa.FillColor = Color.FromArgb(156, 163, 175);
+            guna2Button_xoa.ForeColor = Color.White;
+
+            guna2Button_xoa.HoverState.FillColor =
+            Color.FromArgb(107, 114, 128);
+
+
+            // HỦY
+            guna2Button_huy.FillColor = Color.FromArgb(209, 213, 219);
+            guna2Button_huy.ForeColor = Color.Black;
+
+            guna2Button_huy.HoverState.FillColor =
+            Color.FromArgb(156, 163, 175);
+
+
+            // ===== SHADOW EFFECT =====
+            guna2Button_sua.ShadowDecoration.Enabled = false;
+            guna2Button_luu.ShadowDecoration.Enabled = false;
+            guna2Button_xoa.ShadowDecoration.Enabled = false;
+            guna2Button_huy.ShadowDecoration.Enabled = false;
         }
 
         // ================= LOAD =================
+
         void LoadPhong()
         {
             tabel_phong.DataSource = bus.GetPhong();
@@ -46,20 +179,22 @@ namespace app_qlKhachSan
         }
 
         // ================= AUTO GIÁ =================
+
         private void cb_loai_phong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_loai_phong.SelectedValue == null) return;
+            if (cb_loai_phong.SelectedItem == null) return;
 
             DataRowView row = cb_loai_phong.SelectedItem as DataRowView;
 
             if (row != null)
             {
-                txt_gia.Text = row["GiaTheoNgay"].ToString();
+                txtGia.Text = row["GiaTheoNgay"].ToString();
             }
         }
 
         // ================= SEARCH =================
-        private void txtTimKiem_TextChanged_1(object sender, EventArgs e)
+
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTimKiem.Text))
                 LoadPhong();
@@ -68,7 +203,8 @@ namespace app_qlKhachSan
         }
 
         // ================= CLICK TABLE =================
-        private void tabel_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void tabel_phong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -76,25 +212,25 @@ namespace app_qlKhachSan
 
             maPhongDangChon = row.Cells["MaPhong"].Value.ToString();
 
-            label_ma_phong.Text = maPhongDangChon;
-            label_so_phong.Text = row.Cells["SoPhong"].Value.ToString();
-            label_loai_phong.Text = row.Cells["TenLoaiPhong"].Value.ToString();
-            label_gia.Text = row.Cells["GiaTheoNgay"].Value.ToString();
-            label_trang_thai.Text = row.Cells["TrangThai"].Value.ToString();
+            txtMaPhong.Text = maPhongDangChon;
+            txtSoPhong.Text = row.Cells["SoPhong"].Value.ToString();
+            cb_loai_phong.Text = row.Cells["TenLoaiPhong"].Value.ToString();
+            txtGia.Text = row.Cells["GiaTheoNgay"].Value.ToString();
+            cb_trang_thai.Text = row.Cells["TrangThai"].Value.ToString();
         }
 
         // ================= THÊM =================
+
         private void guna2PictureBox_them_phong_Click(object sender, EventArgs e)
         {
             FormThemPhong f = new FormThemPhong();
 
             if (f.ShowDialog() == DialogResult.OK)
-            {
                 LoadPhong();
-            }
         }
 
         // ================= XÓA =================
+
         private void guna2Button_xoa_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(maPhongDangChon))
@@ -110,10 +246,7 @@ namespace app_qlKhachSan
 
             if (rs == DialogResult.Yes)
             {
-                int maPhong =
-                int.Parse(maPhongDangChon);
-
-                if (bus.DeletePhong(maPhong))
+                if (bus.DeletePhong(int.Parse(maPhongDangChon)))
                 {
                     MessageBox.Show("Xóa thành công!");
                     LoadPhong();
@@ -127,6 +260,7 @@ namespace app_qlKhachSan
         }
 
         // ================= SỬA =================
+
         private void guna2Button_sua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(maPhongDangChon))
@@ -137,38 +271,37 @@ namespace app_qlKhachSan
 
             dangSua = true;
             SetEditMode(true);
-
-            txt_so_phong.Text = label_so_phong.Text;
-            cb_trang_thai.Text = label_trang_thai.Text;
-            cb_loai_phong.Text = label_loai_phong.Text;
         }
 
         // ================= LƯU =================
+
         private void guna2Button_luu_Click(object sender, EventArgs e)
         {
             if (!dangSua) return;
 
-            if (string.IsNullOrWhiteSpace(txt_so_phong.Text) ||
-                string.IsNullOrWhiteSpace(cb_trang_thai.Text))
+            if (string.IsNullOrWhiteSpace(txtSoPhong.Text))
             {
-                MessageBox.Show("Nhập đầy đủ thông tin!");
+                MessageBox.Show("Nhập số phòng!");
                 return;
             }
 
             try
             {
                 bool result = bus.UpdatePhong(
-                maPhongDangChon,
-                txt_so_phong.Text,
-                 cb_loai_phong.SelectedValue.ToString(), // 🔥 thêm dòng này
-                 cb_trang_thai.Text
-                    );
+                    maPhongDangChon,
+                    txtSoPhong.Text,
+                    cb_loai_phong.SelectedValue.ToString(),
+                    cb_trang_thai.Text
+                );
 
                 if (result)
                 {
                     MessageBox.Show("Cập nhật thành công!");
+
                     LoadPhong();
+
                     SetEditMode(false);
+
                     dangSua = false;
                 }
                 else
@@ -183,6 +316,7 @@ namespace app_qlKhachSan
         }
 
         // ================= HỦY =================
+
         private void guna2Button_huy_Click(object sender, EventArgs e)
         {
             dangSua = false;
@@ -191,49 +325,64 @@ namespace app_qlKhachSan
         }
 
         // ================= UI =================
+
         void SetEditMode(bool edit)
         {
-            txt_so_phong.Visible = edit;
-            cb_trang_thai.Visible = edit;
-            cb_loai_phong.Visible = edit;
-            txt_gia.Visible = edit;
+            txtSoPhong.Enabled = edit;
+            cb_loai_phong.Enabled = edit;
+            cb_trang_thai.Enabled = edit;
+            txtGia.Enabled = edit;
+            txtMaPhong.Enabled =edit;
 
-            label_so_phong.Visible = !edit;
-            label_trang_thai.Visible = !edit;
-            label_loai_phong.Visible = !edit;
-            label_gia.Visible = !edit;
+            guna2Button_luu.Enabled = edit;
+            guna2Button_huy.Enabled = edit;
+
+            guna2Button_sua.Enabled = !edit;
+            guna2Button_xoa.Enabled = !edit;
         }
 
         void ClearData()
         {
-            label_ma_phong.Text = "";
-            label_so_phong.Text = "";
-            label_loai_phong.Text = "";
-            label_gia.Text = "";
-            label_trang_thai.Text = "";
+            txtMaPhong.Clear();
+            txtSoPhong.Clear();
+            txtGia.Clear();
+
+            cb_loai_phong.SelectedIndex = -1;
+            cb_trang_thai.SelectedIndex = -1;
 
             maPhongDangChon = "";
         }
 
-        // ================= MỞ FORM LOẠI PHÒNG =================
+        // ================= FORM LOẠI PHÒNG =================
+
         private void guna2PictureBox_Role_Phong_Click(object sender, EventArgs e)
         {
             FormLoaiPhong f = new FormLoaiPhong();
             f.ShowDialog();
-            LoadLoaiPhong(); // reload lại combo
+
+            LoadLoaiPhong();
         }
 
-        // ================= THÊM LOẠI PHÒNG =================
         private void guna2PictureBox4_Click(object sender, EventArgs e)
         {
             Form_Them_Loai_Phong f = new Form_Them_Loai_Phong();
 
             if (f.ShowDialog() == DialogResult.OK)
-            {
                 LoadLoaiPhong();
-            }
         }
 
-        
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!dangSua)
+            {
+                LoadPhong();
+            }
+
+        }
+
+        private void tabel_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

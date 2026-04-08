@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using app_qlKhachSan.BUS;
+﻿using app_qlKhachSan.BUS;
 using app_qlKhachSan.DTO;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace app_qlKhachSan
 {
@@ -10,6 +11,10 @@ namespace app_qlKhachSan
         public FormLogin()
         {
             InitializeComponent();
+        }
+        private async void FormLogin_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -46,6 +51,15 @@ namespace app_qlKhachSan
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+        }
+
+        bool isShowPassword = false;
+
+        private void picShowHide_Click(object sender, EventArgs e)
+        {
+            isShowPassword = !isShowPassword;
+
+            txtPassword.UseSystemPasswordChar = !isShowPassword;
         }
     }
 }
