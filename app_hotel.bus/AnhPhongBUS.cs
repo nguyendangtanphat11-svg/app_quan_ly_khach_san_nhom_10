@@ -11,5 +11,10 @@ namespace app_qlKhachSan.BUS
         {
             return dal.InsertAnhPhong(a);
         }
+        public string GetAnhTheoTenLoaiPhong(string tenLoaiPhong)
+        {
+            return dal.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
+        }
     }
+
 }

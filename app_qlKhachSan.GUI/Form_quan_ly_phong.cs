@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app_qlKhachSan.BUS;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -9,9 +10,11 @@ namespace app_qlKhachSan
     {
         PhongBUS bus = new PhongBUS();
         LoaiPhongBUS loaiPhongBUS = new LoaiPhongBUS();
+        AnhPhongBUS anhBUS = new AnhPhongBUS();
 
         string maPhongDangChon = "";
         bool dangSua = false;
+
 
         public Form_quan_ly_phong()
         {
@@ -48,6 +51,13 @@ namespace app_qlKhachSan
             new Font("Segoe UI", 10, FontStyle.Bold);
 
             tabel_phong.ColumnHeadersHeight = 42;
+            tabel_phong.DefaultCellStyle.Font =
+             new Font("Segoe UI", 11, FontStyle.Regular);
+
+            tabel_phong.ColumnHeadersDefaultCellStyle.Font =
+            new Font("Segoe UI", 11, FontStyle.Bold);
+
+            tabel_phong.RowTemplate.Height = 42;
 
 
             // ===== ROW =====
@@ -88,7 +98,7 @@ namespace app_qlKhachSan
             tabel_phong.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.Fill;
 
-            tabel_phong.RowTemplate.Height = 36;
+            
 
 
             // ===== BEHAVIOR =====
@@ -162,6 +172,18 @@ namespace app_qlKhachSan
             guna2Button_luu.ShadowDecoration.Enabled = false;
             guna2Button_xoa.ShadowDecoration.Enabled = false;
             guna2Button_huy.ShadowDecoration.Enabled = false;
+
+            //txt 
+            txtMaPhong.FillColor = Color.FromArgb(243, 244, 246);
+            txtSoPhong.FillColor = Color.FromArgb(243, 244, 246);
+            //load dau tien
+            if (tabel_phong.Rows.Count > 0)
+            {
+                tabel_phong.Rows[0].Selected = true;
+                tabel_phong_CellClick(tabel_phong,
+                    new DataGridViewCellEventArgs(0, 0));
+            }
+
         }
 
         // ================= LOAD =================
@@ -177,6 +199,24 @@ namespace app_qlKhachSan
             cb_loai_phong.DisplayMember = "TenLoaiPhong";
             cb_loai_phong.ValueMember = "MaLoaiPhong";
         }
+        private void tabel_phong_CellFormatting(object sender,
+              DataGridViewCellFormattingEventArgs e)
+{
+    if (tabel_phong.Columns[e.ColumnIndex].Name == "TrangThai")
+    {
+        string trangThai = e.Value.ToString();
+
+        if (trangThai == "TRỐNG")
+            e.CellStyle.ForeColor = Color.Green;
+
+        else if (trangThai == "CẦN DỌN")
+            e.CellStyle.ForeColor = Color.DarkOrange;
+
+        else if (trangThai == "ĐANG Ở")
+            e.CellStyle.ForeColor = Color.Red;
+
+    }
+}
 
         // ================= AUTO GIÁ =================
 
@@ -217,6 +257,21 @@ namespace app_qlKhachSan
             cb_loai_phong.Text = row.Cells["TenLoaiPhong"].Value.ToString();
             txtGia.Text = row.Cells["GiaTheoNgay"].Value.ToString();
             cb_trang_thai.Text = row.Cells["TrangThai"].Value.ToString();
+
+            // ===== load ảnh phòng =====
+
+            string tenLoaiPhong = row.Cells["TenLoaiPhong"].Value.ToString();
+
+            string duongDanAnh = anhBUS.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
+
+            if (!string.IsNullOrEmpty(duongDanAnh))
+            {
+                picPhong.ImageLocation = duongDanAnh;
+            }
+            else
+            {
+                picPhong.Image = null;
+            }
         }
 
         // ================= THÊM =================
@@ -381,6 +436,11 @@ namespace app_qlKhachSan
         }
 
         private void tabel_phong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabel_phong_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }

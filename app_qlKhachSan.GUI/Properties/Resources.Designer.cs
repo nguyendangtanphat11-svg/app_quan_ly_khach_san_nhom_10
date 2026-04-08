@@ -183,6 +183,16 @@ namespace app_qlKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pngtree_hotel_room_with_a_view_picture_image_16322368 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-hotel-room-with-a-view-picture-image_16322368", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap see {
             get {
                 object obj = ResourceManager.GetObject("see", resourceCulture);

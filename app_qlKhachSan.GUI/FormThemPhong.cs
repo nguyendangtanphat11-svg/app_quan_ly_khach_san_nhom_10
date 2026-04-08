@@ -29,6 +29,7 @@ namespace app_qlKhachSan
             cbTrangThai.Items.Add("Trống");
             cbTrangThai.Items.Add("Đang thuê");
             cbTrangThai.SelectedIndex = 0;
+            cbLoaiPhong.SelectedIndexChanged += cbLoaiPhong_SelectedIndexChanged;
         }
 
         // ================= LOAD LOẠI PHÒNG =================
@@ -123,6 +124,7 @@ namespace app_qlKhachSan
                     }
 
                     MessageBox.Show("Thêm phòng thành công");
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
@@ -140,6 +142,32 @@ namespace app_qlKhachSan
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLoaiPhong.SelectedValue == null) return;
+
+            string tenLoaiPhong = cbLoaiPhong.Text;
+
+            string anh = anhBUS.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
+
+            if (!string.IsNullOrEmpty(anh))
+            {
+                picPhong.ImageLocation = anh;
+
+                duongDanAnh = anh;
+
+                btnChonAnh.Enabled = false; // đã có ảnh rồi thì khóa nút chọn ảnh
+            }
+            else
+            {
+                picPhong.Image = null;
+
+                duongDanAnh = "";
+
+                btnChonAnh.Enabled = true; // chưa có ảnh thì cho chọn
+            }
         }
     }
 }

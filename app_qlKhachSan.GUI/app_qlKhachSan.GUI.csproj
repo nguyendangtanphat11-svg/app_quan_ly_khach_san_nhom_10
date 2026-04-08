@@ -353,5 +353,8 @@
   <ItemGroup>
     <None Include="Resources\bell.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-hotel-room-with-a-view-picture-image_16322368.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
