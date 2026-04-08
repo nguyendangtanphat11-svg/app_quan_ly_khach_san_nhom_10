@@ -61,10 +61,38 @@ namespace app_qlKhachSan
         {
             chartDoanhThu.Series.Clear();
 
+            chartDoanhThu.BackColor = Color.White;
+
+            chartDoanhThu.ChartAreas[0].BackColor = Color.White;
+
+            chartDoanhThu.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+
+            chartDoanhThu.ChartAreas[0].AxisY.MajorGrid.LineColor =
+                Color.FromArgb(229, 231, 235);
+
+            chartDoanhThu.ChartAreas[0].AxisX.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+            chartDoanhThu.ChartAreas[0].AxisY.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+            chartDoanhThu.ChartAreas[0].AxisX.LineColor =
+                Color.FromArgb(209, 213, 219);
+
+            chartDoanhThu.ChartAreas[0].AxisY.LineColor =
+                Color.FromArgb(209, 213, 219);
+
+
             Series series = new Series("Doanh Thu");
+
             series.ChartType = SeriesChartType.Column;
-            series.Color = Color.FromArgb(52, 152, 219);
+
+            series.Color = Color.FromArgb(107, 114, 128);
+
             series.IsValueShownAsLabel = true;
+
+            series.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
 
             var data = bus.DoanhThuThang();
 
@@ -74,6 +102,15 @@ namespace app_qlKhachSan
             }
 
             chartDoanhThu.Series.Add(series);
+
+
+            chartDoanhThu.Legends[0].Font =
+                new Font("Segoe UI", 10);
+
+            chartDoanhThu.Legends[0].ForeColor =
+                Color.FromArgb(55, 65, 81);
+            series.ChartType = SeriesChartType.Column;
+            series["PointWidth"] = "0.5";
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -272,6 +309,221 @@ namespace app_qlKhachSan
         }
 
         private void icon_doanh_thu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_sophong_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_bieu_do_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chartDoanhThu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_bieu_do_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel_doang_thu_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_chu_thich_doang_thu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_so_luong_doang_thu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_doang_thu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_phong_o_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_chu_thich__phong_o_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_so_luong__phong_o_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label__phong_o_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lablel_so_phong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_chu_thich_phong_trong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_so_luong_phong_trong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_phong_trong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_chuthich__so_phong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_so_luong__so_phong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_tai_khoan_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_kq_sdt_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_kq_ho_ten_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_sdt_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_hoten_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_kq_vai_tro_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_taikhoan_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_vai_tro_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel21_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_dich_vu_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_so_luong_dich_vu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_dich_vu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label_phong_trong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_doanh_thu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_phong_o_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_phong_trong_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void icon_so_phong_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_tai_khoan_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void icon_dich_vu_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel_phong_o_Paint_2(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void chartDoanhThu_Click_2(object sender, EventArgs e)
         {
 
         }

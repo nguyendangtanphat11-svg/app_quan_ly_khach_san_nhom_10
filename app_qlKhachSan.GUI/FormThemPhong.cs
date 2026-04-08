@@ -1,5 +1,7 @@
-﻿using app_qlKhachSan.DTO;
+﻿using app_qlKhachSan.BUS;
+using app_qlKhachSan.DTO;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace app_qlKhachSan
@@ -8,6 +10,10 @@ namespace app_qlKhachSan
     {
         PhongBUS phongBUS = new PhongBUS();
         LoaiPhongBUS loaiPhongBUS = new LoaiPhongBUS();
+        AnhPhongBUS anhBUS = new AnhPhongBUS();
+
+        // biến lưu đường dẫn ảnh
+        string duongDanAnh = "";
 
         public FormThemPhong()
         {
@@ -23,6 +29,7 @@ namespace app_qlKhachSan
             cbTrangThai.Items.Add("Trống");
             cbTrangThai.Items.Add("Đang thuê");
             cbTrangThai.SelectedIndex = 0;
+            cbLoaiPhong.SelectedIndexChanged += cbLoaiPhong_SelectedIndexChanged;
         }
 
         // ================= LOAD LOẠI PHÒNG =================
@@ -40,10 +47,37 @@ namespace app_qlKhachSan
             }
         }
 
+        // ================= CHỌN ẢNH =================
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string folder = Application.StartupPath + "\\Images\\Phong\\";
+
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                string fileName = Path.GetFileName(ofd.FileName);
+
+                string newPath = folder + fileName;
+
+                File.Copy(ofd.FileName, newPath, true);
+
+                duongDanAnh = newPath;
+
+                picPhong.ImageLocation = newPath;
+            }
+        }
+
         // ================= LƯU =================
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            // Validate trước
             if (string.IsNullOrWhiteSpace(txtSoPhong.Text))
             {
                 MessageBox.Show("Vui lòng nhập số phòng");
@@ -76,12 +110,26 @@ namespace app_qlKhachSan
 
                 if (result)
                 {
+                    // lưu ảnh phòng vào bảng AnhPhong
+                    if (!string.IsNullOrEmpty(duongDanAnh))
+                    {
+                        AnhPhongDTO anh = new AnhPhongDTO()
+                        {
+                            MaLoaiPhong = cbLoaiPhong.SelectedValue.ToString(),
+                            DuongDanAnh = duongDanAnh,
+                            MoTa = "Ảnh phòng"
+                        };
+
+                        anhBUS.InsertAnhPhong(anh);
+                    }
+
                     MessageBox.Show("Thêm phòng thành công");
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Thêm phòng thất bại");
                 }
             }
             catch (Exception ex)
@@ -94,6 +142,32 @@ namespace app_qlKhachSan
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbLoaiPhong.SelectedValue == null) return;
+
+            string tenLoaiPhong = cbLoaiPhong.Text;
+
+            string anh = anhBUS.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
+
+            if (!string.IsNullOrEmpty(anh))
+            {
+                picPhong.ImageLocation = anh;
+
+                duongDanAnh = anh;
+
+                btnChonAnh.Enabled = false; // đã có ảnh rồi thì khóa nút chọn ảnh
+            }
+            else
+            {
+                picPhong.Image = null;
+
+                duongDanAnh = "";
+
+                btnChonAnh.Enabled = true; // chưa có ảnh thì cho chọn
+            }
         }
     }
 }

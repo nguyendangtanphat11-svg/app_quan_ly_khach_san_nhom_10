@@ -35,22 +35,26 @@
             this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel_HINHANH1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.hinhanhlogin1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.chaomung = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.hinhanhlogin1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.picShowHide = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2PanelLogin.SuspendLayout();
             this.guna2Panel_HINHANH1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hinhanhlogin1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PanelLogin
             // 
-            this.guna2PanelLogin.BackColor = System.Drawing.Color.White;
+            this.guna2PanelLogin.BackColor = System.Drawing.Color.Black;
+            this.guna2PanelLogin.Controls.Add(this.picShowHide);
             this.guna2PanelLogin.Controls.Add(this.Button_dangnhap);
             this.guna2PanelLogin.Controls.Add(this.tieudedangnhap);
             this.guna2PanelLogin.Controls.Add(this.txtPassword);
@@ -63,7 +67,7 @@
             this.guna2PanelLogin.Name = "guna2PanelLogin";
             this.guna2PanelLogin.Size = new System.Drawing.Size(355, 550);
             this.guna2PanelLogin.TabIndex = 0;
-           
+            // 
             // Button_dangnhap
             // 
             this.Button_dangnhap.BackColor = System.Drawing.Color.Transparent;
@@ -90,13 +94,13 @@
             this.tieudedangnhap.AutoSize = false;
             this.tieudedangnhap.BackColor = System.Drawing.Color.Transparent;
             this.tieudedangnhap.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tieudedangnhap.Location = new System.Drawing.Point(103, 146);
+            this.tieudedangnhap.ForeColor = System.Drawing.Color.White;
+            this.tieudedangnhap.Location = new System.Drawing.Point(112, 146);
             this.tieudedangnhap.Margin = new System.Windows.Forms.Padding(4);
             this.tieudedangnhap.Name = "tieudedangnhap";
             this.tieudedangnhap.Size = new System.Drawing.Size(150, 45);
             this.tieudedangnhap.TabIndex = 3;
             this.tieudedangnhap.Text = "Đăng Nhập";
-          
             // 
             // txtPassword
             // 
@@ -124,7 +128,6 @@
             this.txtPassword.Size = new System.Drawing.Size(310, 50);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
-            
             // 
             // guna2TextBox2
             // 
@@ -170,49 +173,34 @@
             this.txtUsername.SelectedText = "";
             this.txtUsername.Size = new System.Drawing.Size(310, 50);
             this.txtUsername.TabIndex = 0;
-            
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.guna2PanelLogin;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl2.TargetControl = this.hinhanhlogin1;
+            this.guna2DragControl2.UseTransparentDrag = true;
             // 
             // guna2Panel_HINHANH1
             // 
-            this.guna2Panel_HINHANH1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel_HINHANH1.BackColor = System.Drawing.Color.Black;
             this.guna2Panel_HINHANH1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2Panel_HINHANH1.Controls.Add(this.guna2ControlBox1);
+            this.guna2Panel_HINHANH1.Controls.Add(this.guna2ControlBox2);
             this.guna2Panel_HINHANH1.Controls.Add(this.guna2GradientPanel1);
             this.guna2Panel_HINHANH1.Controls.Add(this.hinhanhlogin1);
             this.guna2Panel_HINHANH1.Controls.Add(this.chaomung);
-            this.guna2Panel_HINHANH1.Controls.Add(this.guna2ControlBox2);
-            this.guna2Panel_HINHANH1.Controls.Add(this.guna2ControlBox1);
             this.guna2Panel_HINHANH1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel_HINHANH1.Location = new System.Drawing.Point(355, 0);
             this.guna2Panel_HINHANH1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel_HINHANH1.Name = "guna2Panel_HINHANH1";
             this.guna2Panel_HINHANH1.Size = new System.Drawing.Size(595, 550);
             this.guna2Panel_HINHANH1.TabIndex = 1;
-            
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.BackColor = System.Drawing.Color.DimGray;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(3, 862);
-            this.guna2GradientPanel1.TabIndex = 5;
-          
-            // 
-            // hinhanhlogin1
-            // 
-            this.hinhanhlogin1.BackColor = System.Drawing.Color.Transparent;
-            this.hinhanhlogin1.ErrorImage = null;
-            this.hinhanhlogin1.Image = global::app_qlKhachSan.Properties.Resources.pngtree_cartoon_hotel_and_shop_design_vector_illustration_png_image_6833907;
-            this.hinhanhlogin1.ImageRotate = 0F;
-            this.hinhanhlogin1.Location = new System.Drawing.Point(11, 77);
-            this.hinhanhlogin1.Margin = new System.Windows.Forms.Padding(4);
-            this.hinhanhlogin1.Name = "hinhanhlogin1";
-            this.hinhanhlogin1.Size = new System.Drawing.Size(247, 441);
-            this.hinhanhlogin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.hinhanhlogin1.TabIndex = 6;
-            this.hinhanhlogin1.TabStop = false;
-           
             // 
             // chaomung
             // 
@@ -225,7 +213,6 @@
             this.chaomung.Size = new System.Drawing.Size(303, 160);
             this.chaomung.TabIndex = 5;
             this.chaomung.Text = "Chào mừng đến với ứng dụng \r\nquản lý khách sạn";
-           
             // 
             // guna2ControlBox2
             // 
@@ -236,14 +223,13 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(489, 4);
+            this.guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(475, 0);
             this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(56, 48);
             this.guna2ControlBox2.TabIndex = 5;
-          
             // 
             // guna2ControlBox1
             // 
@@ -254,29 +240,61 @@
             this.guna2ControlBox1.BorderThickness = 1;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.ForeColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(539, 4);
+            this.guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Firebrick;
+            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox1.Location = new System.Drawing.Point(539, 0);
             this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(56, 48);
             this.guna2ControlBox1.TabIndex = 4;
-            
             // 
-            // guna2DragControl1
+            // hinhanhlogin1
             // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.guna2PanelLogin;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this.hinhanhlogin1.BackColor = System.Drawing.Color.Transparent;
+            this.hinhanhlogin1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hinhanhlogin1.ErrorImage = null;
+            this.hinhanhlogin1.Image = global::app_qlKhachSan.Properties.Resources.dreamina_image_ezgif2;
+            this.hinhanhlogin1.ImageRotate = 0F;
+            this.hinhanhlogin1.Location = new System.Drawing.Point(0, 0);
+            this.hinhanhlogin1.Margin = new System.Windows.Forms.Padding(4);
+            this.hinhanhlogin1.Name = "hinhanhlogin1";
+            this.hinhanhlogin1.Size = new System.Drawing.Size(595, 550);
+            this.hinhanhlogin1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.hinhanhlogin1.TabIndex = 6;
+            this.hinhanhlogin1.TabStop = false;
             // 
-            // guna2DragControl2
+            // picShowHide
             // 
-            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl2.TargetControl = this.guna2Panel_HINHANH1;
-            this.guna2DragControl2.UseTransparentDrag = true;
+            this.picShowHide.BackColor = System.Drawing.Color.White;
+            this.picShowHide.Image = global::app_qlKhachSan.Properties.Resources.see;
+            this.picShowHide.ImageRotate = 0F;
+            this.picShowHide.Location = new System.Drawing.Point(302, 289);
+            this.picShowHide.Name = "picShowHide";
+            this.picShowHide.Size = new System.Drawing.Size(21, 22);
+            this.picShowHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picShowHide.TabIndex = 5;
+            this.picShowHide.TabStop = false;
+            this.picShowHide.Click += new System.EventHandler(this.picShowHide_Click);
+            // 
+            // guna2GradientPanel1
+            // 
+            this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2GradientPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(3, 862);
+            this.guna2GradientPanel1.TabIndex = 5;
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.BorderRadius = 20;
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // FormLogin
             // 
+            this.AcceptButton = this.Button_dangnhap;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
@@ -290,9 +308,11 @@
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
+            this.Load += new System.EventHandler(this.FormLogin_Load);
             this.guna2PanelLogin.ResumeLayout(false);
             this.guna2Panel_HINHANH1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hinhanhlogin1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picShowHide)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,9 +330,11 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private Guna.UI2.WinForms.Guna2PictureBox hinhanhlogin1;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2HtmlLabel tieudedangnhap;
         private Guna.UI2.WinForms.Guna2HtmlLabel chaomung;
+        private Guna.UI2.WinForms.Guna2PictureBox picShowHide;
+        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }
 

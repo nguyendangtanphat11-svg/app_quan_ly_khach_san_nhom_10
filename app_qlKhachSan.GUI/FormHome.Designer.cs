@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.top = new Guna.UI2.WinForms.Guna2Panel();
             this.logo = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -46,9 +47,9 @@
             this.panel_hehong2 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel_taikhoan = new Guna.UI2.WinForms.Guna2Panel();
             this.panel_dangxuat = new Guna.UI2.WinForms.Guna2Panel();
-            this.seeting_time = new System.Windows.Forms.Timer();
-            this.menu_time = new System.Windows.Forms.Timer();
-            this.kéo = new Guna.UI2.WinForms.Guna2DragControl();
+            this.seeting_time = new System.Windows.Forms.Timer(this.components);
+            this.menu_time = new System.Windows.Forms.Timer(this.components);
+            this.kéo = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.Button_trangchu = new Guna.UI2.WinForms.Guna2Button();
             this.button_quanlyphong = new Guna.UI2.WinForms.Guna2Button();
             this.button_quanlykhachhang = new Guna.UI2.WinForms.Guna2Button();
@@ -59,9 +60,6 @@
             this.button_seting = new Guna.UI2.WinForms.Guna2Button();
             this.button_taikhoan = new Guna.UI2.WinForms.Guna2Button();
             this.button_dangxuat = new Guna.UI2.WinForms.Guna2Button();
-            this.icon_tinnhan = new Guna.UI2.WinForms.Guna2Button();
-            this.avatar = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.icon_thongbao = new Guna.UI2.WinForms.Guna2Button();
             this.icon_menu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.top.SuspendLayout();
             this.menu.SuspendLayout();
@@ -82,10 +80,7 @@
             // top
             // 
             this.top.BackColor = System.Drawing.Color.White;
-            this.top.Controls.Add(this.icon_tinnhan);
-            this.top.Controls.Add(this.avatar);
             this.top.Controls.Add(this.logo);
-            this.top.Controls.Add(this.icon_thongbao);
             this.top.Controls.Add(this.phongto);
             this.top.Controls.Add(this.thunho);
             this.top.Controls.Add(this.exit);
@@ -99,12 +94,12 @@
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
-            this.logo.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logo.Location = new System.Drawing.Point(89, 12);
+            this.logo.Font = new System.Drawing.Font("Segoe UI", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logo.Location = new System.Drawing.Point(64, 12);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(106, 39);
+            this.logo.Size = new System.Drawing.Size(150, 34);
             this.logo.TabIndex = 9;
-            this.logo.Text = "logo____";
+            this.logo.Text = "BLUE OCEAN";
             // 
             // phongto
             // 
@@ -492,67 +487,14 @@
             this.button_dangxuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.button_dangxuat.TextOffset = new System.Drawing.Point(30, 0);
             // 
-            // icon_tinnhan
-            // 
-            this.icon_tinnhan.BackColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.icon_tinnhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.icon_tinnhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.icon_tinnhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.icon_tinnhan.FillColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.icon_tinnhan.ForeColor = System.Drawing.Color.Transparent;
-            this.icon_tinnhan.Image = ((System.Drawing.Image)(resources.GetObject("icon_tinnhan.Image")));
-            this.icon_tinnhan.ImageSize = new System.Drawing.Size(30, 30);
-            this.icon_tinnhan.Location = new System.Drawing.Point(889, 12);
-            this.icon_tinnhan.Name = "icon_tinnhan";
-            this.icon_tinnhan.Size = new System.Drawing.Size(61, 45);
-            this.icon_tinnhan.TabIndex = 3;
-            // 
-            // avatar
-            // 
-            this.avatar.BackColor = System.Drawing.Color.Transparent;
-            this.avatar.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.avatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.avatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.avatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.avatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.avatar.FillColor = System.Drawing.Color.Transparent;
-            this.avatar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.avatar.ForeColor = System.Drawing.Color.Transparent;
-            this.avatar.Image = ((System.Drawing.Image)(resources.GetObject("avatar.Image")));
-            this.avatar.ImageSize = new System.Drawing.Size(50, 50);
-            this.avatar.Location = new System.Drawing.Point(956, 3);
-            this.avatar.Name = "avatar";
-            this.avatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.avatar.Size = new System.Drawing.Size(62, 57);
-            this.avatar.TabIndex = 10;
-            // 
-            // icon_thongbao
-            // 
-            this.icon_thongbao.BackColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.icon_thongbao.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.icon_thongbao.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.icon_thongbao.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.icon_thongbao.FillColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.icon_thongbao.ForeColor = System.Drawing.Color.Transparent;
-            this.icon_thongbao.Image = ((System.Drawing.Image)(resources.GetObject("icon_thongbao.Image")));
-            this.icon_thongbao.ImageSize = new System.Drawing.Size(30, 30);
-            this.icon_thongbao.Location = new System.Drawing.Point(822, 12);
-            this.icon_thongbao.Name = "icon_thongbao";
-            this.icon_thongbao.Size = new System.Drawing.Size(61, 45);
-            this.icon_thongbao.TabIndex = 11;
-            // 
             // icon_menu
             // 
             this.icon_menu.FillColor = System.Drawing.Color.Transparent;
             this.icon_menu.Image = ((System.Drawing.Image)(resources.GetObject("icon_menu.Image")));
             this.icon_menu.ImageRotate = 0F;
-            this.icon_menu.Location = new System.Drawing.Point(6, 12);
+            this.icon_menu.Location = new System.Drawing.Point(0, 9);
             this.icon_menu.Name = "icon_menu";
-            this.icon_menu.Size = new System.Drawing.Size(63, 45);
+            this.icon_menu.Size = new System.Drawing.Size(58, 48);
             this.icon_menu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.icon_menu.TabIndex = 1;
             this.icon_menu.TabStop = false;
@@ -625,8 +567,5 @@
         private System.Windows.Forms.Timer seeting_time;
         private System.Windows.Forms.Timer menu_time;
         private Guna.UI2.WinForms.Guna2DragControl kéo;
-        private Guna.UI2.WinForms.Guna2CircleButton avatar;
-        private Guna.UI2.WinForms.Guna2Button icon_tinnhan;
-        private Guna.UI2.WinForms.Guna2Button icon_thongbao;
     }
 }

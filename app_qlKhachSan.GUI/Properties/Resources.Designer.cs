@@ -103,6 +103,66 @@ namespace app_qlKhachSan.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _67d30f133960193_635dd1583280c {
+            get {
+                object obj = ResourceManager.GetObject("67d30f133960193.635dd1583280c", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bell {
+            get {
+                object obj = ResourceManager.GetObject("bell", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dreamina_image_ezgif_com_crop {
+            get {
+                object obj = ResourceManager.GetObject("dreamina.image-ezgif.com-crop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dreamina_image_ezgif1 {
+            get {
+                object obj = ResourceManager.GetObject("dreamina.image-ezgif1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dreamina_image_ezgif2 {
+            get {
+                object obj = ResourceManager.GetObject("dreamina.image-ezgif2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_khách_sạn_Blue_Ocean_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Logo_khách_sạn_Blue_Ocean-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menu_icon_6 {
             get {
                 object obj = ResourceManager.GetObject("menu-icon-6", resourceCulture);
@@ -116,6 +176,36 @@ namespace app_qlKhachSan.Properties {
         internal static System.Drawing.Bitmap pngtree_cartoon_hotel_and_shop_design_vector_illustration_png_image_6833907 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-cartoon-hotel-and-shop-design-vector-illustration-png-image_6833907", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_hotel_room_with_a_view_picture_image_16322368 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-hotel-room-with-a-view-picture-image_16322368", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap see {
+            get {
+                object obj = ResourceManager.GetObject("see", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user__1_ {
+            get {
+                object obj = ResourceManager.GetObject("user (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

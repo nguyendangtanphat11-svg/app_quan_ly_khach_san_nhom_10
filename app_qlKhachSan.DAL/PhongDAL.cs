@@ -1,4 +1,5 @@
-﻿using app_qlKhachSan.DTO;
+﻿using app_qlKhachSan.DAL;
+using app_qlKhachSan.DTO;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -198,60 +199,14 @@ public class PhongDAL
     // ================= DELETE =================
     public bool DeletePhong(int maPhong)
     {
-        using (SqlConnection conn =
-               new SqlConnection(connectionString))
+        string sql = "DELETE FROM Phong WHERE MaPhong=@MaPhong";
+
+        SqlParameter[] param =
         {
-            conn.Open();
+        new SqlParameter("@MaPhong", maPhong)
+    };
 
-            SqlTransaction tran =
-            conn.BeginTransaction();
-
-            try
-            {
-                // Xóa đặt phòng trước
-                SqlCommand cmd1 =
-                new SqlCommand(
-                @"DELETE FROM DatPhong
-              WHERE MaPhong=@MaPhong",
-                conn, tran);
-
-                cmd1.Parameters.AddWithValue("@MaPhong", maPhong);
-                cmd1.ExecuteNonQuery();
-
-
-                // Xóa đơn phòng
-                SqlCommand cmd2 =
-                new SqlCommand(
-                @"DELETE FROM DonPhong
-              WHERE MaPhong=@MaPhong",
-                conn, tran);
-
-                cmd2.Parameters.AddWithValue("@MaPhong", maPhong);
-                cmd2.ExecuteNonQuery();
-
-
-                // Xóa phòng
-                SqlCommand cmd3 =
-                new SqlCommand(
-                @"DELETE FROM Phong
-              WHERE MaPhong=@MaPhong",
-                conn, tran);
-
-                cmd3.Parameters.AddWithValue("@MaPhong", maPhong);
-                cmd3.ExecuteNonQuery();
-
-
-                tran.Commit();
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-               
-                tran.Rollback();
-                return false;
-            }
-        }
+        return DBHelper.ExecuteNonQuery(sql, param) > 0;
     }
     // ================= them phong =================
     public bool InsertPhong(PhongDTO p)
