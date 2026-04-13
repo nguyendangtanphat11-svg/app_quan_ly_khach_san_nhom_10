@@ -15,6 +15,8 @@ namespace app_qlKhachSan
         public FormLoaiPhong()
         {
             InitializeComponent();
+            StyleDataGridViewLoaiPhong();
+            StyleButtonsLoaiPhong();
         }
 
         private void FormLoaiPhong_Load(object sender, EventArgs e)
@@ -168,6 +170,129 @@ EventArgs e)
             txtSoNguoi.BackColor = edit ? Color.White : Color.LightGray;
             txtMoTa.BackColor = edit ? Color.White : Color.LightGray;
         }
+        private void StyleDataGridViewLoaiPhong()
+        {
+            dgvLoaiPhong.Theme =
+            Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+
+            dgvLoaiPhong.EnableHeadersVisualStyles = false;
+
+
+            // HEADER STYLE
+            dgvLoaiPhong.ColumnHeadersDefaultCellStyle.BackColor =
+            Color.FromArgb(55, 65, 81);
+
+            dgvLoaiPhong.ColumnHeadersDefaultCellStyle.ForeColor =
+            Color.White;
+
+            dgvLoaiPhong.ColumnHeadersDefaultCellStyle.Font =
+            new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            dgvLoaiPhong.ColumnHeadersDefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleCenter;
+
+            dgvLoaiPhong.ColumnHeadersHeight = 40;
+
+
+            // ROW STYLE
+            dgvLoaiPhong.DefaultCellStyle.BackColor =
+            Color.FromArgb(249, 250, 251);
+
+            dgvLoaiPhong.DefaultCellStyle.ForeColor =
+            Color.FromArgb(31, 41, 55);
+
+            dgvLoaiPhong.DefaultCellStyle.Font =
+            new Font("Segoe UI", 10F);
+
+            dgvLoaiPhong.RowTemplate.Height = 40;
+
+
+            // ALTERNATE COLOR
+            dgvLoaiPhong.AlternatingRowsDefaultCellStyle.BackColor =
+            Color.FromArgb(243, 244, 246);
+
+
+            // SELECTED ROW
+            dgvLoaiPhong.DefaultCellStyle.SelectionBackColor =
+            Color.FromArgb(107, 114, 128);
+
+            dgvLoaiPhong.DefaultCellStyle.SelectionForeColor =
+            Color.White;
+
+
+            // GRID STYLE
+            dgvLoaiPhong.GridColor =
+            Color.FromArgb(229, 231, 235);
+
+            dgvLoaiPhong.BorderStyle = BorderStyle.None;
+
+            dgvLoaiPhong.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+
+
+            // SIZE
+            dgvLoaiPhong.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvLoaiPhong.SelectionMode =
+            DataGridViewSelectionMode.FullRowSelect;
+
+            dgvLoaiPhong.MultiSelect = false;
+
+            dgvLoaiPhong.AllowUserToAddRows = false;
+
+            dgvLoaiPhong.AllowUserToResizeRows = false;
+
+            dgvLoaiPhong.RowHeadersVisible = false;
+
+            dgvLoaiPhong.BackgroundColor = Color.White;
+        }
+        private void StyleButtonsLoaiPhong()
+        {
+            guna2Button_sua.BorderRadius = 14;
+            guna2Button_luu.BorderRadius = 14;
+            guna2Button_xoa.BorderRadius = 14;
+            guna2Button_huy.BorderRadius = 14;
+
+
+            guna2Button_sua.FillColor =
+            Color.FromArgb(75, 85, 99);
+
+            guna2Button_luu.FillColor =
+            Color.FromArgb(107, 114, 128);
+
+            guna2Button_xoa.FillColor =
+            Color.FromArgb(156, 163, 175);
+
+            guna2Button_huy.FillColor =
+            Color.FromArgb(209, 213, 219);
+
+
+            guna2Button_sua.ForeColor = Color.White;
+            guna2Button_luu.ForeColor = Color.White;
+            guna2Button_xoa.ForeColor = Color.White;
+            guna2Button_huy.ForeColor = Color.Black;
+
+
+            guna2Button_sua.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_luu.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_xoa.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_huy.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+
+            guna2Button_sua.Animated = true;
+            guna2Button_luu.Animated = true;
+            guna2Button_xoa.Animated = true;
+            guna2Button_huy.Animated = true;
+        }
+
 
 
     }

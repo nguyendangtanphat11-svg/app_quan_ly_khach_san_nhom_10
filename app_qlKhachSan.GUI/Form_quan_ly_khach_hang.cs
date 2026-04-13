@@ -1,8 +1,9 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
-using app_qlKhachSan.BUS;
+﻿using app_qlKhachSan.BUS;
 using app_qlKhachSan.DTO;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace app_qlKhachSan
 {
@@ -34,11 +35,13 @@ namespace app_qlKhachSan
         {
 
             this.ControlBox = false;
-
+            StyleButtonsLoaiPhong();
             LoadDanhSach();
             LoadLoaiKhach();
-
+            
             KhoaTextBox(false);
+            StyleDataGridView(dgvKhachHang);
+            
         }
 
 
@@ -221,7 +224,157 @@ namespace app_qlKhachSan
 
             KhoaTextBox(false);
         }
+        private void StyleDataGridView(DataGridView dgv)
+        {
+            // reset theme Guna tránh override style
+            if (dgv is Guna.UI2.WinForms.Guna2DataGridView gunaDgv)
+            {
+                gunaDgv.Theme =
+                Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            }
 
-        
+            dgv.EnableHeadersVisualStyles = false;
+
+
+            // HEADER STYLE
+            dgv.ColumnHeadersDefaultCellStyle.BackColor =
+            Color.FromArgb(55, 65, 81);
+
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor =
+            Color.White;
+
+            dgv.ColumnHeadersDefaultCellStyle.Font =
+            new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            dgv.ColumnHeadersDefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.ColumnHeadersHeight = 45;
+
+            dgv.ColumnHeadersHeightSizeMode =
+            DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+
+            // ROW STYLE
+            dgv.DefaultCellStyle.BackColor =
+            Color.FromArgb(249, 250, 251);
+
+            dgv.DefaultCellStyle.ForeColor =
+            Color.FromArgb(31, 41, 55);
+
+            dgv.DefaultCellStyle.Font =
+            new Font("Segoe UI", 10F);
+
+            dgv.RowTemplate.Height = 40;
+
+
+            // ALTERNATE ROW COLOR
+            dgv.AlternatingRowsDefaultCellStyle.BackColor =
+            Color.FromArgb(243, 244, 246);
+
+
+            // SELECTED ROW STYLE
+            dgv.DefaultCellStyle.SelectionBackColor =
+            Color.FromArgb(107, 114, 128);
+
+            dgv.DefaultCellStyle.SelectionForeColor =
+            Color.White;
+
+
+            // GRID STYLE
+            dgv.GridColor =
+            Color.FromArgb(229, 231, 235);
+
+            dgv.BorderStyle = BorderStyle.None;
+
+            dgv.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+
+
+            // AUTO SIZE FIX lỗi chữ chồng
+            dgv.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.AutoSizeRowsMode =
+            DataGridViewAutoSizeRowsMode.None;
+
+
+            // TABLE BEHAVIOR
+            dgv.SelectionMode =
+            DataGridViewSelectionMode.FullRowSelect;
+
+            dgv.MultiSelect = false;
+
+            dgv.AllowUserToAddRows = false;
+
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.RowHeadersVisible = false;
+
+            dgv.BackgroundColor = Color.White;
+
+
+            // FIX FONT TOÀN BỘ COLUMN (tránh header dính chữ)
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                col.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10F);
+
+                col.HeaderCell.Style.Font =
+                new Font("Segoe UI", 10F, FontStyle.Bold);
+            }
+        }
+        private void StyleButtonsLoaiPhong()
+        {
+            guna2Button_sua.BorderRadius = 14;
+            guna2Button_luu.BorderRadius = 14;
+            guna2Button_xoa.BorderRadius = 14;
+            guna2Button_huy.BorderRadius = 14;
+
+
+            guna2Button_sua.FillColor =
+            Color.FromArgb(75, 85, 99);
+
+            guna2Button_luu.FillColor =
+            Color.FromArgb(107, 114, 128);
+
+            guna2Button_xoa.FillColor =
+            Color.FromArgb(156, 163, 175);
+
+            guna2Button_huy.FillColor =
+            Color.FromArgb(209, 213, 219);
+
+
+            guna2Button_sua.ForeColor = Color.White;
+            guna2Button_luu.ForeColor = Color.White;
+            guna2Button_xoa.ForeColor = Color.White;
+            guna2Button_huy.ForeColor = Color.Black;
+
+
+            guna2Button_sua.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_luu.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_xoa.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_huy.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+
+            guna2Button_sua.Animated = true;
+            guna2Button_luu.Animated = true;
+            guna2Button_xoa.Animated = true;
+            guna2Button_huy.Animated = true;
+        }
+
+        private void btnPhuthu_Click(object sender, EventArgs e)
+        {
+            Form_them_phu_thu f = new Form_them_phu_thu();
+
+            f.Show();
+        }
     }
 }

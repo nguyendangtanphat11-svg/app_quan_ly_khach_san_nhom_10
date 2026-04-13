@@ -56,6 +56,7 @@
             // 
             // keo_tha
             // 
+            this.keo_tha.BackColor = System.Drawing.Color.Silver;
             this.keo_tha.Dock = System.Windows.Forms.DockStyle.Top;
             this.keo_tha.Location = new System.Drawing.Point(0, 0);
             this.keo_tha.Name = "keo_tha";
@@ -105,6 +106,7 @@
             // cboLoaiKH
             // 
             this.cboLoaiKH.BackColor = System.Drawing.Color.Transparent;
+            this.cboLoaiKH.BorderColor = System.Drawing.Color.Black;
             this.cboLoaiKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboLoaiKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiKH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -121,7 +123,7 @@
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel2.Controls.Add(this.label_them_phong);
-            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(49, 45);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
@@ -140,6 +142,7 @@
             // 
             // txtQuocTich
             // 
+            this.txtQuocTich.BorderColor = System.Drawing.Color.Black;
             this.txtQuocTich.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuocTich.DefaultText = "";
             this.txtQuocTich.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -159,6 +162,7 @@
             // 
             // txtDiaChi
             // 
+            this.txtDiaChi.BorderColor = System.Drawing.Color.Black;
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.DefaultText = "";
             this.txtDiaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -178,6 +182,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.BorderColor = System.Drawing.Color.Black;
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -197,6 +202,7 @@
             // 
             // txtSDT
             // 
+            this.txtSDT.BorderColor = System.Drawing.Color.Black;
             this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSDT.DefaultText = "";
             this.txtSDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -216,6 +222,7 @@
             // 
             // txtCCCD
             // 
+            this.txtCCCD.BorderColor = System.Drawing.Color.Black;
             this.txtCCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCCCD.DefaultText = "";
             this.txtCCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -235,6 +242,7 @@
             // 
             // txtHoTen
             // 
+            this.txtHoTen.BorderColor = System.Drawing.Color.Black;
             this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtHoTen.DefaultText = "";
             this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

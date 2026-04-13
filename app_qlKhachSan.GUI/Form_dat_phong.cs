@@ -1,6 +1,7 @@
 ﻿using app_qlKhachSan.BUS;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace app_qlKhachSan
@@ -43,6 +44,10 @@ namespace app_qlKhachSan
             LoadDanhSachKhachO();
 
             KhoaThongTin();
+            StyleDataGridView(dgvKhachO);
+            StyleDataGridView(dgvDatPhong);
+
+            StyleButtonsDatPhong();
         }
 
 
@@ -329,22 +334,21 @@ namespace app_qlKhachSan
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            if (maDatPhongDangChon == "") return;
+            if (string.IsNullOrEmpty(maDatPhongDangChon))
+            {
+                MessageBox.Show("Chọn đặt phòng trước!");
+                return;
+            }
 
-            datPhongBUS.UpdateTrangThai(
-Convert.ToInt64(maDatPhongDangChon),
-"ĐÃ HỦY");
+            FormHome home =
+            (FormHome)this.MdiParent;
 
-            string maPhong =
- cbPhong.SelectedValue.ToString();
-
-            phongBUS.UpdateTrangThai(
-            maPhong,
-            "CẦN DỌN");
-
-            donPhongBUS.TaoDonPhong(maPhong);
-
-            LoadDanhSachDatPhong();
+            if (home != null)
+            {
+                home.OpenChild(
+                new Form_dich_vu(
+                Convert.ToInt64(maDatPhongDangChon)));
+            }
         }
 
 
@@ -390,6 +394,131 @@ Convert.ToInt64(maDatPhongDangChon),
             if (f.ShowDialog() == DialogResult.OK)
             {
                 LoadDanhSachKhachO();
+            }
+        }
+        private void StyleDataGridView(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+
+            // HEADER
+            dgv.ColumnHeadersDefaultCellStyle.BackColor =
+            Color.FromArgb(55, 65, 81);
+
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor =
+            Color.White;
+
+            dgv.ColumnHeadersDefaultCellStyle.Font =
+            new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            dgv.ColumnHeadersDefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleCenter;
+
+            dgv.ColumnHeadersHeight = 40;
+
+
+            // ROW
+            dgv.DefaultCellStyle.BackColor =
+            Color.FromArgb(249, 250, 251);
+
+            dgv.DefaultCellStyle.ForeColor =
+            Color.FromArgb(31, 41, 55);
+
+            dgv.DefaultCellStyle.Font =
+            new Font("Segoe UI", 10F);
+
+            dgv.RowTemplate.Height = 40;
+
+
+            // ALTERNATE ROW
+            dgv.AlternatingRowsDefaultCellStyle.BackColor =
+            Color.FromArgb(243, 244, 246);
+
+
+            // SELECTED ROW
+            dgv.DefaultCellStyle.SelectionBackColor =
+            Color.FromArgb(107, 114, 128);
+
+            dgv.DefaultCellStyle.SelectionForeColor =
+            Color.White;
+
+
+            // GRID
+            dgv.GridColor =
+            Color.FromArgb(229, 231, 235);
+
+            dgv.BorderStyle = BorderStyle.None;
+
+            dgv.CellBorderStyle =
+            DataGridViewCellBorderStyle.SingleHorizontal;
+
+
+            // SIZE
+            dgv.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgv.SelectionMode =
+            DataGridViewSelectionMode.FullRowSelect;
+
+            dgv.MultiSelect = false;
+
+            dgv.AllowUserToAddRows = false;
+
+            dgv.AllowUserToResizeRows = false;
+
+            dgv.RowHeadersVisible = false;
+
+            dgv.BackgroundColor = Color.White;
+        }
+
+
+        private void StyleButton(Guna.UI2.WinForms.Guna2Button btn,
+ int r,
+ int g,
+ int b,
+ bool textWhite = true)
+        {
+            btn.BorderRadius = 14;
+
+            btn.FillColor = Color.FromArgb(r, g, b);
+
+            btn.ForeColor =
+            textWhite ? Color.White : Color.Black;
+
+            btn.Font =
+            new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            btn.Animated = true;
+
+            btn.ShadowDecoration.Enabled = false;
+        }
+        private void StyleButtonsDatPhong()
+        {
+            StyleButton(btnDatPhong, 75, 85, 99);
+            StyleButton(btnSua, 107, 114, 128);
+            StyleButton(btnThemKhach, 75, 85, 99);
+            StyleButton(btnXoa, 156, 163, 175);
+            StyleButton(btnCheckOut, 107, 114, 128);
+            StyleButton(btnLuu, 75, 85, 99);
+            StyleButton(btnThanhToan, 55, 65, 81);
+            StyleButton(btnLamMoi, 209, 213, 219, false);
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(maDatPhongDangChon))
+            {
+                MessageBox.Show("Chọn đặt phòng trước!");
+                return;
+            }
+
+            FormHome home =
+            (FormHome)this.MdiParent;
+
+            if (home != null)
+            {
+                home.OpenChild(
+                new Form_thanh_toan(
+                Convert.ToInt64(maDatPhongDangChon)));
             }
         }
     }

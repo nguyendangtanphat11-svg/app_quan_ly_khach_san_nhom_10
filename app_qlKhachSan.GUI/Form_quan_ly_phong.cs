@@ -23,6 +23,7 @@ namespace app_qlKhachSan
 
         private void Form_quan_ly_phong_Load(object sender, EventArgs e)
         {
+            // ===== LOAD DATA =====
             LoadPhong();
             LoadLoaiPhong();
 
@@ -32,15 +33,16 @@ namespace app_qlKhachSan
             txtGia.BackColor = Color.LightGray;
 
             cb_loai_phong.SelectedIndexChanged += cb_loai_phong_SelectedIndexChanged;
-            //giaodien
-            // ===== TẮT THEME GUNA ĐỂ CUSTOM =====
+
+
+            // ===== RESET THEME GUNA =====
             tabel_phong.Theme =
             Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
 
             tabel_phong.EnableHeadersVisualStyles = false;
 
 
-            // ===== HEADER =====
+            // ===== HEADER STYLE =====
             tabel_phong.ColumnHeadersDefaultCellStyle.BackColor =
             Color.FromArgb(55, 65, 81);
 
@@ -48,19 +50,18 @@ namespace app_qlKhachSan
             Color.White;
 
             tabel_phong.ColumnHeadersDefaultCellStyle.Font =
-            new Font("Segoe UI", 10, FontStyle.Bold);
+            new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
 
-            tabel_phong.ColumnHeadersHeight = 42;
-            tabel_phong.DefaultCellStyle.Font =
-             new Font("Segoe UI", 11, FontStyle.Regular);
+            tabel_phong.ColumnHeadersDefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleCenter;
 
-            tabel_phong.ColumnHeadersDefaultCellStyle.Font =
-            new Font("Segoe UI", 11, FontStyle.Bold);
+            tabel_phong.ColumnHeadersDefaultCellStyle.SelectionBackColor =
+            Color.FromArgb(55, 65, 81);
 
-            tabel_phong.RowTemplate.Height = 42;
+            tabel_phong.ColumnHeadersHeight = 45;
 
 
-            // ===== ROW =====
+            // ===== ROW STYLE =====
             tabel_phong.DefaultCellStyle.BackColor =
             Color.FromArgb(249, 250, 251);
 
@@ -68,15 +69,20 @@ namespace app_qlKhachSan
             Color.FromArgb(31, 41, 55);
 
             tabel_phong.DefaultCellStyle.Font =
-            new Font("Segoe UI", 10);
+            new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+
+            tabel_phong.DefaultCellStyle.Alignment =
+            DataGridViewContentAlignment.MiddleLeft;
+
+            tabel_phong.RowTemplate.Height = 45;
 
 
-            // ===== DÒNG XEN KẼ =====
+            // ===== ALTERNATE ROW COLOR =====
             tabel_phong.AlternatingRowsDefaultCellStyle.BackColor =
             Color.FromArgb(243, 244, 246);
 
 
-            // ===== DÒNG ĐANG CHỌN =====
+            // ===== SELECTED ROW STYLE =====
             tabel_phong.DefaultCellStyle.SelectionBackColor =
             Color.FromArgb(107, 114, 128);
 
@@ -84,7 +90,7 @@ namespace app_qlKhachSan
             Color.White;
 
 
-            // ===== GRID =====
+            // ===== GRID STYLE =====
             tabel_phong.GridColor =
             Color.FromArgb(229, 231, 235);
 
@@ -94,14 +100,15 @@ namespace app_qlKhachSan
             DataGridViewCellBorderStyle.SingleHorizontal;
 
 
-            // ===== SIZE =====
+            // ===== COLUMN SIZE =====
             tabel_phong.AutoSizeColumnsMode =
             DataGridViewAutoSizeColumnsMode.Fill;
 
-            
+            tabel_phong.AutoSizeRowsMode =
+            DataGridViewAutoSizeRowsMode.None;
 
 
-            // ===== BEHAVIOR =====
+            // ===== TABLE BEHAVIOR =====
             tabel_phong.SelectionMode =
             DataGridViewSelectionMode.FullRowSelect;
 
@@ -110,22 +117,46 @@ namespace app_qlKhachSan
             tabel_phong.AllowUserToAddRows = false;
 
             tabel_phong.AllowUserToResizeRows = false;
+
             tabel_phong.RowHeadersVisible = false;
+
             tabel_phong.BackgroundColor = Color.White;
 
 
+            // ===== FIX FONT ALL COLUMNS (TRÁNH CHỮ TO NHỎ KHÁC NHAU) =====
+            foreach (DataGridViewColumn col in tabel_phong.Columns)
+            {
+                col.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10F, FontStyle.Regular);
+            }
 
-            // ===== STYLE CHUNG =====
 
+            // ===== FORMAT GIÁ =====
+            if (tabel_phong.Columns.Contains("GiaTheoNgay"))
+            {
+                tabel_phong.Columns["GiaTheoNgay"]
+                .DefaultCellStyle.Format = "0";
+            }
+
+
+            // ===== BUTTON STYLE =====
             guna2Button_sua.BorderRadius = 14;
             guna2Button_luu.BorderRadius = 14;
             guna2Button_xoa.BorderRadius = 14;
             guna2Button_huy.BorderRadius = 14;
 
-            guna2Button_sua.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            guna2Button_luu.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            guna2Button_xoa.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            guna2Button_huy.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            guna2Button_sua.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_luu.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_xoa.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
+            guna2Button_huy.Font =
+            new Font("Segoe UI", 10, FontStyle.Bold);
+
 
             guna2Button_sua.Animated = true;
             guna2Button_luu.Animated = true;
@@ -133,58 +164,86 @@ namespace app_qlKhachSan
             guna2Button_huy.Animated = true;
 
 
-            // ===== MÀU XÁM DASHBOARD =====
+            // ===== BUTTON COLOR =====
+            guna2Button_sua.FillColor =
+            Color.FromArgb(75, 85, 99);
 
-            // SỬA
-            guna2Button_sua.FillColor = Color.FromArgb(75, 85, 99);
             guna2Button_sua.ForeColor = Color.White;
 
             guna2Button_sua.HoverState.FillColor =
             Color.FromArgb(55, 65, 81);
 
 
-            // LƯU
-            guna2Button_luu.FillColor = Color.FromArgb(107, 114, 128);
+            guna2Button_luu.FillColor =
+            Color.FromArgb(107, 114, 128);
+
             guna2Button_luu.ForeColor = Color.White;
 
             guna2Button_luu.HoverState.FillColor =
             Color.FromArgb(75, 85, 99);
 
 
-            // XÓA
-            guna2Button_xoa.FillColor = Color.FromArgb(156, 163, 175);
+            guna2Button_xoa.FillColor =
+            Color.FromArgb(156, 163, 175);
+
             guna2Button_xoa.ForeColor = Color.White;
 
             guna2Button_xoa.HoverState.FillColor =
             Color.FromArgb(107, 114, 128);
 
 
-            // HỦY
-            guna2Button_huy.FillColor = Color.FromArgb(209, 213, 219);
+            guna2Button_huy.FillColor =
+            Color.FromArgb(209, 213, 219);
+
             guna2Button_huy.ForeColor = Color.Black;
 
             guna2Button_huy.HoverState.FillColor =
             Color.FromArgb(156, 163, 175);
 
 
-            // ===== SHADOW EFFECT =====
+            // ===== REMOVE SHADOW =====
             guna2Button_sua.ShadowDecoration.Enabled = false;
             guna2Button_luu.ShadowDecoration.Enabled = false;
             guna2Button_xoa.ShadowDecoration.Enabled = false;
             guna2Button_huy.ShadowDecoration.Enabled = false;
 
-            //txt 
-            txtMaPhong.FillColor = Color.FromArgb(243, 244, 246);
-            txtSoPhong.FillColor = Color.FromArgb(243, 244, 246);
-            //load dau tien
+
+            // ===== TEXTBOX STYLE =====
+            txtMaPhong.FillColor =
+            Color.FromArgb(243, 244, 246);
+
+            txtSoPhong.FillColor =
+            Color.FromArgb(243, 244, 246);
+
+
+            // ===== AUTO SELECT FIRST ROW =====
             if (tabel_phong.Rows.Count > 0)
             {
                 tabel_phong.Rows[0].Selected = true;
-                tabel_phong_CellClick(tabel_phong,
-                    new DataGridViewCellEventArgs(0, 0));
-            }
 
+                tabel_phong_CellClick(
+                tabel_phong,
+                new DataGridViewCellEventArgs(0, 0));
+            }
+            tabel_phong.CellFormatting += tabel_phong_CellFormatting;
+            Font tableFont =
+            new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+
+            // áp dụng cho toàn bảng
+            tabel_phong.Font = tableFont;
+
+            // áp dụng cho header
+            tabel_phong.ColumnHeadersDefaultCellStyle.Font = tableFont;
+
+            // áp dụng cho tất cả column
+            foreach (DataGridViewColumn col in tabel_phong.Columns)
+            {
+                col.DefaultCellStyle.Font = tableFont;
+            }
+            tabel_phong.RowTemplate.Height = 40;
+            tabel_phong.ColumnHeadersHeight = 40;
         }
+        
 
         // ================= LOAD =================
 
@@ -199,24 +258,38 @@ namespace app_qlKhachSan
             cb_loai_phong.DisplayMember = "TenLoaiPhong";
             cb_loai_phong.ValueMember = "MaLoaiPhong";
         }
-        private void tabel_phong_CellFormatting(object sender,
-              DataGridViewCellFormattingEventArgs e)
-{
-    if (tabel_phong.Columns[e.ColumnIndex].Name == "TrangThai")
-    {
-        string trangThai = e.Value.ToString();
+        private void tabel_phong_CellFormatting(
+object sender,
+DataGridViewCellFormattingEventArgs e)
+        {
+            if (tabel_phong.Columns[e.ColumnIndex].Name == "TrangThai"
+                && e.Value != null)
+            {
+                string trangThai =
+                e.Value.ToString().Trim().ToUpper();
 
-        if (trangThai == "TRỐNG")
-            e.CellStyle.ForeColor = Color.Green;
+                if (trangThai == "TRỐNG")
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                    e.CellStyle.Font =
+                    new Font("Segoe UI", 10, FontStyle.Bold);
+                }
 
-        else if (trangThai == "CẦN DỌN")
-            e.CellStyle.ForeColor = Color.DarkOrange;
+                else if (trangThai == "CẦN DỌN")
+                {
+                    e.CellStyle.ForeColor = Color.DarkOrange;
+                    e.CellStyle.Font =
+                    new Font("Segoe UI", 10, FontStyle.Bold);
+                }
 
-        else if (trangThai == "ĐANG Ở")
-            e.CellStyle.ForeColor = Color.Red;
-
-    }
-}
+                else if (trangThai == "ĐANG Ở")
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                    e.CellStyle.Font =
+                    new Font("Segoe UI", 10, FontStyle.Bold);
+                }
+            }
+        }
 
         // ================= AUTO GIÁ =================
 

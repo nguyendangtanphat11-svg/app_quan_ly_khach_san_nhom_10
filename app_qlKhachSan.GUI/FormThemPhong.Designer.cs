@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnChonAnh = new Guna.UI2.WinForms.Guna2Button();
-            this.txtGia = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.picPhong = new Guna.UI2.WinForms.Guna2PictureBox();
             this.cbTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbLoaiPhong = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSoPhong = new Guna.UI2.WinForms.Guna2TextBox();
@@ -45,18 +45,18 @@
             this.label_them_phong = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.keo_tha = new Guna.UI2.WinForms.Guna2Panel();
-            this.picPhong = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.txtGia = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel1.SuspendLayout();
-            this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhong)).BeginInit();
+            this.guna2ShadowPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.guna2ShadowPanel1.Controls.Add(this.txtGia);
             this.guna2ShadowPanel1.Controls.Add(this.btnChonAnh);
             this.guna2ShadowPanel1.Controls.Add(this.picPhong);
-            this.guna2ShadowPanel1.Controls.Add(this.txtGia);
             this.guna2ShadowPanel1.Controls.Add(this.cbTrangThai);
             this.guna2ShadowPanel1.Controls.Add(this.cbLoaiPhong);
             this.guna2ShadowPanel1.Controls.Add(this.txtSoPhong);
@@ -92,24 +92,19 @@
             this.btnChonAnh.Text = "Chọn Ảnh";
             this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
-            // txtGia
+            // picPhong
             // 
-            this.txtGia.BackColor = System.Drawing.Color.Black;
-            this.txtGia.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtGia.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtGia.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGia.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.txtGia.ItemHeight = 30;
-            this.txtGia.Items.AddRange(new object[] {
-            "350000,00",
-            "650000,00"});
-            this.txtGia.Location = new System.Drawing.Point(65, 191);
-            this.txtGia.Name = "txtGia";
-            this.txtGia.Size = new System.Drawing.Size(155, 36);
-            this.txtGia.TabIndex = 22;
+            this.picPhong.BackColor = System.Drawing.Color.Transparent;
+            this.picPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picPhong.BorderRadius = 16;
+            this.picPhong.ImageRotate = 0F;
+            this.picPhong.Location = new System.Drawing.Point(311, 95);
+            this.picPhong.Margin = new System.Windows.Forms.Padding(2);
+            this.picPhong.Name = "picPhong";
+            this.picPhong.Size = new System.Drawing.Size(246, 167);
+            this.picPhong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPhong.TabIndex = 23;
+            this.picPhong.TabStop = false;
             // 
             // cbTrangThai
             // 
@@ -280,19 +275,26 @@
             this.keo_tha.Size = new System.Drawing.Size(614, 39);
             this.keo_tha.TabIndex = 1;
             // 
-            // picPhong
+            // txtGia
             // 
-            this.picPhong.BackColor = System.Drawing.Color.Transparent;
-            this.picPhong.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picPhong.BorderRadius = 16;
-            this.picPhong.ImageRotate = 0F;
-            this.picPhong.Location = new System.Drawing.Point(311, 95);
-            this.picPhong.Margin = new System.Windows.Forms.Padding(2);
-            this.picPhong.Name = "picPhong";
-            this.picPhong.Size = new System.Drawing.Size(246, 167);
-            this.picPhong.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picPhong.TabIndex = 23;
-            this.picPhong.TabStop = false;
+            this.txtGia.BackColor = System.Drawing.Color.Black;
+            this.txtGia.BorderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtGia.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtGia.DefaultText = "";
+            this.txtGia.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtGia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtGia.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGia.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtGia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGia.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtGia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtGia.Location = new System.Drawing.Point(65, 191);
+            this.txtGia.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtGia.Name = "txtGia";
+            this.txtGia.PlaceholderText = "";
+            this.txtGia.SelectedText = "";
+            this.txtGia.Size = new System.Drawing.Size(167, 27);
+            this.txtGia.TabIndex = 25;
             // 
             // FormThemPhong
             // 
@@ -309,9 +311,9 @@
             this.Load += new System.EventHandler(this.FormThemPhong_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPhong)).EndInit();
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPhong)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,8 +334,8 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Panel keo_tha;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2ComboBox txtGia;
         private Guna.UI2.WinForms.Guna2PictureBox picPhong;
         private Guna.UI2.WinForms.Guna2Button btnChonAnh;
+        private Guna.UI2.WinForms.Guna2TextBox txtGia;
     }
 }

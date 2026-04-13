@@ -14,11 +14,17 @@ namespace app_qlKhachSan
         new SuDungDichVuBUS();
 
         string maDichVuDangChon = "";
-
+        long maDatPhong = 0;
 
         public Form_dich_vu()
         {
             InitializeComponent();
+        }
+        public Form_dich_vu(long maDatPhong)
+        {
+            InitializeComponent();
+
+            this.maDatPhong = maDatPhong;
         }
 
 

@@ -52,7 +52,7 @@ namespace app_qlKhachSan
             }
         }
 
-        private void OpenChild(Form child)
+        public void OpenChild(Form child)
         {
             if (currentForm != null)
                 currentForm.Close();

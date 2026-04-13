@@ -56,7 +56,7 @@
             // 
             // keo_tha
             // 
-            this.keo_tha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.keo_tha.BackColor = System.Drawing.Color.Silver;
             this.keo_tha.Dock = System.Windows.Forms.DockStyle.Top;
             this.keo_tha.Location = new System.Drawing.Point(0, 0);
             this.keo_tha.Name = "keo_tha";
@@ -67,7 +67,7 @@
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel2.Controls.Add(this.label_them_phong);
-            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.Silver;
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(54, 45);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
@@ -153,6 +153,7 @@
             // 
             // txtQuocTich
             // 
+            this.txtQuocTich.BorderColor = System.Drawing.Color.Black;
             this.txtQuocTich.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuocTich.DefaultText = "";
             this.txtQuocTich.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -184,6 +185,7 @@
             // cbMaDatPhong
             // 
             this.cbMaDatPhong.BackColor = System.Drawing.Color.Transparent;
+            this.cbMaDatPhong.BorderColor = System.Drawing.Color.Black;
             this.cbMaDatPhong.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbMaDatPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMaDatPhong.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -198,6 +200,7 @@
             // 
             // txtTenKhach
             // 
+            this.txtTenKhach.BorderColor = System.Drawing.Color.Black;
             this.txtTenKhach.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenKhach.DefaultText = "";
             this.txtTenKhach.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -217,6 +220,7 @@
             // 
             // txtCCCD
             // 
+            this.txtCCCD.BorderColor = System.Drawing.Color.Black;
             this.txtCCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtCCCD.DefaultText = "";
             this.txtCCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
