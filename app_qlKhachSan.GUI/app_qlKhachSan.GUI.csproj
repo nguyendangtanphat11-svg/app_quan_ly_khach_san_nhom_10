@@ -168,6 +168,12 @@
     <Compile Include="Form_Them_Loai_Phong.Designer.cs">
       <DependentUpon>Form_Them_Loai_Phong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_them_phu_thu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_them_phu_thu.Designer.cs">
+      <DependentUpon>Form_them_phu_thu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_them_su_dung_dich_vu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Them_Loai_Phong.resx">
       <DependentUpon>Form_Them_Loai_Phong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_them_phu_thu.resx">
+      <DependentUpon>Form_them_phu_thu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_them_su_dung_dich_vu.resx">
       <DependentUpon>Form_them_su_dung_dich_vu.cs</DependentUpon>

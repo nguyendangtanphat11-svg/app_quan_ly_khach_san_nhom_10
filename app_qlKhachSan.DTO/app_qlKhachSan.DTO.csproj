@@ -47,6 +47,7 @@
     <Compile Include="DatPhongDTO.cs" />
     <Compile Include="DonPhongDTO.cs" />
     <Compile Include="DTO_DichVu.cs" />
+    <Compile Include="DTO_Phuthu.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
     <Compile Include="LoaiPhongDTO.cs" />

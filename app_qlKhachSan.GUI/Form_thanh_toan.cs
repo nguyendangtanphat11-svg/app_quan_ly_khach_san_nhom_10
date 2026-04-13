@@ -13,7 +13,7 @@ namespace app_qlKhachSan
 
         SuDungDichVuBUS suDungBUS =
         new SuDungDichVuBUS();
-
+        long maDatPhong;
         HoaDonBUS hoaDonBUS =
         new HoaDonBUS();
         ThanhToanBUS thanhToanBUS = new ThanhToanBUS();
@@ -22,6 +22,12 @@ namespace app_qlKhachSan
         public Form_thanh_toan()
         {
             InitializeComponent();
+        }
+        public Form_thanh_toan(long maDatPhong)
+        {
+            InitializeComponent();
+
+            this.maDatPhong = maDatPhong;
         }
 
 

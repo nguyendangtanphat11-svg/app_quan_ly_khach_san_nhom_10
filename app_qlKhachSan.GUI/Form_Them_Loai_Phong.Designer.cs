@@ -31,11 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.keo_tha = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label_them_phong = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.txtSoNguoi = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGiaTheoNgay = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtGiaTheoGio = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,6 +41,11 @@
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.label_them_phong = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -81,68 +81,9 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(342, 452);
             this.guna2ShadowPanel1.TabIndex = 2;
             // 
-            // btnHuy
-            // 
-            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHuy.FillColor = System.Drawing.Color.White;
-            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.ForeColor = System.Drawing.Color.Black;
-            this.btnHuy.Location = new System.Drawing.Point(176, 373);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(153, 45);
-            this.btnHuy.TabIndex = 15;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
-            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLuu.FillColor = System.Drawing.Color.White;
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.Black;
-            this.btnLuu.Location = new System.Drawing.Point(13, 373);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(157, 45);
-            this.btnLuu.TabIndex = 14;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // guna2ShadowPanel2
-            // 
-            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.label_them_phong);
-            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(19, 21);
-            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
-            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(302, 46);
-            this.guna2ShadowPanel2.TabIndex = 8;
-            // 
-            // label_them_phong
-            // 
-            this.label_them_phong.BackColor = System.Drawing.Color.Transparent;
-            this.label_them_phong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_them_phong.Location = new System.Drawing.Point(46, 4);
-            this.label_them_phong.Name = "label_them_phong";
-            this.label_them_phong.Size = new System.Drawing.Size(226, 39);
-            this.label_them_phong.TabIndex = 0;
-            this.label_them_phong.Text = "Thêm Loại Phòng";
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.keo_tha;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
             // txtSoNguoi
             // 
+            this.txtSoNguoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtSoNguoi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSoNguoi.DefaultText = "";
             this.txtSoNguoi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -161,6 +102,7 @@
             // 
             // txtGiaTheoNgay
             // 
+            this.txtGiaTheoNgay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtGiaTheoNgay.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGiaTheoNgay.DefaultText = "";
             this.txtGiaTheoNgay.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -179,6 +121,7 @@
             // 
             // txtGiaTheoGio
             // 
+            this.txtGiaTheoGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtGiaTheoGio.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGiaTheoGio.DefaultText = "";
             this.txtGiaTheoGio.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -197,6 +140,7 @@
             // 
             // txtTenLoai
             // 
+            this.txtTenLoai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTenLoai.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenLoai.DefaultText = "";
             this.txtTenLoai.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -215,6 +159,7 @@
             // 
             // txtMoTa
             // 
+            this.txtMoTa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtMoTa.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMoTa.DefaultText = "";
             this.txtMoTa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -281,10 +226,72 @@
             this.guna2HtmlLabel7.TabIndex = 32;
             this.guna2HtmlLabel7.Text = "Tên Loại Phòng :";
             // 
+            // btnHuy
+            // 
+            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHuy.FillColor = System.Drawing.Color.White;
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.ForeColor = System.Drawing.Color.Black;
+            this.btnHuy.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnHuy.Location = new System.Drawing.Point(176, 373);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(153, 45);
+            this.btnHuy.TabIndex = 15;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
+            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuu.FillColor = System.Drawing.Color.White;
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.Black;
+            this.btnLuu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLuu.Location = new System.Drawing.Point(13, 373);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(157, 45);
+            this.btnLuu.TabIndex = 14;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // guna2ShadowPanel2
+            // 
+            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.label_them_phong);
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(19, 21);
+            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
+            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(302, 46);
+            this.guna2ShadowPanel2.TabIndex = 8;
+            // 
+            // label_them_phong
+            // 
+            this.label_them_phong.BackColor = System.Drawing.Color.Transparent;
+            this.label_them_phong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_them_phong.Location = new System.Drawing.Point(46, 4);
+            this.label_them_phong.Name = "label_them_phong";
+            this.label_them_phong.Size = new System.Drawing.Size(226, 39);
+            this.label_them_phong.TabIndex = 0;
+            this.label_them_phong.Text = "Thêm Loại Phòng";
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.keo_tha;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // Form_Them_Loai_Phong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(367, 520);
             this.Controls.Add(this.keo_tha);
             this.Controls.Add(this.guna2ShadowPanel1);

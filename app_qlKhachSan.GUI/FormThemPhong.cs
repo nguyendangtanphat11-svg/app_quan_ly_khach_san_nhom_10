@@ -1,6 +1,8 @@
 ﻿using app_qlKhachSan.BUS;
 using app_qlKhachSan.DTO;
 using System;
+using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -146,11 +148,30 @@ namespace app_qlKhachSan
 
         private void cbLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbLoaiPhong.SelectedValue == null) return;
+            if (cbLoaiPhong.SelectedItem == null) return;
+
+            DataRowView row =
+            cbLoaiPhong.SelectedItem as DataRowView;
+
+            if (row != null)
+            {
+                // set giá phòng
+                txtGia.Text =
+                Convert.ToDecimal(row["GiaTheoNgay"])
+                .ToString("0");
+
+                // khóa textbox giá
+                txtGia.ReadOnly = true;
+                txtGia.BackColor = Color.LightGray;
+            }
+
+
+            // ===== load ảnh loại phòng =====
 
             string tenLoaiPhong = cbLoaiPhong.Text;
 
-            string anh = anhBUS.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
+            string anh =
+            anhBUS.GetAnhTheoTenLoaiPhong(tenLoaiPhong);
 
             if (!string.IsNullOrEmpty(anh))
             {
@@ -158,7 +179,7 @@ namespace app_qlKhachSan
 
                 duongDanAnh = anh;
 
-                btnChonAnh.Enabled = false; // đã có ảnh rồi thì khóa nút chọn ảnh
+                btnChonAnh.Enabled = false;
             }
             else
             {
@@ -166,8 +187,10 @@ namespace app_qlKhachSan
 
                 duongDanAnh = "";
 
-                btnChonAnh.Enabled = true; // chưa có ảnh thì cho chọn
+                btnChonAnh.Enabled = true;
             }
+
         }
     }
+    
 }

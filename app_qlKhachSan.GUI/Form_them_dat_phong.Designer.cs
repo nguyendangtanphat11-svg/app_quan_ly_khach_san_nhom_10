@@ -36,6 +36,8 @@
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.txtTongTien = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbKhachHang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbPhuThu = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -52,8 +54,6 @@
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.txtTongTien = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ShadowPanel2.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,7 @@
             // 
             // keo_tha
             // 
+            this.keo_tha.BackColor = System.Drawing.Color.Silver;
             this.keo_tha.Dock = System.Windows.Forms.DockStyle.Top;
             this.keo_tha.Location = new System.Drawing.Point(0, 0);
             this.keo_tha.Name = "keo_tha";
@@ -76,7 +77,7 @@
             // 
             this.label_them_phong.BackColor = System.Drawing.Color.Transparent;
             this.label_them_phong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_them_phong.Location = new System.Drawing.Point(46, 4);
+            this.label_them_phong.Location = new System.Drawing.Point(64, 4);
             this.label_them_phong.Name = "label_them_phong";
             this.label_them_phong.Size = new System.Drawing.Size(218, 39);
             this.label_them_phong.TabIndex = 0;
@@ -96,6 +97,7 @@
             this.btnHuy.Size = new System.Drawing.Size(153, 45);
             this.btnHuy.TabIndex = 15;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click_1);
             // 
             // btnLuu
             // 
@@ -118,16 +120,16 @@
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel2.Controls.Add(this.label_them_phong);
-            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2ShadowPanel2.Location = new System.Drawing.Point(46, 17);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(302, 46);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(335, 46);
             this.guna2ShadowPanel2.TabIndex = 8;
             // 
             // guna2ShadowPanel1
             // 
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.DarkGray;
             this.guna2ShadowPanel1.Controls.Add(this.txtTongTien);
             this.guna2ShadowPanel1.Controls.Add(this.guna2HtmlLabel1);
             this.guna2ShadowPanel1.Controls.Add(this.cbKhachHang);
@@ -154,12 +156,44 @@
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(12, 45);
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(413, 537);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(425, 537);
             this.guna2ShadowPanel1.TabIndex = 4;
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.BorderColor = System.Drawing.Color.Black;
+            this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTongTien.DefaultText = "";
+            this.txtTongTien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTongTien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTongTien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTongTien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTongTien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTongTien.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTongTien.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtTongTien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTongTien.Location = new System.Drawing.Point(140, 423);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.PlaceholderText = "";
+            this.txtTongTien.SelectedText = "";
+            this.txtTongTien.Size = new System.Drawing.Size(168, 28);
+            this.txtTongTien.TabIndex = 91;
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 423);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(103, 27);
+            this.guna2HtmlLabel1.TabIndex = 90;
+            this.guna2HtmlLabel1.Text = "Tổng Tiền :";
             // 
             // cbKhachHang
             // 
             this.cbKhachHang.BackColor = System.Drawing.Color.Transparent;
+            this.cbKhachHang.BorderColor = System.Drawing.Color.Black;
             this.cbKhachHang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbKhachHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbKhachHang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -169,7 +203,7 @@
             this.cbKhachHang.ItemHeight = 30;
             this.cbKhachHang.Location = new System.Drawing.Point(140, 140);
             this.cbKhachHang.Name = "cbKhachHang";
-            this.cbKhachHang.Size = new System.Drawing.Size(117, 36);
+            this.cbKhachHang.Size = new System.Drawing.Size(188, 36);
             this.cbKhachHang.TabIndex = 89;
             // 
             // guna2HtmlLabel12
@@ -186,6 +220,7 @@
             // cbPhuThu
             // 
             this.cbPhuThu.BackColor = System.Drawing.Color.Transparent;
+            this.cbPhuThu.BorderColor = System.Drawing.Color.Black;
             this.cbPhuThu.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbPhuThu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPhuThu.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -195,11 +230,12 @@
             this.cbPhuThu.ItemHeight = 30;
             this.cbPhuThu.Location = new System.Drawing.Point(116, 337);
             this.cbPhuThu.Name = "cbPhuThu";
-            this.cbPhuThu.Size = new System.Drawing.Size(117, 36);
+            this.cbPhuThu.Size = new System.Drawing.Size(168, 36);
             this.cbPhuThu.TabIndex = 87;
             // 
             // txtTienDatCoc
             // 
+            this.txtTienDatCoc.BorderColor = System.Drawing.Color.Black;
             this.txtTienDatCoc.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTienDatCoc.DefaultText = "";
             this.txtTienDatCoc.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -219,6 +255,7 @@
             // 
             // txtGiaPhong
             // 
+            this.txtGiaPhong.BorderColor = System.Drawing.Color.Black;
             this.txtGiaPhong.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtGiaPhong.DefaultText = "";
             this.txtGiaPhong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -235,11 +272,11 @@
             this.txtGiaPhong.SelectedText = "";
             this.txtGiaPhong.Size = new System.Drawing.Size(168, 28);
             this.txtGiaPhong.TabIndex = 85;
-           
             // 
             // dtpNgayTra
             // 
             this.dtpNgayTra.Checked = true;
+            this.dtpNgayTra.FillColor = System.Drawing.Color.LightGray;
             this.dtpNgayTra.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayTra.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -254,6 +291,7 @@
             // dtpNgayNhan
             // 
             this.dtpNgayNhan.Checked = true;
+            this.dtpNgayNhan.FillColor = System.Drawing.Color.LightGray;
             this.dtpNgayNhan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayNhan.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dtpNgayNhan.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -268,6 +306,7 @@
             // cbLoaiKH
             // 
             this.cbLoaiKH.BackColor = System.Drawing.Color.Transparent;
+            this.cbLoaiKH.BorderColor = System.Drawing.Color.Black;
             this.cbLoaiKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbLoaiKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLoaiKH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -277,13 +316,13 @@
             this.cbLoaiKH.ItemHeight = 30;
             this.cbLoaiKH.Location = new System.Drawing.Point(185, 186);
             this.cbLoaiKH.Name = "cbLoaiKH";
-            this.cbLoaiKH.Size = new System.Drawing.Size(117, 36);
+            this.cbLoaiKH.Size = new System.Drawing.Size(143, 36);
             this.cbLoaiKH.TabIndex = 82;
-            
             // 
             // cbPhong
             // 
             this.cbPhong.BackColor = System.Drawing.Color.Transparent;
+            this.cbPhong.BorderColor = System.Drawing.Color.Black;
             this.cbPhong.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPhong.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -293,7 +332,7 @@
             this.cbPhong.ItemHeight = 30;
             this.cbPhong.Location = new System.Drawing.Point(119, 96);
             this.cbPhong.Name = "cbPhong";
-            this.cbPhong.Size = new System.Drawing.Size(117, 36);
+            this.cbPhong.Size = new System.Drawing.Size(165, 36);
             this.cbPhong.TabIndex = 81;
             this.cbPhong.SelectedIndexChanged += new System.EventHandler(this.cbPhong_SelectedIndexChanged);
             // 
@@ -374,42 +413,11 @@
             this.guna2HtmlLabel6.TabIndex = 73;
             this.guna2HtmlLabel6.Text = "Phòng :";
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 423);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(103, 27);
-            this.guna2HtmlLabel1.TabIndex = 90;
-            this.guna2HtmlLabel1.Text = "Tổng Tiền :";
-            // 
-            // txtTongTien
-            // 
-            this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTongTien.DefaultText = "";
-            this.txtTongTien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTongTien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTongTien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTongTien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTongTien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTongTien.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtTongTien.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtTongTien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTongTien.Location = new System.Drawing.Point(140, 423);
-            this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.PlaceholderText = "";
-            this.txtTongTien.SelectedText = "";
-            this.txtTongTien.Size = new System.Drawing.Size(168, 28);
-            this.txtTongTien.TabIndex = 91;
-            
-            // 
             // Form_them_dat_phong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(449, 594);
             this.Controls.Add(this.keo_tha);
             this.Controls.Add(this.guna2ShadowPanel1);
